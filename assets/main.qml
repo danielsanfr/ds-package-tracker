@@ -61,7 +61,7 @@ TabbedPane {
         Tab {
             title: qsTr("Pending")
             newContentAvailable: true
-            imageSource: "asset:///images/ic_tracking_white.png"
+            imageSource: "asset:///images/ic_peding.png"
             PackagesListView {
                 title: qsTr("Pending packages")
             }
@@ -69,14 +69,14 @@ TabbedPane {
         Tab {
             title: qsTr("Delivered")
             newContentAvailable: true
-            imageSource: "asset:///images/ic_entregue_white.png"
+            imageSource: "asset:///images/ic_delivered.png"
             PackagesListView {
                 title: qsTr("Delivered packages")
             }
         },
         Tab {
             title: qsTr("Archived")
-            imageSource: "asset:///images/ic_arquivado_white.png"
+            imageSource: "asset:///images/ic_archived.png"
             PackagesListView {
                 title: qsTr("Archived packages")
             }

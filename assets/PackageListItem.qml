@@ -7,9 +7,9 @@ ListItemComponent {
         }
         contextActions: [
             ActionSet {
-                title: qsTr("Package actions")
+                title: qsTr("Package actions") + Retranslate.onLocaleOrLanguageChanged
                 InvokeActionItem {
-                    title: qsTr("Share")
+                    title: qsTr("Share") + Retranslate.onLocaleOrLanguageChanged
                     query {
                         mimeType: "text/plain"
                         invokeActionId: "bb.action.SHARE"
@@ -35,9 +35,9 @@ ListItemComponent {
                 verticalAlignment: VerticalAlignment.Fill
             }
             StandardListItem {
-                title: ListItemData.code
-                description: ListItemData.tags
-                status: ListItemData.date
+                title: ListItemData.short_description
+                description: qsTr("Last update") + ": " + ListItemData.last_update + Retranslate.onLocaleOrLanguageChanged
+                status: ListItemData.code
             }
         }
         Container {

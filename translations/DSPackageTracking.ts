@@ -153,12 +153,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="47"/>
-        <source>Package details</source>
+        <location filename="../assets/Package.qml" line="195"/>
+        <source>Checkpoins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="51"/>
+        <location filename="../assets/Package.qml" line="198"/>
+        <source>Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Package.qml" line="215"/>
+        <source>Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Package.qml" line="216"/>
+        <source>Added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Package.qml" line="140"/>
         <source>Description:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -175,66 +190,71 @@
         <source>Share</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../assets/PackageListItem.qml" line="39"/>
+        <source>Last update</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PackagesListView</name>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="12"/>
+        <location filename="../assets/PackagesListView.qml" line="13"/>
         <source>Package list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="23"/>
+        <location filename="../assets/PackagesListView.qml" line="24"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="31"/>
+        <location filename="../assets/PackagesListView.qml" line="32"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="38"/>
+        <location filename="../assets/PackagesListView.qml" line="39"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="68"/>
+        <location filename="../assets/PackagesListView.qml" line="69"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="100"/>
+        <location filename="../assets/PackagesListView.qml" line="101"/>
         <source>Sort by</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="103"/>
+        <location filename="../assets/PackagesListView.qml" line="104"/>
         <source>Sending</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="106"/>
+        <location filename="../assets/PackagesListView.qml" line="107"/>
         <source>Tag</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="109"/>
+        <location filename="../assets/PackagesListView.qml" line="110"/>
         <source>Code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="112"/>
+        <location filename="../assets/PackagesListView.qml" line="113"/>
         <source>Country</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="115"/>
+        <location filename="../assets/PackagesListView.qml" line="116"/>
         <source>Service</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="118"/>
+        <location filename="../assets/PackagesListView.qml" line="119"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
@@ -263,7 +283,7 @@
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="56"/>
-        <source>Note: This amendment shall not take effect during the next application startup.</source>
+        <source>Note: You must restart the application to apply this theme.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -329,12 +349,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="168"/>
-        <source>Refresh time: </source>
+        <location filename="../assets/Settings.qml" line="166"/>
+        <source>Automatic refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="196"/>
+        <location filename="../assets/Settings.qml" line="180"/>
+        <source>Refresh interval</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Settings.qml" line="209"/>
         <source>This is the time between updates of the status of the packages. But anytime you poderar update the status of the packages by clicking the refresh button.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -344,6 +369,16 @@
     <message>
         <location filename="../assets/Statistics.qml" line="5"/>
         <source>Statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Statistics.qml" line="16"/>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Statistics.qml" line="24"/>
+        <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

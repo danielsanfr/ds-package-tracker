@@ -30,6 +30,7 @@ ListItemComponent {
             title: ListItemData.situation
             description: ListItemData.location
             status: ListItemData.date
+            imageSource: ListItemData.flag_icon
         }
     }
 }

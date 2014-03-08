@@ -157,6 +157,18 @@ Sheet {
                     Divider {
                     }
                     Container {
+                        topMargin: 20
+                        leftPadding: 20
+                        rightPadding: 20
+                        horizontalAlignment: HorizontalAlignment.Fill
+                        CheckBox {
+                            id: chkBoxAutoRefresh
+                            text: qsTr("Automatic refresh")
+                        }
+                    }
+                    Divider {
+                    }
+                    Container {
                         leftPadding: 20
                         rightPadding: 20
                         Container {
@@ -165,7 +177,7 @@ Sheet {
                             }
                             Container {
                                 Label {
-                                    text: qsTr("Refresh time: ")
+                                    text: qsTr("Refresh interval") + ": "
                                     textStyle.fontSize: FontSize.Large
                                 }
                             }
@@ -181,6 +193,7 @@ Sheet {
                             value: 5.0
                             toValue: 24.0
                             fromValue: 1.0
+                            enabled: chkBoxAutoRefresh.checked
                             horizontalAlignment: HorizontalAlignment.Fill
                             onValueChanged: {
                                 var realValue = value - Number(value).toFixed(0)

@@ -2,7 +2,7 @@ import bb.cascades 1.0
 
 Page {
     titleBar: TitleBar {
-        title: qsTr("Statistics")
+        title: qsTr("Statistics") + Retranslate.onLocaleOrLanguageChanged
     }
     attachedObjects: [
         ComponentDefinition {
@@ -13,15 +13,15 @@ Page {
     ]
     actions: [
         ActionItem {
-            title: "Adicionar"
-            imageSource: "asset:///images/ic_add.png"
+            title: qsTr("Add") + Retranslate.onLocaleOrLanguageChanged
+            imageSource: "asset:///images/ic_add_package.png"
             ActionBar.placement: ActionBarPlacement.OnBar
             onTriggered: {
                 addPackageDefinition.createObject().open()
             }
         },
         ActionItem {
-            title: "Atualizar"
+            title: qsTr("Refresh") + Retranslate.onLocaleOrLanguageChanged
             imageSource: "asset:///images/ic_reload.png"
             onTriggered: {
             }
@@ -33,16 +33,16 @@ Page {
             }
         }
         Header {
-            title: qsTr("Packages distribution")
+            title: qsTr("Packages distribution") + Retranslate.onLocaleOrLanguageChanged
         }
         SimpleHBarGraph {
             topMargin: 20
             leftPadding: 20
             rightPadding: 20
             datas: 3
-            title1: qsTr("Pending")
-            title2: qsTr("Delivered")
-            title3: qsTr("Archived")
+            title1: qsTr("Pending") + Retranslate.onLocaleOrLanguageChanged
+            title2: qsTr("Delivered") + Retranslate.onLocaleOrLanguageChanged
+            title3: qsTr("Archived") + Retranslate.onLocaleOrLanguageChanged
             color1: Color.create("#C6BFE2")
             color2: Color.create("#BBDF7E")
             color3: Color.create("#FFE17B")
@@ -56,15 +56,15 @@ Page {
             }
         }
         Header {
-            title: qsTr("Packages direction")
+            title: qsTr("Packages direction") + Retranslate.onLocaleOrLanguageChanged
         }
         SimpleHBarGraph {
             topMargin: 30
             leftPadding: 20
             rightPadding: 20
             datas: 2
-            title1: qsTr("Receiver")
-            title2: qsTr("Sending")
+            title1: qsTr("Receiver") + Retranslate.onLocaleOrLanguageChanged
+            title2: qsTr("Sending") + Retranslate.onLocaleOrLanguageChanged
             color1: Color.create("#C6BFE2")
             color2: Color.create("#BBDF7E")
             quant1: 2

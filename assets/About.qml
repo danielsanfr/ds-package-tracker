@@ -140,7 +140,7 @@ Sheet {
                     horizontalAlignment: HorizontalAlignment.Center
                     Button {
                         text: qsTr("More apps")
-                        imageSource: "asset:///images/ic_open_black.png"
+                        imageSource: "asset:///images/ic_open.png"
                         horizontalAlignment: HorizontalAlignment.Fill
 
                         onClicked: {
@@ -149,7 +149,7 @@ Sheet {
                     }
                     Button {
                         text: qsTr("Post a review")
-                        imageSource: "asset:///images/ic_review_black.png"
+                        imageSource: "asset:///images/ic_review.png"
                         horizontalAlignment: HorizontalAlignment.Fill
 
                         onClicked: {

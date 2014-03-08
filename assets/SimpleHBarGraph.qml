@@ -82,6 +82,7 @@ Container {
                 }
                 Label {
                     text: self.percentage(quant1) + "%"
+                    textStyle.color: Color.Black
                     horizontalAlignment: HorizontalAlignment.Center
                 }
             }
@@ -93,6 +94,7 @@ Container {
                 }
                 Label {
                     text: self.percentage(quant2) + "%"
+                    textStyle.color: Color.Black
                     horizontalAlignment: HorizontalAlignment.Center
                 }
             }
@@ -104,6 +106,7 @@ Container {
                 }
                 Label {
                     text: self.percentage(quant3) + "%"
+                    textStyle.color: Color.Black
                     horizontalAlignment: HorizontalAlignment.Center
                 }
             }

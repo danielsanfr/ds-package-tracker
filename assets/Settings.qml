@@ -29,11 +29,11 @@ Sheet {
                             title: qsTr("Application theme")
                             options: [
                                 Option {
-                                    text: qsTr("Bright")
+                                    text: qsTr("System bright")
                                     value: "bright"
                                 },
                                 Option {
-                                    text: qsTr("Dark")
+                                    text: qsTr("System dark")
                                     value: "dark"
                                 }
                             ]
@@ -69,9 +69,8 @@ Sheet {
                             text: qsTr("Notifications")
                         }
                     }
-                    Divider {
-                    }
                     Container {
+                        topMargin: 20
                         leftPadding: 20
                         rightPadding: 20
                         horizontalAlignment: HorizontalAlignment.Fill
@@ -102,9 +101,8 @@ Sheet {
                             }
                         }
                     }
-                    Divider {
-                    }
                     Container {
+                        topMargin: 20
                         leftPadding: 20
                         rightPadding: 20
                         horizontalAlignment: HorizontalAlignment.Fill
@@ -121,9 +119,8 @@ Sheet {
                             horizontalAlignment: HorizontalAlignment.Right
                         }
                     }
-                    Divider {
-                    }
                     Container {
+                        topMargin: 20
                         leftPadding: 20
                         rightPadding: 20
                         horizontalAlignment: HorizontalAlignment.Fill
@@ -166,9 +163,8 @@ Sheet {
                             text: qsTr("Automatic refresh")
                         }
                     }
-                    Divider {
-                    }
                     Container {
+                        topMargin: 20
                         leftPadding: 20
                         rightPadding: 20
                         Container {
@@ -209,8 +205,6 @@ Sheet {
                                 text: qsTr("This is the time between updates of the status of the packages. But anytime you poderar update the status of the packages by clicking the refresh button.")
                             }
                         }
-                    }
-                    Divider {
                     }
                 }
             }

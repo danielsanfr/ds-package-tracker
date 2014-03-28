@@ -4,7 +4,7 @@ NavigationPane {
     id: navigationPane
     property alias title: titleBar.title
     onPopTransitionEnded: {
-//        page.deleteLater()
+        //        page.deleteLater()
         page.destroy()
     }
     Page {
@@ -32,7 +32,7 @@ NavigationPane {
                 title: qsTr("Search") + Retranslate.onLocaleOrLanguageChanged
                 imageSource: "asset:///images/ic_search.png"
                 onTriggered: {
-                    searchDelagate.delegateActive = !searchDelagate.delegateActive
+                    searchDelagate.delegateActive = ! searchDelagate.delegateActive
                 }
             },
             ActionItem {
@@ -72,7 +72,7 @@ NavigationPane {
                                 }
                                 onClicked: {
                                     txtFldSearch.text = ""
-                                    searchDelagate.delegateActive = !searchDelagate.delegateActive
+                                    searchDelagate.delegateActive = ! searchDelagate.delegateActive
                                 }
                             }
                         }
@@ -84,6 +84,24 @@ NavigationPane {
                     }
                 }
             ]
+            Container {
+                layout: DockLayout {
+                }
+                Header {
+                    id: hdrLastUpdate
+                    title: qsTr("Last update") + ": 28/03/14 - 01:05" + Retranslate.onLocaleOrLanguageChanged
+                }
+                Container {
+                    rightPadding: 15
+                    bottomPadding: 3
+                    verticalAlignment: VerticalAlignment.Center
+                    horizontalAlignment: HorizontalAlignment.Right
+	                ActivityIndicator {
+	                    maxHeight: 100
+	                    running: true
+	                }
+                }
+            }
             ControlDelegate {
                 id: searchDelagate
                 delegateActive: false
@@ -125,7 +143,9 @@ NavigationPane {
                     }
                 }
                 listItemComponents: [
-                    PackageListItem {
+                    ListItemComponent {
+                        PackageListItem {
+                        }
                     }
                 ]
                 attachedObjects: [
@@ -136,19 +156,19 @@ NavigationPane {
                     }
                 ]
                 onCreationCompleted: {
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Yellow, "last_update": "19/12/13 - 18:10"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Green, "last_update": "19/12/13 - 18:10"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Red, "last_update": "19/12/13 - 18:10"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Magenta, "last_update": "19/12/13 - 18:10"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Blue, "last_update": "19/12/13 - 18:10"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Cyan, "last_update": "19/12/13 - 18:10"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Gray, "last_update": "19/12/13 - 18:10"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Black, "last_update": "19/12/13 - 18:10"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkBlue, "last_update": "19/12/13 - 18:10"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkGreen, "last_update": "19/12/13 - 18:10"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkRed, "last_update": "19/12/13 - 18:10"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkYellow, "last_update": "19/12/13 - 18:10"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.LightGray, "last_update": "19/12/13 - 18:10"})
+                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Yellow, "last_situation": "Encaminhado"})
+                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Green, "last_situation": "Encaminhado"})
+                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Red, "last_situation": "Encaminhado"})
+                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Magenta, "last_situation": "Encaminhado"})
+                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Blue, "last_situation": "Encaminhado"})
+                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Cyan, "last_situation": "Encaminhado"})
+                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Gray, "last_situation": "Encaminhado"})
+                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Black, "last_situation": "Encaminhado"})
+                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkBlue, "last_situation": "Encaminhado"})
+                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkGreen, "last_situation": "Encaminhado"})
+                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkRed, "last_situation": "Encaminhado"})
+                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkYellow, "last_situation": "Encaminhado"})
+                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.LightGray, "last_situation": "Encaminhado"})
                 }
                 onTriggered: {
                     var packagePage = packageDefinition.createObject(navigationPane)

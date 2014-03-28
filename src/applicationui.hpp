@@ -27,6 +27,7 @@
 #include "Settings.hpp"
 #include "ActiveFrameQML.hpp"
 #include "applicationinfo.hpp"
+#include "db/DataBaseController.hpp"
 
 namespace bb
 {

@@ -6,6 +6,7 @@ Container {
     property alias text: txtFld.text
     property alias hintText: txtFld.hintText
     property alias enable: txtFld.enabled
+    property alias inputMode: txtFld.inputMode
     signal textFldChanged(string text)
     signal textFldChanging(string text)
     Label {

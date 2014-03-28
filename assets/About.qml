@@ -95,7 +95,7 @@ Sheet {
                     horizontalAlignment: HorizontalAlignment.Center
 
                     Label {
-                        text: qsTr("DS Package Tracking") + " - " + qsTr("Version:") + " " + appInfo.version()
+                        text: qsTr("DS Package Tracking") + " - " + qsTr("Version:") + " " + appInfo.version() + Retranslate.onLocaleOrLanguageChanged
                         textStyle.fontWeight: FontWeight.Bold
                     }
                 }
@@ -109,7 +109,7 @@ Sheet {
                 Container {
                     leftPadding: 75.0
                     Label {
-                        text: qsTr("Developer and designer")
+                        text: qsTr("Developer and designer") + Retranslate.onLocaleOrLanguageChanged
                         textStyle.fontSize: FontSize.Large
                         textStyle.fontWeight: FontWeight.Bold
                     }
@@ -124,7 +124,7 @@ Sheet {
                 Container {
                     leftPadding: 75.0
                     Label {
-                        text: qsTr("Credits")
+                        text: qsTr("Credits") + Retranslate.onLocaleOrLanguageChanged
                         textStyle.fontSize: FontSize.Large
                         textStyle.fontWeight: FontWeight.Bold
                     }
@@ -139,7 +139,7 @@ Sheet {
                 Container {
                     horizontalAlignment: HorizontalAlignment.Center
                     Button {
-                        text: qsTr("More apps")
+                        text: qsTr("More apps") + Retranslate.onLocaleOrLanguageChanged
                         imageSource: "asset:///images/ic_open.png"
                         horizontalAlignment: HorizontalAlignment.Fill
 
@@ -148,7 +148,7 @@ Sheet {
                         }
                     }
                     Button {
-                        text: qsTr("Post a review")
+                        text: qsTr("Post a review") + Retranslate.onLocaleOrLanguageChanged
                         imageSource: "asset:///images/ic_review.png"
                         horizontalAlignment: HorizontalAlignment.Fill
 

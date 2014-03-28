@@ -8,17 +8,27 @@ Sheet {
     Page {
         id: page
         titleBar: TitleBar {
-            title: qsTr("Add package")
+            title: qsTr("Add package") + Retranslate.onLocaleOrLanguageChanged
             acceptAction: ActionItem {
                 id: actItmSave
-                title: qsTr("Save")
                 enabled: false
+                title: qsTr("Save") + Retranslate.onLocaleOrLanguageChanged
                 onTriggered: {
+                    _db.setTableName("package")
+                    var newPackage = {
+                        "created_date": new Date(),
+                        "last_update_date": new Date(),
+                        "short_descr": txtFldTitle.text.trim(),
+                        "code": txtFldCode.text.trim(),
+                        "sending": chkBoxSender.checked,
+                        "description": txtArDescription.text.trim()
+                    }
+                    _db.create(newPackage)
                     self.close()
                 }
             }
             dismissAction: ActionItem {
-                title: qsTr("Cancel")
+                title: qsTr("Cancel") + Retranslate.onLocaleOrLanguageChanged
                 onTriggered: {
                     self.close()
                 }
@@ -36,34 +46,46 @@ Sheet {
                     }
                 }
                 Header {
-                    title: qsTr("Package informations")
+                    title: qsTr("Package informations") + Retranslate.onLocaleOrLanguageChanged
+                }
+                DSVTextField {
+                    id: txtFldTitle
+                    topMargin: 20
+                    leftPadding: 20
+                    rightPadding: 20
+                    title: qsTr("Short description") + ":" + Retranslate.onLocaleOrLanguageChanged
+                    hintText: qsTr("Eg: My new book, ") + Retranslate.onLocaleOrLanguageChanged
+                    onTextFldChanging: {
+                        actItmSave.enabled = (text.length != 0)
+                    }
                 }
                 DSVTextField {
                     id: txtFldCode
                     topMargin: 20
                     leftPadding: 20
                     rightPadding: 20
-                    title: qsTr("Tracking code:")
-                    hintText: qsTr("Eg: RA123456789BR")
+                    inputMode: TextFieldInputMode.EmailAddress
+                    title: qsTr("Tracking code:") + Retranslate.onLocaleOrLanguageChanged
+                    hintText: qsTr("Eg: RA123456789BR") + Retranslate.onLocaleOrLanguageChanged
                     onTextFldChanging: {
                         actItmSave.enabled = (text.length != 0)
                     }
                 }
-                DSVTextField {
-                    id: txtFldTags
-                    topPadding: 20
-                    leftPadding: 20
-                    rightPadding: 20
-                    title: qsTr("Tags (optional, and separated by commas):")
-                    hintText: qsTr("Eg: book, case")
-                }
+                //                DSVTextField {
+                //                    id: txtFldTags
+                //                    topPadding: 20
+                //                    leftPadding: 20
+                //                    rightPadding: 20
+                //                    title: qsTr("Tags (optional, and separated by commas):") + Retranslate.onLocaleOrLanguageChanged
+                //                    hintText: qsTr("Eg: book, case") + Retranslate.onLocaleOrLanguageChanged
+                //                }
                 Divider {
                 }
                 DSVTextField {
                     id: txtFldCountry
                     leftPadding: 20
                     rightPadding: 20
-                    title: qsTr("Country of origin:")
+                    title: qsTr("Country of origin:") + Retranslate.onLocaleOrLanguageChanged
                     hintText: ""
                     enabled: false
                 }
@@ -72,7 +94,7 @@ Sheet {
                     topPadding: 20
                     leftPadding: 20
                     rightPadding: 20
-                    title: qsTr("Service name:")
+                    title: qsTr("Service name:") + Retranslate.onLocaleOrLanguageChanged
                     hintText: ""
                     enabled: false
                 }
@@ -82,7 +104,7 @@ Sheet {
                     }
                 }
                 Header {
-                    title: qsTr("Direction")
+                    title: qsTr("Direction") + Retranslate.onLocaleOrLanguageChanged
                 }
                 Container {
                     topMargin: 20
@@ -90,7 +112,7 @@ Sheet {
                     rightPadding: 20
                     CheckBox {
                         id: chkBoxSender
-                        text: qsTr("Sending package?")
+                        text: qsTr("Sending package?") + Retranslate.onLocaleOrLanguageChanged
                     }
                 }
                 Container {
@@ -99,7 +121,7 @@ Sheet {
                     }
                 }
                 Header {
-                    title: qsTr("Extras (optional)")
+                    title: qsTr("Extras (optional)") + Retranslate.onLocaleOrLanguageChanged
                 }
                 Container {
                     topMargin: 20
@@ -109,7 +131,7 @@ Sheet {
                     layout: DockLayout {
                     }
                     Label {
-                        text: qsTr("Description")
+                        text: qsTr("Description") + Retranslate.onLocaleOrLanguageChanged
                         verticalAlignment: VerticalAlignment.Center
                     }
                     ToggleButton {
@@ -131,7 +153,7 @@ Sheet {
                         visible: tgBtnDescription.checked
                         horizontalAlignment: HorizontalAlignment.Fill
                         inputMode: TextAreaInputMode.EmailAddress
-                        hintText: qsTr("Insert description")
+                        hintText: qsTr("Insert description") + Retranslate.onLocaleOrLanguageChanged
                     }
                 }
                 Divider {
@@ -144,7 +166,7 @@ Sheet {
                     layout: DockLayout {
                     }
                     Label {
-                        text: qsTr("Additional e-mail")
+                        text: qsTr("Additional e-mail") + Retranslate.onLocaleOrLanguageChanged
                         verticalAlignment: VerticalAlignment.Center
                     }
                     ToggleButton {
@@ -163,7 +185,7 @@ Sheet {
                         multiline: true
                         textStyle.textAlign: TextAlign.Justify
                         textStyle.base: SystemDefaults.TextStyles.SubtitleText
-                        text: qsTr("You want someone else to receive notifications of updates to this package? So just add her e-mail in this field (for more than one email, separate with commas).")
+                        text: qsTr("You want someone else to receive notifications of updates to this package? So just add her e-mail in this field (for more than one email, separate with commas).") + Retranslate.onLocaleOrLanguageChanged
                     }
                 }
                 Container {
@@ -177,7 +199,7 @@ Sheet {
                         visible: tgBtnExtraEmail.checked
                         horizontalAlignment: HorizontalAlignment.Fill
                         inputMode: TextAreaInputMode.EmailAddress
-                        hintText: qsTr("Eg: sample@sample.com, friend@friend.com")
+                        hintText: qsTr("Eg: sample@sample.com, friend@friend.com") + Retranslate.onLocaleOrLanguageChanged
                     }
                 }
             }

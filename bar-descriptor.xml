@@ -26,7 +26,7 @@
 
     <!-- A universally unique application identifier. Must be unique across all BlackBerry 10 applications.
          Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-    <id>com.danielsanfr.DSPackageTracking</id>
+    <id>com.danielsanfr.dspackagetracking</id>
 
     <!-- The name that is displayed in the BlackBerry 10 application installer.
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
@@ -101,6 +101,8 @@
     <permission>access_internet</permission>
     <permission>post_notification</permission>
     <permission>run_when_backgrounded</permission>
+    <permission>access_pimdomain_calendars</permission>
+    <permission>access_sms_mms</permission>
     <env var="LD_LIBRARY_PATH" value="app/native/lib:/usr/lib/qt4/lib"/>
 
 </qnx>

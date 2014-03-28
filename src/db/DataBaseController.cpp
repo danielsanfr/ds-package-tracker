@@ -10,7 +10,7 @@
 namespace db {
 
 DataBaseController::DataBaseController(QObject *parent) :
-		QObject(parent), m_tableName(PACKAGE_TABLE), m_dataBaseCRUD(0) {
+		QObject(parent), m_UUIDs(-1), m_tableName(PACKAGE_TABLE), m_dataBaseCRUD(0) {
 	setCRUBInstanceByTableName();
 }
 
@@ -94,11 +94,11 @@ void DataBaseController::dropTables() {
 	database.close();
 }
 
-void DataBaseController::setTableName(const QString &tableName) {
+void DataBaseController::setTableName(const QString &tableName, int uuid) {
 	Q_ASSERT(tableName == PACKAGE_TABLE || tableName == INFO_TABLE || tableName == EMAIL_TABLE);
 	if (m_tableName != tableName) {
 		m_tableName = tableName;
-		emit tableNameChanged(tableName);
+		emit tableNameChanged(uuid, tableName);
 		setCRUBInstanceByTableName();
 	}
 }
@@ -107,25 +107,25 @@ const QString& DataBaseController::tableName() {
 	return m_tableName;
 }
 
-qlonglong DataBaseController::create(const QVariantMap& data) {
+qlonglong DataBaseController::create(const QVariantMap& data, int uuid) {
 	qlonglong id =  m_dataBaseCRUD->create(data);
-	emit createdRecord(m_tableName, data, id);
+	emit createdRecord(uuid, data, id);
 	return id;
 }
 
-void DataBaseController::deleteRecord(const int& id) {
-	emit deletedRecord(m_tableName, id);
+void DataBaseController::deleteRecord(const int& id, int uuid) {
+	emit deletedRecord(uuid, id);
 	m_dataBaseCRUD->deleteRecord(id);
 }
 
 void DataBaseController::deleteRecord(const QVariantMap& arguments,
-		const QString& conditions) {
-	emit deletedRecord(m_tableName, arguments, conditions);
+		const QString& conditions, int uuid) {
+	emit deletedRecord(uuid, arguments, conditions);
 	m_dataBaseCRUD->deleteRecord(arguments, conditions);
 }
 
-void DataBaseController::update(const QVariantMap& data) {
-	emit updatedRecord(m_tableName, data);
+void DataBaseController::update(const QVariantMap& data, int uuid) {
+	emit updatedRecord(uuid, data);
 	m_dataBaseCRUD->update(data);
 }
 
@@ -151,6 +151,11 @@ int DataBaseController::count(const QVariantMap& arguments,
 	return m_dataBaseCRUD->count(arguments, conditions);
 }
 
+int DataBaseController::getUUID() {
+	++m_UUIDs;
+	return m_UUIDs;
+}
+
 void DataBaseController::setCRUBInstanceByTableName() {
 	if (m_tableName == PACKAGE_TABLE)
 		m_dataBaseCRUD = new PackageCRUD();
@@ -161,3 +166,33 @@ void DataBaseController::setCRUBInstanceByTableName() {
 }
 
 } /* namespace db */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

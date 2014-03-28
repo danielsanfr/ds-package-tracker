@@ -11,7 +11,7 @@
 #define APPLICATION_VERSION_MAJOR 1
 #define APPLICATION_VERSION_MINOR 0
 #define APPLICATION_VERSION_MAINTENANCE 0
-#define APPLICATION_VERSION_BUILD 31
+#define APPLICATION_VERSION_BUILD 32
 
 class ApplicationInfo: public QObject {
     Q_OBJECT
@@ -19,7 +19,7 @@ public:
     ApplicationInfo(QObject * parent = 0): QObject(parent) {
     }
 	Q_INVOKABLE QString version() {
-	    return QString("1.0.0.31");
+	    return QString("1.0.0.32");
 	}
 	Q_INVOKABLE QString versionWithoutBuidId() {
 	    return QString("1.0.0");

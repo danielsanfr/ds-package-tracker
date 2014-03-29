@@ -30,6 +30,7 @@
 #include "Settings.hpp"
 #include "ActiveFrameQML.hpp"
 #include "applicationinfo.hpp"
+#include "Notification.hpp"
 #include "model/SqlDataModel.hpp"
 #include "db/DataBaseController.hpp"
 

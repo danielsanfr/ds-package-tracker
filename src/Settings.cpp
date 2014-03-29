@@ -8,27 +8,26 @@
 #include "Settings.hpp"
 
 Settings::Settings(QObject *parent) : QObject(parent) {
-	// TODO Auto-generated constructor stub
 }
 
 Settings::~Settings() {
 	// TODO Auto-generated destructor stub
 }
 
-QString Settings::getValueFor(const QString objectName,
-		const QString defaultValue) const {
-	QSettings settings;
+QVariant Settings::getValueFor(const QString& objectName,
+		const QVariant& defaultValue) const {
+	QSettings settings("Daniel San Ferreira da Rocha", "DS Package Tracking");
 	// If no value has been saved, return the default value.
 	if (settings.value(objectName).isNull()) {
 		return defaultValue;
 	}
 	// Otherwise, return the value stored in the settings object.
-	return settings.value(objectName).toString();
+	return settings.value(objectName);
 }
 
-void Settings::saveValueFor(const QString objectName,
-		const QString inputValue) {
+void Settings::saveValueFor(const QString& objectName,
+		const QVariant& inputValue) {
     // A new value is saved to the application settings object.
-    QSettings settings;
-    settings.setValue(objectName, QVariant(inputValue));
+	QSettings settings("Daniel San Ferreira da Rocha", "DS Package Tracking");
+    settings.setValue(objectName, inputValue);
 }

@@ -36,7 +36,7 @@
          Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
          An updated version of application must have a versionNumber value higher than the previous version. Required. -->
     <versionNumber>1.0.0</versionNumber>
-    <buildId>42</buildId>
+    <buildId>33</buildId>
 
     <!-- Fourth digit segment of the package version. First three segments are taken from the
          <versionNumber> element.  Must be an integer from 0 to 2^16-1 -->
@@ -93,6 +93,7 @@
     <asset path="translations" dest="qm">
         <include name="*.qm"/>
     </asset>
+    <asset public="true" path="assets/sounds/silence.wav">silence.wav</asset>
 
     <!-- Request permission to execute native code.  Required for native applications. -->
     <permission system="true">run_native</permission>
@@ -103,6 +104,9 @@
     <permission>run_when_backgrounded</permission>
     <permission>access_pimdomain_calendars</permission>
     <permission>access_sms_mms</permission>
+    <permission>access_led_control</permission>
+    <permission>play_audio</permission>
+    <permission>access_shared</permission>
     <env var="LD_LIBRARY_PATH" value="app/native/lib:/usr/lib/qt4/lib"/>
 
 </qnx>

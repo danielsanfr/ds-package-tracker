@@ -16,6 +16,7 @@
 
 #include <bb/cascades/Application>
 
+#include <QDebug>
 #include <QString>
 #include <QLocale>
 #include <QTranslator>
@@ -35,12 +36,14 @@ void myMessageOutput(QtMsgType type, const char* msg){
 QString getValue(QString value) {
     Settings settings;
     // use "theme" key for property showing what theme to use on application start
-    return settings.getValueFor(value, "bright");
+    return settings.getValueFor(value, "").toString();
 }
 
 Q_DECL_EXPORT int main(int argc, char **argv) {
 	// update env variable before an application instance created
-	qputenv("CASCADES_THEME", getValue("theme").toUtf8());
+	QString selectedTheme = getValue("theme");
+	if (selectedTheme != "")
+		qputenv("CASCADES_THEME", selectedTheme.toUtf8());
 
 	Application app(argc, argv);
 	// Show console debug

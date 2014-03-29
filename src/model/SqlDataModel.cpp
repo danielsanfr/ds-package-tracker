@@ -10,7 +10,7 @@
 using namespace bb::cascades;
 using namespace db;
 
-namespace model {
+namespace datamodel {
 
 SqlDataModel::SqlDataModel(QObject *parent) :
 		ArrayDataModel(parent), m_table(""), m_dataBaseController(

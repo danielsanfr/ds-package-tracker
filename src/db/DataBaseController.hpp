@@ -15,7 +15,6 @@
 #include <QtSql/QtSql>
 
 #include "InfoCRUD.hpp"
-#include "EmailCRUD.hpp"
 #include "PackageCRUD.hpp"
 #include "DataBaseCRUD.hpp"
 #include "TableDefinitions.hpp"

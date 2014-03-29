@@ -18,12 +18,15 @@ Sheet {
                     var newPackage = {
                         "created_date": new Date(),
                         "last_update_date": new Date(),
-                        "short_descr": txtFldTitle.text.trim(),
-                        "code": txtFldCode.text.trim(),
+                        "last_situation": qsTr("No information"),
+                        "short_descr": txtFldShortDescr.text.trim(),
+                        "code": txtFldCode.text.trim().toUpperCase(),
                         "sending": chkBoxSender.checked,
-                        "description": txtArDescription.text.trim()
+                        "url_to_store": txtFldUrl.text.trim(),
+                        "description": txtArDescription.text.trim(),
+                        "emails": txtArEmails.text.trim()
                     }
-                    _db.create(newPackage)
+                    _packageCtrl.create(newPackage)
                     self.close()
                 }
             }
@@ -38,9 +41,23 @@ Sheet {
             verticalAlignment: VerticalAlignment.Fill
             horizontalAlignment: HorizontalAlignment.Fill
             Container {
+                id: ctnMain
                 bottomPadding: 20
                 verticalAlignment: VerticalAlignment.Fill
                 horizontalAlignment: HorizontalAlignment.Fill
+                function checkEntries() {
+                    var isValidCode = (_packageCtrl.validateCode(txtFldCode.text.trim().toUpperCase()) == 0)
+                    if (isValidCode) {
+                        actItmSave.enabled = (txtFldShortDescr.text.trim().length != 0)
+                        var countyAndService = _packageCtrl.countyAndService()
+                        txtFldCountry.text = countyAndService[0]
+                        txtFldService.text = countyAndService[1]
+                    } else {
+                        actItmSave.enabled = false
+                        txtFldCountry.text = ''
+                        txtFldService.text = ''
+                    }
+                }
                 Container {
                     Divider {
                     }
@@ -49,14 +66,14 @@ Sheet {
                     title: qsTr("Package informations") + Retranslate.onLocaleOrLanguageChanged
                 }
                 DSVTextField {
-                    id: txtFldTitle
+                    id: txtFldShortDescr
                     topMargin: 20
                     leftPadding: 20
                     rightPadding: 20
                     title: qsTr("Short description") + ":" + Retranslate.onLocaleOrLanguageChanged
-                    hintText: qsTr("Eg: My new book, ") + Retranslate.onLocaleOrLanguageChanged
+                    hintText: qsTr("Eg: My new book") + Retranslate.onLocaleOrLanguageChanged
                     onTextFldChanging: {
-                        actItmSave.enabled = (text.length != 0)
+                        ctnMain.checkEntries()
                     }
                 }
                 DSVTextField {
@@ -68,7 +85,11 @@ Sheet {
                     title: qsTr("Tracking code:") + Retranslate.onLocaleOrLanguageChanged
                     hintText: qsTr("Eg: RA123456789BR") + Retranslate.onLocaleOrLanguageChanged
                     onTextFldChanging: {
-                        actItmSave.enabled = (text.length != 0)
+                        if (text.length > 13) {
+                            var newText = text
+                            txtFldCode.text = newText.substr(0,13)
+                        }
+                        ctnMain.checkEntries()
                     }
                 }
                 //                DSVTextField {
@@ -123,6 +144,15 @@ Sheet {
                 Header {
                     title: qsTr("Extras (optional)") + Retranslate.onLocaleOrLanguageChanged
                 }
+                DSVTextField {
+                    id: txtFldUrl
+                    topMargin: 20
+                    leftPadding: 20
+                    rightPadding: 20
+                    inputMode: TextFieldInputMode.Url
+                    title: qsTr("Url to package store") + ":" + Retranslate.onLocaleOrLanguageChanged
+                    hintText: qsTr("Eg: www.store.com") + Retranslate.onLocaleOrLanguageChanged
+                }
                 Container {
                     topMargin: 20
                     leftPadding: 20
@@ -173,7 +203,7 @@ Sheet {
                         id: tgBtnExtraEmail
                         horizontalAlignment: HorizontalAlignment.Right
                         onCheckedChanged: {
-                            txtArExtraEmail.text = ""
+                            txtArEmails.text = ""
                         }
                     }
                 }
@@ -193,7 +223,7 @@ Sheet {
                     leftPadding: 20
                     rightPadding: 20
                     TextArea {
-                        id: txtArExtraEmail
+                        id: txtArEmails
                         minHeight: 200
                         maxHeight: 300
                         visible: tgBtnExtraEmail.checked

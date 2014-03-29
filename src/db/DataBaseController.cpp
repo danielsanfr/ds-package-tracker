@@ -40,8 +40,10 @@ void DataBaseController::createTables() {
 	const QString packageTableQuery = "CREATE TABLE IF NOT EXISTS " + PACKAGE_TABLE
 			+ " (" + PACKAGE_ID + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "
 			+ PACKAGE_CREATED + " TEXT NOT NULL, " + PACKAGE_LAST_UPDATE + " DATE NOT NULL, "
-			+ PACKAGE_SHORT_DESCR + " TEXT NOT NULL, " + PACKAGE_CODE + " TEXT NOT NULL, "
-			+ PACKAGE_SENDING + " BOOLEAN NOT NULL, " + PACKAGE_DESCRIPTION + " TEXT);";
+			+ PACKAGE_SITUATION + " TEXT NOT NULL, " + PACKAGE_SHORT_DESCR + " TEXT NOT NULL, "
+			+ PACKAGE_CODE + " TEXT NOT NULL, " + PACKAGE_SENDING + " BOOLEAN NOT NULL, "
+			+ PACKAGE_URL_TO_STORE + " TEXT, " + PACKAGE_DESCRIPTION + " TEXT, "
+			+ PACKAGE_EMAILS + " TEXT);";
 	if (!query.exec(packageTableQuery))
 		qDebug()
 				<< "DataBaseController::createTables:: Create package table error: "
@@ -57,14 +59,6 @@ void DataBaseController::createTables() {
 			qDebug()
 					<< "DataBaseController::createTables:: Create info table error: "
 							+ query.lastError().text();
-
-	const QString emailTableQuery = "CREATE TABLE IF NOT EXISTS " + EMAIL_TABLE
-				+ " (" + EMAIL_PACKAGE_ID + " INTEGER NOT NULL, FOREIGN KEY ("
-				+ INFO_PACKAGE_ID + ") REFERENCES " + PACKAGE_TABLE + " (" + PACKAGE_ID + "));";
-		if (!query.exec(emailTableQuery))
-				qDebug()
-						<< "DataBaseController::createTables:: Create email table error: "
-								+ query.lastError().text();
 
 	qDebug() << "DataBaseController::createTables: Created tables";
 	database.close();
@@ -86,16 +80,11 @@ void DataBaseController::dropTables() {
 				<< "DataBaseController::dropTables: Drop infos table error: "
 						+ query.lastError().text();
 
-	const QString emailTableQuery = "DROP TABLE IF EXISTS " + EMAIL_TABLE;
-	if (!query.exec(emailTableQuery))
-		qDebug()
-				<< "DataBaseController::dropTables: Drop email table error: "
-						+ query.lastError().text();
 	database.close();
 }
 
 void DataBaseController::setTableName(const QString &tableName, int uuid) {
-	Q_ASSERT(tableName == PACKAGE_TABLE || tableName == INFO_TABLE || tableName == EMAIL_TABLE);
+	Q_ASSERT(tableName == PACKAGE_TABLE || tableName == INFO_TABLE);
 	if (m_tableName != tableName) {
 		m_tableName = tableName;
 		setCRUBInstanceByTableName();
@@ -161,8 +150,6 @@ void DataBaseController::setCRUBInstanceByTableName() {
 		m_dataBaseCRUD = new PackageCRUD();
 	else if (m_tableName == INFO_TABLE)
 		m_dataBaseCRUD = new InfoCRUD();
-	else if (m_tableName == EMAIL_TABLE)
-		m_dataBaseCRUD = new EmailCRUD();
 }
 
 } /* namespace db */

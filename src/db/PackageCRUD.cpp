@@ -31,18 +31,24 @@ void PackageCRUD::prepareCreateQuery(QSqlQuery& query,
 			PACKAGE_ID + "," +
 			PACKAGE_CREATED + "," +
 			PACKAGE_LAST_UPDATE + "," +
+			PACKAGE_SITUATION + "," +
 			PACKAGE_SHORT_DESCR + "," +
 			PACKAGE_CODE + "," +
 			PACKAGE_SENDING + "," +
-			PACKAGE_DESCRIPTION +
+			PACKAGE_URL_TO_STORE + "," +
+			PACKAGE_DESCRIPTION + "," +
+			PACKAGE_EMAILS +
 			") VALUES (" +
 			":" + PACKAGE_ID + "," +
 			":" + PACKAGE_CREATED + "," +
 			":" + PACKAGE_LAST_UPDATE + "," +
+			":" + PACKAGE_SITUATION + "," +
 			":" + PACKAGE_SHORT_DESCR + "," +
 			":" + PACKAGE_CODE + "," +
 			":" + PACKAGE_SENDING + "," +
-			":" + PACKAGE_DESCRIPTION + ")");
+			":" + PACKAGE_URL_TO_STORE + "," +
+			":" + PACKAGE_DESCRIPTION + "," +
+			":" + PACKAGE_EMAILS + ")");
 	bindValues(query, data, false);
 }
 
@@ -51,10 +57,13 @@ void PackageCRUD::prepareUpdateQuery(QSqlQuery& query,
 	query.prepare("UPDATE " + PACKAGE_TABLE + " SET " +
 			PACKAGE_CREATED + " = :" + PACKAGE_CREATED + ", " +
 			PACKAGE_LAST_UPDATE + " = :" + PACKAGE_LAST_UPDATE + ", " +
+			PACKAGE_SITUATION + " = :" + PACKAGE_SITUATION + ", " +
 			PACKAGE_SHORT_DESCR + " = :" + PACKAGE_SHORT_DESCR + ", " +
 			PACKAGE_CODE + " = :" + PACKAGE_CODE + ", " +
 			PACKAGE_SENDING + " = :" + PACKAGE_SENDING + ", " +
-			PACKAGE_DESCRIPTION + " = :" + PACKAGE_DESCRIPTION +
+			PACKAGE_URL_TO_STORE + " = :" + PACKAGE_URL_TO_STORE + ", " +
+			PACKAGE_DESCRIPTION + " = :" + PACKAGE_DESCRIPTION + ", " +
+			PACKAGE_EMAILS + " = :" + PACKAGE_EMAILS +
 			" WHERE " + PACKAGE_ID + " = :" + PACKAGE_ID);
 	bindValues(query, data, true);
 }
@@ -64,10 +73,13 @@ const QVariantMap PackageCRUD::createModel(const QSqlQuery& query) const {
 	map[PACKAGE_ID] = query.value(0).toInt();
 	map[PACKAGE_CREATED] = query.value(1).toString();
 	map[PACKAGE_LAST_UPDATE] = query.value(2).toDate();
-	map[PACKAGE_SHORT_DESCR] = query.value(3).toString();
-	map[PACKAGE_CODE] = query.value(4).toString();
-	map[PACKAGE_SENDING] = query.value(5).toBool();
-	map[PACKAGE_DESCRIPTION] = query.value(6).toString();
+	map[PACKAGE_SITUATION] = query.value(3).toString();
+	map[PACKAGE_SHORT_DESCR] = query.value(4).toString();
+	map[PACKAGE_CODE] = query.value(5).toString();
+	map[PACKAGE_SENDING] = query.value(6).toBool();
+	map[PACKAGE_URL_TO_STORE] = query.value(7).toUrl();
+	map[PACKAGE_DESCRIPTION] = query.value(8).toString();
+	map[PACKAGE_EMAILS] = query.value(9).toString();
 	return map;
 }
 
@@ -77,10 +89,22 @@ void PackageCRUD::bindValues(QSqlQuery& query, const QVariantMap& data,
 		query.bindValue(":" + PACKAGE_ID, data[PACKAGE_ID].toInt());
 	query.bindValue(":" + PACKAGE_CREATED, data[PACKAGE_CREATED].toString());
 	query.bindValue(":" + PACKAGE_LAST_UPDATE, data[PACKAGE_LAST_UPDATE].toDate());
+	query.bindValue(":" + PACKAGE_SITUATION, data[PACKAGE_SITUATION].toString());
 	query.bindValue(":" + PACKAGE_SHORT_DESCR, data[PACKAGE_SHORT_DESCR].toString());
 	query.bindValue(":" + PACKAGE_CODE, data[PACKAGE_CODE].toString());
 	query.bindValue(":" + PACKAGE_SENDING, data[PACKAGE_SENDING].toBool());
-	query.bindValue(":" + PACKAGE_DESCRIPTION, data[PACKAGE_DESCRIPTION].toString());
+	if (data[PACKAGE_URL_TO_STORE].toString() == "")
+		query.bindValue(":" + PACKAGE_URL_TO_STORE, QVariant());
+	else
+		query.bindValue(":" + PACKAGE_URL_TO_STORE, data[PACKAGE_URL_TO_STORE].toString());
+	if (data[PACKAGE_DESCRIPTION].toString() == "")
+		query.bindValue(":" + PACKAGE_DESCRIPTION, QVariant());
+	else
+		query.bindValue(":" + PACKAGE_DESCRIPTION, data[PACKAGE_DESCRIPTION].toString());
+	if (data[PACKAGE_EMAILS].toString() == "")
+		query.bindValue(":" + PACKAGE_EMAILS, QVariant());
+	else
+		query.bindValue(":" + PACKAGE_EMAILS, data[PACKAGE_EMAILS].toString());
 }
 
 } /* namespace db */

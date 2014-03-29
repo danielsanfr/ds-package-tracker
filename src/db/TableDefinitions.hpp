@@ -16,10 +16,13 @@
 #define PACKAGE_ID				QString("id")
 #define PACKAGE_CREATED			QString("created_date")
 #define PACKAGE_LAST_UPDATE		QString("last_update_date")
+#define PACKAGE_SITUATION		QString("last_situation")
 #define PACKAGE_SHORT_DESCR		QString("short_descr")
 #define PACKAGE_CODE			QString("code")
 #define PACKAGE_SENDING			QString("sending")
+#define PACKAGE_URL_TO_STORE	QString("url_to_store")
 #define PACKAGE_DESCRIPTION		QString("description")
+#define PACKAGE_EMAILS			QString("emails")
 
 #define INFO_TABLE				QString("infos")
 #define INFO_ID					QString("id")
@@ -27,14 +30,5 @@
 #define INFO_DATE				QString("date")
 #define INFO_LOCATION			QString("location")
 #define INFO_SITUATION			QString("situation")
-
-#define EMAIL_TABLE				QString("emails")
-#define EMAIL_PACKAGE_ID		QString("package_id")
-#define EMAIL_CONTENT			QString("content")
-
-
-//#define PACKAGE_		QString("")
-//#define PACKAGE_		QString("")
-//#define PACKAGE_		QString("")
 
 #endif /* TABLEDEFINITIONS_HPP_ */

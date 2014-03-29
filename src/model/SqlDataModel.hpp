@@ -20,7 +20,7 @@
 
 #include "db/DataBaseController.hpp"
 
-namespace model {
+namespace datamodel {
 
 #define FIELD_ID "id"
 

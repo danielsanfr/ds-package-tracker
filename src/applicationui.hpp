@@ -24,6 +24,9 @@
 #include <bb/cascades/AbstractPane>
 #include <bb/cascades/LocaleHandler>
 
+#include "brpackagetracking/package.h"
+
+#include "PackagesController.hpp"
 #include "Settings.hpp"
 #include "ActiveFrameQML.hpp"
 #include "applicationinfo.hpp"

@@ -238,11 +238,16 @@ Sheet {
                         }
                     }
                     Slider {
-                        value: 5.0
+                        property bool created: false
                         toValue: 24.0
                         fromValue: 1.0
                         enabled: chkBoxAutoRefresh.checked
                         horizontalAlignment: HorizontalAlignment.Fill
+                        onCreationCompleted: {
+                            var savedValue = _settings.getValueFor("auto_refresh_interval", 5.0)
+                            setValue(savedValue)
+                            created = true
+                        }
                         onValueChanged: {
                             var newValue = Number(value).toFixed(0)
                             var rest = value - newValue
@@ -250,6 +255,8 @@ Sheet {
                                 ++ newValue
                             lblUpdateTime.text = newValue + " h"
                             setValue(newValue)
+                            if (created)
+                                _settings.saveValueFor("auto_refresh_interval", newValue)
                         }
                     }
                     Container {

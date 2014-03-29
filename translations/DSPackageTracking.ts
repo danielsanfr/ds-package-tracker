@@ -287,172 +287,172 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="33"/>
+        <location filename="../assets/Settings.qml" line="27"/>
         <source>Application theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="36"/>
+        <location filename="../assets/Settings.qml" line="30"/>
         <source>System bright</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="40"/>
+        <location filename="../assets/Settings.qml" line="34"/>
         <source>System dark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="66"/>
+        <location filename="../assets/Settings.qml" line="60"/>
         <source>Note: You must restart the application to apply this theme.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="79"/>
+        <location filename="../assets/Settings.qml" line="73"/>
         <source>Notifications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="90"/>
+        <location filename="../assets/Settings.qml" line="84"/>
         <source>LED Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="92"/>
+        <location filename="../assets/Settings.qml" line="86"/>
         <source>Red</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="96"/>
+        <location filename="../assets/Settings.qml" line="90"/>
         <source>Green</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="100"/>
+        <location filename="../assets/Settings.qml" line="94"/>
         <source>Blue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="104"/>
+        <location filename="../assets/Settings.qml" line="98"/>
         <source>Yellow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="108"/>
+        <location filename="../assets/Settings.qml" line="102"/>
         <source>Cyan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="112"/>
+        <location filename="../assets/Settings.qml" line="106"/>
         <source>Magenta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="116"/>
+        <location filename="../assets/Settings.qml" line="110"/>
         <source>White</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="128"/>
+        <location filename="../assets/Settings.qml" line="122"/>
         <source>Sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="131"/>
+        <location filename="../assets/Settings.qml" line="125"/>
         <source>Battery Alarm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="134"/>
+        <location filename="../assets/Settings.qml" line="128"/>
         <source>Browser Start Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="140"/>
+        <location filename="../assets/Settings.qml" line="134"/>
         <source>Camera Shutter Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="143"/>
+        <location filename="../assets/Settings.qml" line="137"/>
         <source>Device Lock Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="146"/>
+        <location filename="../assets/Settings.qml" line="140"/>
         <source>Device Unlock Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="149"/>
+        <location filename="../assets/Settings.qml" line="143"/>
         <source>Device Tether Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="152"/>
+        <location filename="../assets/Settings.qml" line="146"/>
         <source>Device Untether Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="155"/>
+        <location filename="../assets/Settings.qml" line="149"/>
         <source>General Notification</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="158"/>
+        <location filename="../assets/Settings.qml" line="152"/>
         <source>Input Keypress</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="161"/>
+        <location filename="../assets/Settings.qml" line="155"/>
         <source>Recording Start Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="164"/>
+        <location filename="../assets/Settings.qml" line="158"/>
         <source>Recording Stop Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="167"/>
+        <location filename="../assets/Settings.qml" line="161"/>
         <source>Sapphire Notification</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="170"/>
+        <location filename="../assets/Settings.qml" line="164"/>
         <source>System Master Volume Reference</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="173"/>
+        <location filename="../assets/Settings.qml" line="167"/>
         <source>Video Call Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="176"/>
+        <location filename="../assets/Settings.qml" line="170"/>
         <source>Video Call Outgoing Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="192"/>
+        <location filename="../assets/Settings.qml" line="186"/>
         <source>Vibration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="137"/>
+        <location filename="../assets/Settings.qml" line="131"/>
         <source>Camera Burst Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="219"/>
+        <location filename="../assets/Settings.qml" line="213"/>
         <source>Automatic refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="234"/>
+        <location filename="../assets/Settings.qml" line="228"/>
         <source>Refresh interval</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="266"/>
+        <location filename="../assets/Settings.qml" line="267"/>
         <source>This is the time between updates of the status of the packages. But anytime you poderar update the status of the packages by clicking the refresh button.</source>
         <translation type="unfinished"></translation>
     </message>

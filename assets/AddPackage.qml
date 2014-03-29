@@ -16,6 +16,7 @@ Sheet {
                 onTriggered: {
                     _db.setTableName("package")
                     var newPackage = {
+                        "status": "pending",
                         "created_date": new Date(),
                         "last_update_date": new Date(),
                         "last_situation": qsTr("No information"),

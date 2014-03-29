@@ -14,6 +14,7 @@
 
 #define PACKAGE_TABLE			QString("package")
 #define PACKAGE_ID				QString("id")
+#define PACKAGE_STATUS			QString("status")
 #define PACKAGE_CREATED			QString("created_date")
 #define PACKAGE_LAST_UPDATE		QString("last_update_date")
 #define PACKAGE_SITUATION		QString("last_situation")

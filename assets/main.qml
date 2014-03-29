@@ -42,14 +42,14 @@ TabbedPane {
         }
         actions: [
             ActionItem {
-                title: "About"
+                title: qsTr("About") + Retranslate.onLocaleOrLanguageChanged
                 imageSource: "asset:///images/ic_info.png"
                 onTriggered: {
                     aboutDefinition.createObject().open()
                 }
             },
             ActionItem {
-                title: "Invite"
+                title: qsTr("Invite") + Retranslate.onLocaleOrLanguageChanged
                 imageSource: "asset:///images/ic_bbm.png"
                 onTriggered: {
                     //                    _viewController.callBBMCard();
@@ -59,7 +59,7 @@ TabbedPane {
     }
     tabs: [
         Tab {
-            title: qsTr("Pending")
+            title: qsTr("Pending") + Retranslate.onLocaleOrLanguageChanged
             newContentAvailable: true
             imageSource: "asset:///images/ic_peding.png"
             PackagesListView {
@@ -67,7 +67,7 @@ TabbedPane {
             }
         },
         Tab {
-            title: qsTr("Delivered")
+            title: qsTr("Delivered") + Retranslate.onLocaleOrLanguageChanged
             newContentAvailable: true
             imageSource: "asset:///images/ic_delivered.png"
             PackagesListView {
@@ -75,14 +75,14 @@ TabbedPane {
             }
         },
         Tab {
-            title: qsTr("Archived")
+            title: qsTr("Archived") + Retranslate.onLocaleOrLanguageChanged
             imageSource: "asset:///images/ic_archived.png"
             PackagesListView {
                 title: qsTr("Archived packages")
             }
         },
         Tab {
-            title: qsTr("Statistics")
+            title: qsTr("Statistics") + Retranslate.onLocaleOrLanguageChanged
             imageSource: "asset:///images/ic_statistics.png"
             Statistics {
             }

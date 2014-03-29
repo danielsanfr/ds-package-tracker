@@ -29,6 +29,7 @@ void PackageCRUD::prepareCreateQuery(QSqlQuery& query,
 		const QVariantMap& data) const {
 	query.prepare("INSERT INTO " + PACKAGE_TABLE + " (" +
 			PACKAGE_ID + "," +
+			PACKAGE_STATUS + "," +
 			PACKAGE_CREATED + "," +
 			PACKAGE_LAST_UPDATE + "," +
 			PACKAGE_SITUATION + "," +
@@ -40,6 +41,7 @@ void PackageCRUD::prepareCreateQuery(QSqlQuery& query,
 			PACKAGE_EMAILS +
 			") VALUES (" +
 			":" + PACKAGE_ID + "," +
+			":" + PACKAGE_STATUS + "," +
 			":" + PACKAGE_CREATED + "," +
 			":" + PACKAGE_LAST_UPDATE + "," +
 			":" + PACKAGE_SITUATION + "," +
@@ -55,6 +57,7 @@ void PackageCRUD::prepareCreateQuery(QSqlQuery& query,
 void PackageCRUD::prepareUpdateQuery(QSqlQuery& query,
 		const QVariantMap& data) const {
 	query.prepare("UPDATE " + PACKAGE_TABLE + " SET " +
+			PACKAGE_STATUS + " = :" + PACKAGE_STATUS + ", " +
 			PACKAGE_CREATED + " = :" + PACKAGE_CREATED + ", " +
 			PACKAGE_LAST_UPDATE + " = :" + PACKAGE_LAST_UPDATE + ", " +
 			PACKAGE_SITUATION + " = :" + PACKAGE_SITUATION + ", " +
@@ -71,15 +74,16 @@ void PackageCRUD::prepareUpdateQuery(QSqlQuery& query,
 const QVariantMap PackageCRUD::createModel(const QSqlQuery& query) const {
 	QVariantMap map;
 	map[PACKAGE_ID] = query.value(0).toInt();
-	map[PACKAGE_CREATED] = query.value(1).toString();
-	map[PACKAGE_LAST_UPDATE] = query.value(2).toDate();
-	map[PACKAGE_SITUATION] = query.value(3).toString();
-	map[PACKAGE_SHORT_DESCR] = query.value(4).toString();
-	map[PACKAGE_CODE] = query.value(5).toString();
-	map[PACKAGE_SENDING] = query.value(6).toBool();
-	map[PACKAGE_URL_TO_STORE] = query.value(7).toUrl();
-	map[PACKAGE_DESCRIPTION] = query.value(8).toString();
-	map[PACKAGE_EMAILS] = query.value(9).toString();
+	map[PACKAGE_STATUS] = query.value(1).toString();
+	map[PACKAGE_CREATED] = query.value(2).toString();
+	map[PACKAGE_LAST_UPDATE] = query.value(3).toDate();
+	map[PACKAGE_SITUATION] = query.value(4).toString();
+	map[PACKAGE_SHORT_DESCR] = query.value(5).toString();
+	map[PACKAGE_CODE] = query.value(6).toString();
+	map[PACKAGE_SENDING] = query.value(7).toBool();
+	map[PACKAGE_URL_TO_STORE] = query.value(8).toUrl();
+	map[PACKAGE_DESCRIPTION] = query.value(9).toString();
+	map[PACKAGE_EMAILS] = query.value(10).toString();
 	return map;
 }
 
@@ -87,6 +91,7 @@ void PackageCRUD::bindValues(QSqlQuery& query, const QVariantMap& data,
 		const bool& bindId) const {
 	if (bindId)
 		query.bindValue(":" + PACKAGE_ID, data[PACKAGE_ID].toInt());
+	query.bindValue(":" + PACKAGE_STATUS, data[PACKAGE_STATUS].toString());
 	query.bindValue(":" + PACKAGE_CREATED, data[PACKAGE_CREATED].toString());
 	query.bindValue(":" + PACKAGE_LAST_UPDATE, data[PACKAGE_LAST_UPDATE].toDate());
 	query.bindValue(":" + PACKAGE_SITUATION, data[PACKAGE_SITUATION].toString());

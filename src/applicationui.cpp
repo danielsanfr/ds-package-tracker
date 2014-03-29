@@ -17,6 +17,8 @@
 #include "applicationui.hpp"
 
 using namespace bb::cascades;
+
+using namespace model;
 using namespace db;
 
 
@@ -26,15 +28,13 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
 	QmlDocument::defaultDeclarativeEngine()->rootContext()->setContextProperty(
 			"_db", dataBaseController);
     ApplicationInfo::registerQmlTypes();
+	SqlDataModel::registerQmlTypes();
     // prepare the localization
     m_pTranslator = new QTranslator(this);
     m_pLocaleHandler = new LocaleHandler(this);
 
 	DataBaseController::createDB();
 	DataBaseController::createTables();
-
-	dataBaseController->setTableName("package");
-	qDebug() << "ApplicationUI::ApplicationUI:" << dataBaseController->read();
 
     bool res = QObject::connect(m_pLocaleHandler, SIGNAL(systemLanguageChanged()), this, SLOT(onSystemLanguageChanged()));
     // This is only available in Debug builds

@@ -1,4 +1,5 @@
 import bb.cascades 1.0
+import model.custom 1.0
 
 NavigationPane {
     id: navigationPane
@@ -109,7 +110,8 @@ NavigationPane {
             }
             ListView {
                 id: packageListView
-                dataModel: ArrayDataModel {
+                dataModel: SqlDataModel {
+                    table: "package"
                 }
                 leadingVisual: Container {
                     topPadding: 20
@@ -156,19 +158,20 @@ NavigationPane {
                     }
                 ]
                 onCreationCompleted: {
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Yellow, "last_situation": "Encaminhado"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Green, "last_situation": "Encaminhado"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Red, "last_situation": "Encaminhado"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Magenta, "last_situation": "Encaminhado"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Blue, "last_situation": "Encaminhado"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Cyan, "last_situation": "Encaminhado"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Gray, "last_situation": "Encaminhado"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Black, "last_situation": "Encaminhado"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkBlue, "last_situation": "Encaminhado"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkGreen, "last_situation": "Encaminhado"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkRed, "last_situation": "Encaminhado"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkYellow, "last_situation": "Encaminhado"})
-                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.LightGray, "last_situation": "Encaminhado"})
+                    dataModel.load()
+//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Yellow, "last_situation": "Encaminhado"})
+//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Green, "last_situation": "Encaminhado"})
+//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Red, "last_situation": "Encaminhado"})
+//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Magenta, "last_situation": "Encaminhado"})
+//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Blue, "last_situation": "Encaminhado"})
+//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Cyan, "last_situation": "Encaminhado"})
+//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Gray, "last_situation": "Encaminhado"})
+//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Black, "last_situation": "Encaminhado"})
+//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkBlue, "last_situation": "Encaminhado"})
+//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkGreen, "last_situation": "Encaminhado"})
+//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkRed, "last_situation": "Encaminhado"})
+//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkYellow, "last_situation": "Encaminhado"})
+//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.LightGray, "last_situation": "Encaminhado"})
                 }
                 onTriggered: {
                     var packagePage = packageDefinition.createObject(navigationPane)

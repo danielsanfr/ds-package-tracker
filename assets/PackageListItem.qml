@@ -34,7 +34,7 @@ Container {
             verticalAlignment: VerticalAlignment.Fill
         }
         StandardListItem {
-            title: ListItemData.short_description
+            title: ListItemData.short_descr
             description: qsTr("Last situation") + ": " + ListItemData.last_situation + Retranslate.onLocaleOrLanguageChanged
             status: ListItemData.code
         }

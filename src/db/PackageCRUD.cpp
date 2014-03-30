@@ -17,6 +17,21 @@ PackageCRUD::~PackageCRUD() {
 	// TODO Auto-generated destructor stub
 }
 
+void PackageCRUD::deleteRecord(const int& id) {
+	DataBaseCRUD::deleteRecord(id);
+	DataBaseCRUD *dbCRUD = new InfoCRUD();
+	QVariantMap args;
+	args.insert(":" + INFO_PACKAGE_ID, id);
+	dbCRUD->deleteRecord(args, INFO_PACKAGE_ID + "=:" + INFO_PACKAGE_ID);
+	delete dbCRUD;
+	dbCRUD = 0;
+}
+
+void PackageCRUD::deleteRecord(const QVariantMap& arguments,
+		const QString& conditions) {
+	DataBaseCRUD::deleteRecord(arguments, conditions);
+}
+
 const QString PackageCRUD::getCRUDName() const {
 	return QString("PackageCRUD");
 }

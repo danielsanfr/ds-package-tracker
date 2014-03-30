@@ -9,6 +9,7 @@
 #define PACKAGECRUD_HPP_
 
 #include "DataBaseCRUD.hpp"
+#include "InfoCRUD.hpp"
 
 namespace db {
 
@@ -16,6 +17,8 @@ class PackageCRUD: public db::DataBaseCRUD {
 public:
 	PackageCRUD();
 	virtual ~PackageCRUD();
+	void deleteRecord(const int &id);
+	void deleteRecord(const QVariantMap &arguments, const QString &conditions);
 	const QString getCRUDName() const;
 	const QString getTableName() const;
 	void prepareCreateQuery(QSqlQuery &query, const QVariantMap &data) const;

@@ -53,7 +53,7 @@ public:
     Package(const Package &other, QObject *parent = 0);
     Package(QObject *parent = 0);
     Package &operator=(const Package &other);
-    void load();
+    Q_SLOT void load(const QString &code);
     Package::CodeError validateCode();
     void setCode(QString code);
     bool isValidCode() const;

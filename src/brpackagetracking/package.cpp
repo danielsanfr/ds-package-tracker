@@ -126,8 +126,8 @@ Package& Package::operator =(const Package& other) {
 	return *this;
 }
 
-void Package::load() {
-	if (m_validCode) {
+void Package::load(const QString& code) {
+	if (m_validCode && code == m_code) {
 		qDebug() << "Package::load";
 		m_downloadHtml->download(POST_OFFICE_URL + m_code);
 	}

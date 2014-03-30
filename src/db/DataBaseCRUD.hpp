@@ -22,8 +22,8 @@ public:
 	DataBaseCRUD();
 	virtual ~DataBaseCRUD();
 	qlonglong create(const QVariantMap &data) const;
-	void deleteRecord(const int &id);
-	void deleteRecord(const QVariantMap &arguments, const QString &conditions);
+	virtual void deleteRecord(const int &id);
+	virtual void deleteRecord(const QVariantMap &arguments, const QString &conditions);
 	void update(const QVariantMap &data);
 	const QVariantMap read(const int &id) const;
 	const QVariantList read() const;

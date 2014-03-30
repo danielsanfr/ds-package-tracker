@@ -19,16 +19,13 @@ PackagesController::PackagesController(QObject *parent) :
 		QObject(parent), m_dataBaseController(
 				DataBaseController::getInstance(this)), m_util(
 				Util::getInstance(this)) {
+	m_uuid = m_dataBaseController->getUUID();
 	onReLoad(-1, packageTable);
-	update();
-	bool isOk = connect(m_dataBaseController,
-			SIGNAL(tableNameChanged(int, const QString &)), this,
-			SLOT(onReLoad(int, const QString &)));
-	Q_ASSERT(isOk);
-	isOk =
+	bool isOk =
 			connect(m_dataBaseController,
 					SIGNAL(createdRecord(int, const QString &, const QVariantMap &, const qlonglong &)),
 					this, SLOT(onReLoad(int, const QString &)));
+	Q_ASSERT(isOk);
 	Q_ASSERT(isOk);
 	isOk = connect(m_dataBaseController,
 			SIGNAL(deletedRecord(int, const QString &, const int &)), this,
@@ -51,10 +48,24 @@ PackagesController::~PackagesController() {
 
 void PackagesController::create(const QVariantMap& data) {
 	m_dataBaseController->setTableName(packageTable);
-	qlonglong longId = m_dataBaseController->create(data);
+	qlonglong longId = m_dataBaseController->create(data, m_uuid);
 	int id = QVariant(longId).toInt();
-	m_packagesMap.insert(id, Package(data.value("code").toString(), this));
-	update(id);
+	QSharedPointer<Package> package = QSharedPointer<Package>(new Package(data.value("code").toString()));
+	package->validateCode();
+	if (package->isValidCode()) {
+		bool isOk = connect(package.data(),
+				SIGNAL(loadCompleted(brpackagetracking::Package*)),
+				this, SLOT(handler(brpackagetracking::Package*)));
+		Q_ASSERT(isOk);
+		isOk = connect(package.data(), SIGNAL(loadError(QString)), this,
+				SLOT(handlerError(QString)));
+		Q_ASSERT(isOk);
+		isOk = connect(this, SIGNAL(load(const QString&)), package.data(),
+				SLOT(load(const QString&)));
+		Q_ASSERT(isOk);
+		m_packagesMap.insert(id, package);
+		emit load(data.value("code").toString());
+	}
 }
 
 int PackagesController::validateCode(const QString& code) {
@@ -70,12 +81,10 @@ QVariantList PackagesController::countyAndService() {
 QVariantList PackagesController::informationList(const int& id) {
 	QVariantList list;
 	if (m_packagesMap.contains(id)) {
-		Package package = m_packagesMap.value(id);
-		QList<Information> infos = package.checkpoints();
+		QList<Information> infos = m_packagesMap.value(id)->checkpoints();
 		foreach (Information info, infos)
 			list.append(informationToMap(info));
-		qDebug() << "PackagesController::informationList:load at pending list"
-				<< infos.size();
+		qDebug() << "PackagesController::informationList:load at pending list";
 	} else {
 		QVariantMap args;
 		args.insert(":package_id", id);
@@ -83,43 +92,20 @@ QVariantList PackagesController::informationList(const int& id) {
 		list.append(
 				m_dataBaseController->read(args,
 						"(package_id=:package_id) ORDER BY package_id;"));
-		qDebug() << "PackagesController::informationList:load at data base"
-				<< m_dataBaseController->read(args,
-						"(package_id=:package_id) ORDER BY package_id;").size();
+		qDebug() << "PackagesController::informationList:load at data base";
 	}
 	return list;
 }
 
 void PackagesController::update(const int& id) {
-	Package *package = new Package(m_packagesMap.value(id), this);
-	bool isOk = connect(package,
-			SIGNAL(loadCompleted(brpackagetracking::Package*)), this,
-			SLOT(handler(brpackagetracking::Package*)));
-	Q_ASSERT(isOk);
-	isOk = connect(package, SIGNAL(loadError(QString)), this,
-			SLOT(handlerError(QString)));
-	Q_ASSERT(isOk);
-	package->validateCode();
-	if (package->isValidCode())
-		package->load();
+	if (m_packagesMap.contains(id))
+		emit load(m_packagesMap.value(id)->code());
 }
 
 void PackagesController::update() {
 	QList<int> ids = m_packagesMap.keys();
 	foreach (int id, ids)
-	{
-		Package *package = new Package(m_packagesMap.value(id), this);
-		bool isOk = connect(package,
-				SIGNAL(loadCompleted(brpackagetracking::Package*)), this,
-				SLOT(handler(brpackagetracking::Package*)));
-		Q_ASSERT(isOk);
-		isOk = connect(package, SIGNAL(loadError(QString)), this,
-				SLOT(handlerError(QString)));
-		Q_ASSERT(isOk);
-		package->validateCode();
-		if (package->isValidCode())
-			package->load();
-	}
+		emit load(m_packagesMap.value(id)->code());
 }
 
 QVariantMap PackagesController::informationToMap(const Information& info) {
@@ -131,31 +117,44 @@ QVariantMap PackagesController::informationToMap(const Information& info) {
 }
 
 void PackagesController::onReLoad(int uuid, const QString &tableName) {
-	Q_UNUSED(uuid);
-	if (tableName == packageTable) {
+	if (tableName == packageTable && uuid != m_uuid) {
 		m_dataBaseController->setTableName(packageTable);
 		m_packagesMap.clear();
 		QVariantMap args;
 		args.insert(":status", "pending");
 		QVariantList packages = m_dataBaseController->read(args,
 				"status=:status");
-		foreach (QVariant package, packages)
+		foreach (QVariant packageV, packages)
 		{
-			m_packagesMap.insert(package.toMap()["id"].toInt(),
-					Package(package.toMap()["code"].toString(), this));
+			QSharedPointer<Package> package = QSharedPointer<Package>(new Package(packageV.toMap().value("code").toString()));
+			package->validateCode();
+			if (package->isValidCode()) {
+				bool isOk = connect(package.data(),
+						SIGNAL(loadCompleted(brpackagetracking::Package*)),
+						this, SLOT(handler(brpackagetracking::Package*)));
+				Q_ASSERT(isOk);
+				isOk = connect(package.data(), SIGNAL(loadError(QString)), this,
+						SLOT(handlerError(QString)));
+				Q_ASSERT(isOk);
+				isOk = connect(this, SIGNAL(load(const QString&)), package.data(),
+						SLOT(load(const QString&)));
+				Q_ASSERT(isOk);
+				m_packagesMap.insert(packageV.toMap()["id"].toInt(), package);
+				emit load(packageV.toMap().value("code").toString());
+			}
 		}
 	}
 }
 
 void PackagesController::handler(Package* package) {
 	int id = idByCode(package->code());
-	qDebug() << "PackagesController::handler" << id;
 	m_dataBaseController->setTableName(infosTable);
 	QList<Information> infos = package->checkpoints();
 	QVariantMap args;
 	args.insert(":package_id", id);
-	int newInfosSize = infos.size(), oldInfosSize = m_dataBaseController->count(
-			args, "package_id=:package_id");
+	int newInfosSize = infos.size();
+	int oldInfosSize = m_dataBaseController->count(args,
+			"package_id=:package_id");
 	if (newInfosSize > oldInfosSize) {
 		for (int i = oldInfosSize; i < newInfosSize; ++i) {
 			Information info = infos.at(i);
@@ -173,18 +172,8 @@ void PackagesController::handler(Package* package) {
 		packageMap.insert("last_update_date", QDate::currentDate());
 		packageMap.insert("last_situation",
 				package->checkpoints().at(0).situation());
-		m_dataBaseController->update(packageMap);
+		m_dataBaseController->update(packageMap, m_uuid);
 	}
-	m_packagesMap.remove(id);
-	m_packagesMap.insert(id, *package);
-
-	bool isOk = disconnect(package,
-			SIGNAL(loadCompleted(brpackagetracking::Package*)), this,
-			SLOT(handler(brpackagetracking::Package*)));
-	Q_ASSERT(isOk);
-	isOk = connect(package, SIGNAL(loadError(QString)), this,
-			SLOT(handlerError(QString)));
-	Q_ASSERT(isOk);
 }
 
 void PackagesController::handlerError(QString message) {
@@ -196,7 +185,7 @@ int PackagesController::idByCode(const QString& code) {
 	QList<int> ids = m_packagesMap.keys();
 	foreach(int id, ids)
 	{
-		if (code == m_packagesMap.value(id).code())
+		if (code == m_packagesMap.value(id)->code())
 			return id;
 	}
 	return -1;

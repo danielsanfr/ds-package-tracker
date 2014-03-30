@@ -63,7 +63,13 @@ TabbedPane {
             newContentAvailable: true
             imageSource: "asset:///images/ic_peding.png"
             PackagesListView {
-                title: qsTr("Pending packages")
+                title: qsTr("Pending packages") + Retranslate.onLocaleOrLanguageChanged
+                onCreationCompleted: {
+                    var args = {
+                        ":status": "pending"
+                    }
+                    load(args, "status=:status")
+                }
             }
         },
         Tab {
@@ -71,14 +77,26 @@ TabbedPane {
             newContentAvailable: true
             imageSource: "asset:///images/ic_delivered.png"
             PackagesListView {
-                title: qsTr("Delivered packages")
+                title: qsTr("Delivered packages") + Retranslate.onLocaleOrLanguageChanged
+                onCreationCompleted: {
+                    var args = {
+                        ":status": "delivered"
+                    }
+                    load(args, "status=:status")
+                }
             }
         },
         Tab {
             title: qsTr("Archived") + Retranslate.onLocaleOrLanguageChanged
             imageSource: "asset:///images/ic_archived.png"
             PackagesListView {
-                title: qsTr("Archived packages")
+                title: qsTr("Archived packages") + Retranslate.onLocaleOrLanguageChanged
+                onCreationCompleted: {
+                    var args = {
+                        ":status": "archived"
+                    }
+                    load(args, "status=:status")
+                }
             }
         },
         Tab {

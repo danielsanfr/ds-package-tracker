@@ -51,7 +51,7 @@ void DataBaseController::createTables() {
 
 	const QString infoTableQuery = "CREATE TABLE IF NOT EXISTS " + INFO_TABLE
 			+ " (" + INFO_ID + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "
-			+ INFO_PACKAGE_ID + " INTEGER NOT NULL, " + INFO_DATE + "TEXT NOT NULL, "
+			+ INFO_PACKAGE_ID + " INTEGER NOT NULL, " + INFO_DATE + " TEXT NOT NULL, "
 			+ INFO_LOCATION + " TEXT NOT NULL, " + INFO_SITUATION
 			+ " TEXT NOT NULL, FOREIGN KEY (" + INFO_PACKAGE_ID + ") REFERENCES "
 			+ PACKAGE_TABLE + " (" + PACKAGE_ID + "));";
@@ -97,7 +97,7 @@ const QString& DataBaseController::tableName() {
 }
 
 qlonglong DataBaseController::create(const QVariantMap& data, int uuid) {
-	qlonglong id =  m_dataBaseCRUD->create(data);
+	qlonglong id = m_dataBaseCRUD->create(data);
 	emit createdRecord(uuid, m_tableName, data, id);
 	return id;
 }

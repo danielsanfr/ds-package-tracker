@@ -2,12 +2,13 @@ import bb.cascades 1.0
 
 Page {
     id: self
+    property int packageId: -1
     titleBar: TitleBar {
-        title: "Notebook's case"
+        title: qsTr("Notebook's case") + Retranslate.onLocaleOrLanguageChanged
     }
     actions: [
         ActionItem {
-            title: qsTr("Delivered")
+            title: qsTr("Delivered") + Retranslate.onLocaleOrLanguageChanged
             imageSource: "asset:///images/ic_delivered.png"
             ActionBar.placement: ActionBarPlacement.OnBar
             onTriggered: {
@@ -21,106 +22,29 @@ Page {
     attachedObjects: [
         ComponentDefinition {
             id: checkpointsListDefinition
-            Container {
+            ListView {
+                id: lstVwInfos
+                property int packageId: self.packageId
+                verticalAlignment: VerticalAlignment.Fill
                 horizontalAlignment: HorizontalAlignment.Fill
-                ListView {
-                    dataModel: ArrayDataModel {
-                    }
-                    listItemComponents: [
-                        ListItemComponent {
-                            StandardListItem {
-                                title: ListItemData.situation
-                                description: ListItemData.location
-                                status: ListItemData.date
-                                imageSource: ListItemData.flag_icon
-                            }
+                dataModel: ArrayDataModel {
+                    id: dtMd
+                }
+                listItemComponents: [
+                    ListItemComponent {
+                        StandardListItem {
+                            title: ListItemData.situation
+                            description: ListItemData.location
+                            status: ListItemData.date
+                            imageSource: ListItemData.flag_icon
                         }
-                    ]
-                    onCreationCompleted: {
-                        dataModel.append({
-                                "situation": "Emcaminhado",
-                                "location": "CTCE PORTO VELHO - PORTO VELHO/RO",
-                                "flag": Color.Yellow,
-                                "date": "19/12/13 - 18:00",
-                                "flag_icon": "asset:///images/stt_delivered.png"
-                            })
-                        dataModel.append({
-                                "situation": "Emcaminhado",
-                                "location": "CTCE PORTO VELHO - PORTO VELHO/RO",
-                                "flag": Color.Green,
-                                "date": "19/12/13 - 18:00",
-                                "flag_icon": "asset:///images/stt_waiting.png"
-                            })
-                        dataModel.append({
-                                "situation": "Emcaminhado",
-                                "location": "CTCE PORTO VELHO - PORTO VELHO/RO",
-                                "flag": Color.Red,
-                                "date": "19/12/13 - 18:00",
-                                "flag_icon": "asset:///images/stt_out_for_delivery.png"
-                            })
-                        dataModel.append({
-                                "situation": "Emcaminhado",
-                                "location": "CTCE PORTO VELHO - PORTO VELHO/RO",
-                                "flag": Color.Magenta,
-                                "date": "19/12/13 - 18:00",
-                                "flag_icon": "asset:///images/stt_in_transit.png"
-                            })
-                        dataModel.append({
-                                "situation": "Emcaminhado",
-                                "location": "CTCE PORTO VELHO - PORTO VELHO/RO",
-                                "flag": Color.Blue,
-                                "date": "19/12/13 - 18:00",
-                                "flag_icon": "asset:///images/stt_out_for_delivery.png"
-                            })
-                        dataModel.append({
-                                "situation": "Emcaminhado",
-                                "location": "CTCE PORTO VELHO - PORTO VELHO/RO",
-                                "flag": Color.Cyan,
-                                "date": "19/12/13 - 18:00",
-                                "flag_icon": "asset:///images/stt_in_transit.png"
-                            })
-                        dataModel.append({
-                                "situation": "Emcaminhado",
-                                "location": "CTCE PORTO VELHO - PORTO VELHO/RO",
-                                "flag": Color.Gray,
-                                "date": "19/12/13 - 18:00",
-                                "flag_icon": "asset:///images/stt_taxed.png"
-                            })
-                        dataModel.append({
-                                "situation": "Emcaminhado",
-                                "location": "CTCE PORTO VELHO - PORTO VELHO/RO",
-                                "flag": Color.Black,
-                                "date": "19/12/13 - 18:00",
-                                "flag_icon": "asset:///images/stt_conferred.png"
-                            })
-                        dataModel.append({
-                                "situation": "Emcaminhado",
-                                "location": "CTCE PORTO VELHO - PORTO VELHO/RO",
-                                "flag": Color.DarkGreen,
-                                "date": "19/12/13 - 18:00",
-                                "flag_icon": "asset:///images/stt_external_moving.png"
-                            })
-                        dataModel.append({
-                                "situation": "Emcaminhado",
-                                "location": "CTCE PORTO VELHO - PORTO VELHO/RO",
-                                "flag": Color.DarkRed,
-                                "date": "19/12/13 - 18:00",
-                                "flag_icon": "asset:///images/stt_external_moving.png"
-                            })
-                        dataModel.append({
-                                "situation": "Emcaminhado",
-                                "location": "CTCE PORTO VELHO - PORTO VELHO/RO",
-                                "flag": Color.DarkYellow,
-                                "date": "19/12/13 - 18:00",
-                                "flag_icon": "asset:///images/stt_external_moving.png"
-                            })
-                        dataModel.append({
-                                "situation": "Emcaminhado",
-                                "location": "CTCE PORTO VELHO - PORTO VELHO/RO",
-                                "flag": Color.LightGray,
-                                "date": "19/12/13 - 18:00",
-                                "flag_icon": "asset:///images/stt_no_informations.png"
-                            })
+                    }
+                ]
+                onPackageIdChanged: {
+                    var pkgId = lstVwInfos.packageId
+                    if (pkgId != -1) {
+                        var list = _packageCtrl.informationList(pkgId)
+                        dataModel.append(list)
                     }
                 }
             }
@@ -137,7 +61,7 @@ Page {
                     DSHImageDobleLabel {
                         leftPadding: 10
                         rightPadding: 10
-                        title: qsTr("Description:")
+                        title: qsTr("Description") + ":" + Retranslate.onLocaleOrLanguageChanged
                         text: "Estou estando isso aqui para ver como isso irá ficar. Acho que ja esta bom esa quantidade de coisa escrita"
                         imageSource: "asset:///images/ic_description.png"
                     }
@@ -192,10 +116,10 @@ Page {
                 horizontalAlignment: HorizontalAlignment.Fill
                 options: [
                     Option {
-                        text: qsTr("Checkpoins")
+                        text: qsTr("Checkpoins") + Retranslate.onLocaleOrLanguageChanged
                     },
                     Option {
-                        text: qsTr("Details")
+                        text: qsTr("Details") + Retranslate.onLocaleOrLanguageChanged
                     }
                 ]
                 onCreationCompleted: {
@@ -212,8 +136,8 @@ Page {
             }
         }
         Header {
-            title: qsTr("Code") + ": " + "RA123456789BR"
-            subtitle: qsTr("Added") + ": " + "06-03-14 02:29"
+            title: qsTr("Code") + ": " + "RA123456789BR" + Retranslate.onLocaleOrLanguageChanged
+            subtitle: qsTr("Added") + ": " + "06-03-14 02:29" + Retranslate.onLocaleOrLanguageChanged
         }
         Container {
             verticalAlignment: VerticalAlignment.Fill

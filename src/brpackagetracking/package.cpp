@@ -114,6 +114,14 @@ Package& Package::operator =(const Package& other) {
 		m_countryName = other.m_countryName;
 		m_countryAcronym = other.m_countryAcronym;
 		m_checkpoints = other.m_checkpoints;
+		bool ok = connect(m_downloadHtml, SIGNAL(donwloadFinished(QString)), this,
+				SLOT(onDownloadFinished(QString)));
+		Q_ASSERT(ok);
+		Q_UNUSED(ok);
+		bool okError = connect(m_downloadHtml, SIGNAL(downloadError(QString)), this,
+				SIGNAL(loadError(QString)));
+		Q_ASSERT(okError);
+		Q_UNUSED(okError);
 	}
 	return *this;
 }

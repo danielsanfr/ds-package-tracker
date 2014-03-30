@@ -21,7 +21,7 @@ qlonglong DataBaseCRUD::create(const QVariantMap& data) const {
 	prepareCreateQuery(query, data);
 	if (!query.exec())
 		qDebug()
-				<< getCRUDName() + "::create: Create task error: "
+				<< getCRUDName() + "::create: Create data error: "
 						+ query.lastError().text();
 	database.close();
 	return query.lastInsertId().toLongLong();

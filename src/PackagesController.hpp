@@ -9,6 +9,7 @@
 #define PACKAGESCONTROLLER_HPP_
 
 #include <QMap>
+#include <QDate>
 #include <QList>
 #include <QDebug>
 #include <QObject>
@@ -35,8 +36,17 @@ public:
 	Q_INVOKABLE void create(const QVariantMap& data);
 	Q_INVOKABLE int validateCode(const QString& code);
 	Q_INVOKABLE QVariantList countyAndService();
+	Q_INVOKABLE QVariantList informationList(const int &id);
+	Q_INVOKABLE void update();
+	Q_INVOKABLE void update(const int &id);
 private:
 	PackagesController(QObject *parent = 0);
+//	QVariantMap packageToMap(const brpackagetracking::Package &package);
+	QVariantMap informationToMap(const brpackagetracking::model::Information &info);
+	Q_SLOT void onReLoad(int uuid, const QString &tableName);
+	Q_SLOT void handler(brpackagetracking::Package* package);
+	Q_SLOT void handlerError(QString message);
+	int idByCode(const QString &code);
 	db::DataBaseController *m_dataBaseController;
 	brpackagetracking::util::Util *m_util;
 	brpackagetracking::Package m_packageAux;

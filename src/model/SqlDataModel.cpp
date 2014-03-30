@@ -58,6 +58,7 @@ void SqlDataModel::setTable(const QString& table) {
 }
 
 qlonglong SqlDataModel::create(const QVariantMap& data) {
+	m_dataBaseController->setTableName(m_table);
 	int id = m_dataBaseController->create(data, m_dbAccessUUID);
 	QVariantMap newData = data;
 	newData[FIELD_ID] = id;
@@ -70,6 +71,7 @@ void SqlDataModel::deleteRecordById(const int& id) {
 }
 
 void SqlDataModel::deleteRecord(const QVariantList& indexPath) {
+	m_dataBaseController->setTableName(m_table);
 	m_dataBaseController->deleteRecord(
 			data(indexPath).toMap()[FIELD_ID].toInt(), m_dbAccessUUID);
 	int index = indexPath.back().toInt();
@@ -79,40 +81,48 @@ void SqlDataModel::deleteRecord(const QVariantList& indexPath) {
 
 void SqlDataModel::deleteRecord(const QVariantMap& arguments,
 		const QString& conditions) {
+	m_dataBaseController->setTableName(m_table);
 }
 
 void SqlDataModel::update(const QVariantMap& data) {
+	m_dataBaseController->setTableName(m_table);
 	m_dataBaseController->update(data, m_dbAccessUUID);
 	QVariantList indexPath = getIndexPathByID(data[FIELD_ID].toInt());
 	replace(indexPath.back().toInt(), data);
 }
 
 QVariantMap SqlDataModel::read(const int& id) {
+	m_dataBaseController->setTableName(m_table);
 	return m_dataBaseController->read(id);
 }
 
 QVariantList SqlDataModel::read() {
+	m_dataBaseController->setTableName(m_table);
 	m_lastLoadConditions = "";
 	return m_dataBaseController->read();
 }
 
 QVariantList SqlDataModel::read(const QVariantMap& arguments,
 		const QString& conditions) {
+	m_dataBaseController->setTableName(m_table);
 	m_lastLoadConditions = conditions;
 	m_lastLoadArguments = arguments;
 	return m_dataBaseController->read(arguments, conditions);
 }
 
 int SqlDataModel::count() {
+	m_dataBaseController->setTableName(m_table);
 	return m_dataBaseController->count();
 }
 
 int SqlDataModel::count(const QVariantMap& arguments,
 		const QString& conditions) {
+	m_dataBaseController->setTableName(m_table);
 	return m_dataBaseController->count(arguments, conditions);
 }
 
 void SqlDataModel::load() {
+	m_dataBaseController->setTableName(m_table);
 	int length = size();
 	for (int i = 0; i < length; ++i)
 		removeAt(0);
@@ -121,6 +131,7 @@ void SqlDataModel::load() {
 
 void SqlDataModel::load(const QVariantMap& arguments,
 		const QString& conditions) {
+	m_dataBaseController->setTableName(m_table);
 	int length = size();
 	for (int i = 0; i < length; ++i)
 		removeAt(0);
@@ -128,6 +139,7 @@ void SqlDataModel::load(const QVariantMap& arguments,
 }
 
 void SqlDataModel::clearRecords() {
+	m_dataBaseController->setTableName(m_table);
 	int length = size();
 	for (int i = 0; i < length; ++i) {
 		m_dataBaseController->deleteRecord(value(0).toMap()["id"].toInt());

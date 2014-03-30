@@ -127,7 +127,7 @@ void HtmlParser::changeFromHtmlToXml(QString html) {
         int posInit = m_xml.indexOf("<table", Qt::CaseInsensitive);
         int posEnd = m_xml.indexOf("</table>", posInit, Qt::CaseInsensitive);
         QStringRef subString(new QString(m_xml), posInit, 8 + posEnd - posInit);
-        m_xml.clear();
+    		m_xml.clear();
         m_xml.append(subString.toString());
     }
     // ============== remove partes inrelevantes do html ==============
@@ -138,12 +138,11 @@ void HtmlParser::changeFromHtmlToXml(QString html) {
     }
     // ============== remove atributos inrelevantes do html ==============
     {
-        int lenght = m_xml.length();
-        for (int i = 0; i < lenght; ++i) {
+        for (int i = 0; i < m_xml.length(); ++i) {
             if (m_xml.at(i) == '<') {
                 bool haveSpace = false;
                 int index = -1;
-                for (int j = i; j < lenght; ++j) {
+                for (int j = i; j < m_xml.length(); ++j) {
                     if (m_xml.at(j) == '>') {
                         if (haveSpace)
                             m_xml.replace(index, j - index, "");

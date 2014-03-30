@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.0" language="pt_BR">
 <context>
     <name>About</name>
     <message>
@@ -163,37 +163,32 @@
 <context>
     <name>Package</name>
     <message>
-        <location filename="../assets/Package.qml" line="7"/>
-        <source>Notebook&apos;s case</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Package.qml" line="11"/>
+        <location filename="../assets/Package.qml" line="10"/>
         <source>Delivered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="64"/>
-        <source>Description</source>
+        <location filename="../assets/Package.qml" line="140"/>
+        <source>Description:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="119"/>
+        <location filename="../assets/Package.qml" line="195"/>
         <source>Checkpoins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="122"/>
+        <location filename="../assets/Package.qml" line="198"/>
         <source>Details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="139"/>
+        <location filename="../assets/Package.qml" line="215"/>
         <source>Code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="140"/>
+        <location filename="../assets/Package.qml" line="216"/>
         <source>Added</source>
         <translation type="unfinished"></translation>
     </message>
@@ -201,7 +196,17 @@
 <context>
     <name>PackageListItem</name>
     <message>
-        <location filename="../assets/PackageListItem.qml" line="19"/>
+        <location filename="../assets/PackageListItem.qml" line="9"/>
+        <source>Package actions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/PackageListItem.qml" line="11"/>
+        <source>Share</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/PackageListItem.qml" line="38"/>
         <source>Last situation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -209,22 +214,27 @@
 <context>
     <name>PackagesListView</name>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="32"/>
+        <location filename="../assets/PackagesListView.qml" line="18"/>
+        <source>Package list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/PackagesListView.qml" line="33"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="40"/>
+        <location filename="../assets/PackagesListView.qml" line="41"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="47"/>
+        <location filename="../assets/PackagesListView.qml" line="48"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="77"/>
+        <location filename="../assets/PackagesListView.qml" line="78"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -266,16 +276,6 @@
     <message>
         <location filename="../assets/PackagesListView.qml" line="145"/>
         <source>Date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/PackagesListView.qml" line="159"/>
-        <source>Package&apos;s action</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/PackagesListView.qml" line="161"/>
-        <source>Share</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -367,6 +367,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../assets/Settings.qml" line="131"/>
+        <source>Camera Burst Event</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../assets/Settings.qml" line="134"/>
         <source>Camera Shutter Event</source>
         <translation type="unfinished"></translation>
@@ -434,11 +439,6 @@
     <message>
         <location filename="../assets/Settings.qml" line="186"/>
         <source>Vibration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="131"/>
-        <source>Camera Burst Event</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

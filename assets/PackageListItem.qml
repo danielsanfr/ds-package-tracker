@@ -4,25 +4,6 @@ Container {
     horizontalAlignment: HorizontalAlignment.Fill
     layout: DockLayout {
     }
-    contextActions: [
-        ActionSet {
-            title: qsTr("Package actions") + Retranslate.onLocaleOrLanguageChanged
-            InvokeActionItem {
-                title: qsTr("Share") + Retranslate.onLocaleOrLanguageChanged
-                query {
-                    mimeType: "text/plain"
-                    invokeActionId: "bb.action.SHARE"
-                }
-                onTriggered: {
-                    data = ""
-                }
-            }
-            DeleteActionItem {
-                onTriggered: {
-                }
-            }
-        }
-    ]
     Container {
         layout: StackLayout {
             orientation: LayoutOrientation.LeftToRight

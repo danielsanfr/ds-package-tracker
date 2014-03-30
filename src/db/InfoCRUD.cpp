@@ -57,7 +57,7 @@ void InfoCRUD::prepareUpdateQuery(QSqlQuery& query,
 const QVariantMap InfoCRUD::createModel(const QSqlQuery& query) const {
 	QVariantMap map;
 	map[INFO_ID] = query.value(0).toInt();
-	map[INFO_PACKAGE_ID] = query.value(1).toString();
+	map[INFO_PACKAGE_ID] = query.value(1).toInt();
 	map[INFO_DATE] = query.value(2).toString();
 	map[INFO_LOCATION] = query.value(3).toString();
 	map[INFO_SITUATION] = query.value(4).toString();
@@ -68,7 +68,7 @@ void InfoCRUD::bindValues(QSqlQuery& query, const QVariantMap& data,
 		const bool& bindId) const {
 	if (bindId)
 		query.bindValue(":" + INFO_ID, data[INFO_ID].toInt());
-	query.bindValue(":" + INFO_PACKAGE_ID, data[INFO_PACKAGE_ID].toString());
+	query.bindValue(":" + INFO_PACKAGE_ID, data[INFO_PACKAGE_ID].toInt());
 	query.bindValue(":" + INFO_DATE, data[INFO_DATE].toString());
 	query.bindValue(":" + INFO_LOCATION, data[INFO_LOCATION].toString());
 	query.bindValue(":" + INFO_SITUATION, data[INFO_SITUATION].toString());

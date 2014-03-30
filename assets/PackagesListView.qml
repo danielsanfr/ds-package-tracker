@@ -8,16 +8,23 @@ NavigationPane {
         //        page.deleteLater()
         page.destroy()
     }
+    function load(args, conditions) {
+        ctnLastUpdate.visible = (args[":status"] == "pending")
+    	dtMd.load(args, conditions)
+    }
     Page {
         titleBar: TitleBar {
             id: titleBar
-            title: qsTr("Package list") + Retranslate.onLocaleOrLanguageChanged
         }
         attachedObjects: [
             ComponentDefinition {
                 id: addPackageDefinition
                 AddPackage {
                 }
+            },
+            SqlDataModel {
+                id: dtMd
+                table: "package"
             }
         ]
         actions: [
@@ -86,6 +93,7 @@ NavigationPane {
                 }
             ]
             Container {
+                id: ctnLastUpdate
                 layout: DockLayout {
                 }
                 Header {
@@ -110,9 +118,7 @@ NavigationPane {
             }
             ListView {
                 id: packageListView
-                dataModel: SqlDataModel {
-                    table: "package"
-                }
+                dataModel: dtMd
                 leadingVisual: Container {
                     topPadding: 20
                     leftPadding: 20
@@ -147,6 +153,27 @@ NavigationPane {
                 listItemComponents: [
                     ListItemComponent {
                         PackageListItem {
+                        	id: lstItm
+                            contextActions: [
+                                ActionSet {
+                                    title: qsTr("Package's action") + Retranslate.onLocaleOrLanguageChanged
+                                    InvokeActionItem {
+                                        title: qsTr("Share") + Retranslate.onLocaleOrLanguageChanged
+                                        query {
+                                            mimeType: "text/plain"
+                                            invokeActionId: "bb.action.SHARE"
+                                        }
+                                        onTriggered: {
+                                            data = ""
+                                        }
+                                    }
+                                    DeleteActionItem {
+                                        onTriggered: {
+                                            lstItm.ListItem.view.dataModel.deleteRecord(lstItm.ListItem.indexPath)
+                                        }
+                                    }
+                                }
+                            ]
                         }
                     }
                 ]
@@ -157,24 +184,10 @@ NavigationPane {
                         }
                     }
                 ]
-                onCreationCompleted: {
-                    dataModel.load()
-//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Yellow, "last_situation": "Encaminhado"})
-//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Green, "last_situation": "Encaminhado"})
-//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Red, "last_situation": "Encaminhado"})
-//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Magenta, "last_situation": "Encaminhado"})
-//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Blue, "last_situation": "Encaminhado"})
-//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Cyan, "last_situation": "Encaminhado"})
-//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Gray, "last_situation": "Encaminhado"})
-//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.Black, "last_situation": "Encaminhado"})
-//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkBlue, "last_situation": "Encaminhado"})
-//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkGreen, "last_situation": "Encaminhado"})
-//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkRed, "last_situation": "Encaminhado"})
-//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.DarkYellow, "last_situation": "Encaminhado"})
-//                    dataModel.append({"code":"RA12345789BR", "short_description":"Notebook's case", "flag":Color.LightGray, "last_situation": "Encaminhado"})
-                }
                 onTriggered: {
-                    var packagePage = packageDefinition.createObject(navigationPane)
+                    var packagePage = packageDefinition.createObject(navigationPane),
+                    	data = dataModel.data(indexPath)
+                    packagePage.packageId = data.id
                     navigationPane.push(packagePage)
                 }
             }

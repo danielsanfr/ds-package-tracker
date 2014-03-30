@@ -1,3 +1,4 @@
+import bb.system 1.0
 import bb.cascades 1.0
 import model.custom 1.0
 
@@ -157,6 +158,57 @@ NavigationPane {
                             contextActions: [
                                 ActionSet {
                                     title: qsTr("Package's action") + Retranslate.onLocaleOrLanguageChanged
+                                    attachedObjects: [
+                                        SystemDialog {
+                                            id: sysDlg
+                                            property variant pack
+                                            property bool delPgk: false
+                                            onFinished: {
+                                                if (SystemUiResult.ConfirmButtonSelection) {
+                                                    var del = delPgk
+                                                    if (!del) {
+                                                    	var pkg = pack
+                                                        lstItm.ListItem.view.dataModel.update(pkg)
+                                                    } else
+                                                    	lstItm.ListItem.view.dataModel.deleteRecord(lstItm.ListItem.indexPath)
+                                                }
+                                            }
+                                        }
+                                    ]
+                                    ActionItem {
+                                        title: qsTr("Edit") + Retranslate.onLocaleOrLanguageChanged
+                                        imageSource: "asset:///images/ic_edit.png"
+                                        onTriggered: {
+                                        }
+                                    }
+                                    ActionItem {
+                                        title: qsTr("Mark as delivered") + Retranslate.onLocaleOrLanguageChanged
+                                        imageSource: "asset:///images/ic_delivered.png"
+                                        enabled: (ListItemData.status != "delivered")
+                                        onTriggered: {
+                                            var pack = lstItm.ListItem.view.dataModel.data(lstItm.ListItem.indexPath)
+                                            pack["status"] = "delivered"
+                                            sysDlg.title = qsTr("Mark as delivered") + Retranslate.onLocaleOrLanguageChanged
+                                            sysDlg.body = qsTr("You would like to mark this package as delivered") + "?" + Retranslate.onLocaleOrLanguageChanged
+                                            sysDlg.pack = pack
+                                            sysDlg.delPgk = false
+                                            sysDlg.show()
+                                        }
+                                    }
+                                    ActionItem {
+                                        title: qsTr("Archive") + Retranslate.onLocaleOrLanguageChanged
+                                        imageSource: "asset:///images/ic_archived.png"
+                                        enabled: (ListItemData.status != "archived")
+                                        onTriggered: {
+                                            var pack = lstItm.ListItem.view.dataModel.data(lstItm.ListItem.indexPath)
+                                            pack["status"] = "archived"
+                                            sysDlg.title = qsTr("Archive") + Retranslate.onLocaleOrLanguageChanged
+                                            sysDlg.body = qsTr("Would you like to archive this package") + "?" + Retranslate.onLocaleOrLanguageChanged
+                                            sysDlg.pack = pack
+                                            sysDlg.delPgk = false
+                                            sysDlg.show()
+                                        }
+                                    }
                                     InvokeActionItem {
                                         title: qsTr("Share") + Retranslate.onLocaleOrLanguageChanged
                                         query {
@@ -169,7 +221,11 @@ NavigationPane {
                                     }
                                     DeleteActionItem {
                                         onTriggered: {
-                                            lstItm.ListItem.view.dataModel.deleteRecord(lstItm.ListItem.indexPath)
+                                            sysDlg.title = qsTr("Delete package") + Retranslate.onLocaleOrLanguageChanged
+                                            sysDlg.body = qsTr("Do you want to delete this package") + "? "
+                                            + qsTr("This action can not be undone") + "." + Retranslate.onLocaleOrLanguageChanged
+                                            sysDlg.delPgk = true
+                                            sysDlg.show()
                                         }
                                     }
                                 }

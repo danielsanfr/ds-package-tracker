@@ -131,6 +131,8 @@ void SqlDataModel::load() {
 
 void SqlDataModel::load(const QVariantMap& arguments,
 		const QString& conditions) {
+	m_lastLoadArguments = arguments;
+	m_lastLoadConditions = conditions;
 	m_dataBaseController->setTableName(m_table);
 	int length = size();
 	for (int i = 0; i < length; ++i)
@@ -179,6 +181,8 @@ void SqlDataModel::onDeletedRecord(int uuid, const QString &tableName,
 
 void SqlDataModel::onDeletedRecord(int uuid, const QString &tableName,
 		const QVariantMap& arguments, const QString& conditions) {
+	Q_UNUSED(arguments);
+	Q_UNUSED(conditions);
 	if (uuid != m_dbAccessUUID && tableName == m_table) {
 		if (m_lastLoadConditions == "")
 			load();
@@ -189,7 +193,8 @@ void SqlDataModel::onDeletedRecord(int uuid, const QString &tableName,
 
 void SqlDataModel::onUpdatedRecord(int uuid, const QString &tableName,
 		const QVariantMap& data) {
-	if (uuid != m_dbAccessUUID && tableName == m_table) {
+	Q_UNUSED(data);
+	if (tableName == m_table) {
 		QVariantList indexPath = getIndexPathByID(data[FIELD_ID].toInt());
 		replace(indexPath.back().toInt(), data);
 		if (m_lastLoadConditions == "")

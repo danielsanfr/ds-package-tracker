@@ -1,7 +1,10 @@
 import bb.cascades 1.0
+import "AssetsGetter.js" as AssetsGetter
 
 Container {
-    horizontalAlignment: HorizontalAlignment.Fill
+    maxHeight: 111
+    minHeight: 111
+    preferredHeight: 111
     layout: DockLayout {
     }
     Container {
@@ -9,10 +12,20 @@ Container {
             orientation: LayoutOrientation.LeftToRight
         }
         Container {
+            maxHeight: 111
+            minHeight: 111
+            preferredHeight: 111
+            maxWidth: 15
             minWidth: 15
             preferredWidth: 15
-            background: ListItemData.flag
+            background: AssetsGetter.getColor(ListItemData.last_situation)
             verticalAlignment: VerticalAlignment.Fill
+            layout: DockLayout {
+            }
+            Divider {
+                verticalAlignment: VerticalAlignment.Bottom
+                opacity: 0.3
+            }
         }
         StandardListItem {
             title: ListItemData.short_descr
@@ -20,12 +33,10 @@ Container {
             status: ListItemData.code
         }
     }
-    Container {
-        opacity: 0.3
-        minWidth: 15
-        preferredWidth: 15
+    Divider {
         verticalAlignment: VerticalAlignment.Bottom
-        Divider {
-        }
+    }
+    Divider {
+        verticalAlignment: VerticalAlignment.Bottom
     }
 }

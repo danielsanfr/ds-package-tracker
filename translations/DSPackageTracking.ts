@@ -163,45 +163,81 @@
 <context>
     <name>Package</name>
     <message>
-        <location filename="../assets/Package.qml" line="7"/>
+        <location filename="../assets/Package.qml" line="11"/>
         <source>Notebook&apos;s case</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="11"/>
+        <location filename="../assets/Package.qml" line="15"/>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Package.qml" line="21"/>
         <source>Delivered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../assets/Package.qml" line="28"/>
+        <source>Mark as delivered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Package.qml" line="29"/>
+        <source>You would like to mark this package as delivered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Package.qml" line="36"/>
+        <location filename="../assets/Package.qml" line="43"/>
+        <source>Archive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Package.qml" line="44"/>
+        <source>Would you like to archive this package</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Package.qml" line="51"/>
+        <source>Share</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Package.qml" line="62"/>
+        <source>Delete package</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Package.qml" line="63"/>
+        <source>Do you want to delete this package</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../assets/Package.qml" line="64"/>
+        <source>This action can not be undone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Package.qml" line="126"/>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="119"/>
+        <location filename="../assets/Package.qml" line="181"/>
         <source>Checkpoins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="122"/>
+        <location filename="../assets/Package.qml" line="184"/>
         <source>Details</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Package.qml" line="139"/>
-        <source>Code</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Package.qml" line="140"/>
-        <source>Added</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PackageListItem</name>
     <message>
-        <location filename="../assets/PackageListItem.qml" line="19"/>
+        <location filename="../assets/PackageListItem.qml" line="32"/>
         <source>Last situation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -230,6 +266,7 @@
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="102"/>
+        <location filename="../assets/PackagesListView.qml" line="247"/>
         <source>Last update</source>
         <translation type="unfinished"></translation>
     </message>
@@ -250,6 +287,7 @@
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="137"/>
+        <location filename="../assets/PackagesListView.qml" line="246"/>
         <source>Code</source>
         <translation type="unfinished"></translation>
     </message>

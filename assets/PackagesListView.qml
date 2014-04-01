@@ -1,6 +1,7 @@
 import bb.system 1.0
 import bb.cascades 1.0
 import model.custom 1.0
+import bb.cascades.advertisement 1.0
 
 NavigationPane {
     id: navigationPane
@@ -11,7 +12,7 @@ NavigationPane {
     }
     function load(args, conditions) {
         ctnLastUpdate.visible = (args[":status"] == "pending")
-    	dtMd.load(args, conditions)
+        dtMd.load(args, conditions)
     }
     Page {
         titleBar: TitleBar {
@@ -106,10 +107,10 @@ NavigationPane {
                     bottomPadding: 3
                     verticalAlignment: VerticalAlignment.Center
                     horizontalAlignment: HorizontalAlignment.Right
-	                ActivityIndicator {
-	                    maxHeight: 100
-	                    running: true
-	                }
+                    ActivityIndicator {
+                        maxHeight: 100
+                        running: true
+                    }
                 }
             }
             ControlDelegate {
@@ -154,7 +155,7 @@ NavigationPane {
                 listItemComponents: [
                     ListItemComponent {
                         PackageListItem {
-                        	id: lstItm
+                            id: lstItm
                             contextActions: [
                                 ActionSet {
                                     title: qsTr("Package's action") + Retranslate.onLocaleOrLanguageChanged
@@ -166,11 +167,11 @@ NavigationPane {
                                             onFinished: {
                                                 if (value == SystemUiResult.ConfirmButtonSelection) {
                                                     var del = delPgk
-                                                    if (!del) {
-                                                    	var pkg = pack
+                                                    if (! del) {
+                                                        var pkg = pack
                                                         lstItm.ListItem.view.dataModel.update(pkg)
                                                     } else
-                                                    	lstItm.ListItem.view.dataModel.deleteRecord(lstItm.ListItem.indexPath)
+                                                        lstItm.ListItem.view.dataModel.deleteRecord(lstItm.ListItem.indexPath)
                                                 }
                                             }
                                         }
@@ -222,8 +223,7 @@ NavigationPane {
                                     DeleteActionItem {
                                         onTriggered: {
                                             sysDlg.title = qsTr("Delete package") + Retranslate.onLocaleOrLanguageChanged
-                                            sysDlg.body = qsTr("Do you want to delete this package") + "? "
-                                            + qsTr("This action can not be undone") + "." + Retranslate.onLocaleOrLanguageChanged
+                                            sysDlg.body = qsTr("Do you want to delete this package") + "? " + qsTr("This action can not be undone") + "." + Retranslate.onLocaleOrLanguageChanged
                                             sysDlg.delPgk = true
                                             sysDlg.show()
                                         }
@@ -241,12 +241,35 @@ NavigationPane {
                     }
                 ]
                 onTriggered: {
-                    var packagePage = packageDefinition.createObject(navigationPane),
-                    data = dataModel.data(indexPath)
+                    var packagePage = packageDefinition.createObject(navigationPane), data = dataModel.data(indexPath)
                     packagePage.code = qsTr("Code") + ": " + data.code + Retranslate.onLocaleOrLanguageChanged
                     packagePage.lastUpdate = qsTr("Last update") + ": " + data.last_update_date.toDateString() + Retranslate.onLocaleOrLanguageChanged
                     packagePage.packageId = data.id
                     navigationPane.push(packagePage)
+                }
+            }
+            Container {
+                topMargin: 10
+                bottomPadding: 10
+                minHeight: 50
+                maxHeight: 50
+                preferredHeight: 50
+                horizontalAlignment: HorizontalAlignment.Center
+                //! [0]
+                // this component is used for displaying banner Ad's
+                Banner {
+                    // zone id is used to identify your application and to track Ad performance
+                    // metrics by the Advertising Service
+                    zoneId: 117145
+                    refreshRate: 180
+                    borderWidth: 2
+                    preferredWidth: 320
+                    preferredHeight: 50
+                    transitionsEnabled: true
+                    // Place holder used when there is no connection to the Advertising Service
+                    placeHolderURL: "asset:///images/noconnection_728x90.png"
+                    borderColor: Color.Gray
+                    backgroundColor: Color.Green
                 }
             }
         }

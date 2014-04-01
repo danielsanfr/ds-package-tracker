@@ -18,11 +18,13 @@
 #define ApplicationUI_HPP_
 
 #include <QObject>
+#include <QDebug>
 
 #include <bb/cascades/Application>
 #include <bb/cascades/QmlDocument>
 #include <bb/cascades/AbstractPane>
 #include <bb/cascades/LocaleHandler>
+#include <bb/cascades/advertisement/Banner>
 
 #include "brpackagetracking/package.h"
 

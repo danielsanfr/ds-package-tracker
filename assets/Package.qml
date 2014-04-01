@@ -1,5 +1,6 @@
 import bb.system 1.0
 import bb.cascades 1.0
+import bb.cascades.advertisement 1.0
 import "AssetsGetter.js" as AssetsGetter
 
 Page {
@@ -219,6 +220,30 @@ Page {
                 sourceComponent: checkpointsListDefinition
                 verticalAlignment: VerticalAlignment.Fill
                 horizontalAlignment: HorizontalAlignment.Fill
+            }
+        }
+        Container {
+            topMargin: 10
+            bottomPadding: 10
+            minHeight: 50
+            maxHeight: 50
+            preferredHeight: 50
+            horizontalAlignment: HorizontalAlignment.Center
+            //! [0]
+            // this component is used for displaying banner Ad's
+            Banner {
+                // zone id is used to identify your application and to track Ad performance
+                // metrics by the Advertising Service
+                zoneId: 117145
+                refreshRate: 180
+                borderWidth: 2
+                preferredWidth: 320
+                preferredHeight: 50
+                transitionsEnabled: true
+                // Place holder used when there is no connection to the Advertising Service
+                placeHolderURL: "asset:///images/noconnection_728x90.png"
+                borderColor: Color.Gray
+                backgroundColor: Color.Green
             }
         }
     }

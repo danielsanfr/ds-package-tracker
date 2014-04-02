@@ -4,6 +4,7 @@ Container {
     id: self
     property string text
     property string uri
+    property alias multiline: label.multiline
     
     Label {
         id: label

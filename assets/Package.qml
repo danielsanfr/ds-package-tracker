@@ -8,8 +8,9 @@ Page {
     property int packageId: -1
     property alias code: hdCode.title
     property alias lastUpdate: hdCode.subtitle
+    property alias title: titleBar.title
     titleBar: TitleBar {
-        title: qsTr("Notebook's case") + Retranslate.onLocaleOrLanguageChanged
+        id: titleBar
     }
     actions: [
         ActionItem {
@@ -21,14 +22,14 @@ Page {
         ActionItem {
             title: qsTr("Delivered") + Retranslate.onLocaleOrLanguageChanged
             imageSource: "asset:///images/ic_delivered.png"
-//            enabled: (ListItemData.status != "delivered")
+            //            enabled: (ListItemData.status != "delivered")
             ActionBar.placement: ActionBarPlacement.OnBar
             onTriggered: {
-//                var pack = lstItm.ListItem.view.dataModel.data(lstItm.ListItem.indexPath)
-//                pack["status"] = "delivered"
+                //                var pack = lstItm.ListItem.view.dataModel.data(lstItm.ListItem.indexPath)
+                //                pack["status"] = "delivered"
                 sysDlg.title = qsTr("Mark as delivered") + Retranslate.onLocaleOrLanguageChanged
                 sysDlg.body = qsTr("You would like to mark this package as delivered") + "?" + Retranslate.onLocaleOrLanguageChanged
-//                sysDlg.pack = pack
+                //                sysDlg.pack = pack
                 sysDlg.delPgk = false
                 sysDlg.show()
             }
@@ -36,14 +37,14 @@ Page {
         ActionItem {
             title: qsTr("Archive") + Retranslate.onLocaleOrLanguageChanged
             imageSource: "asset:///images/ic_archived.png"
-//            enabled: (ListItemData.status != "archived")
+            //            enabled: (ListItemData.status != "archived")
             ActionBar.placement: ActionBarPlacement.OnBar
             onTriggered: {
-//                var pack = lstItm.ListItem.view.dataModel.data(lstItm.ListItem.indexPath)
-//                pack["status"] = "archived"
+                //                var pack = lstItm.ListItem.view.dataModel.data(lstItm.ListItem.indexPath)
+                //                pack["status"] = "archived"
                 sysDlg.title = qsTr("Archive") + Retranslate.onLocaleOrLanguageChanged
                 sysDlg.body = qsTr("Would you like to archive this package") + "?" + Retranslate.onLocaleOrLanguageChanged
-//                sysDlg.pack = pack
+                //                sysDlg.pack = pack
                 sysDlg.delPgk = false
                 sysDlg.show()
             }
@@ -61,8 +62,7 @@ Page {
         DeleteActionItem {
             onTriggered: {
                 sysDlg.title = qsTr("Delete package") + Retranslate.onLocaleOrLanguageChanged
-                sysDlg.body = qsTr("Do you want to delete this package") + "? "
-                + qsTr("This action can not be undone") + "." + Retranslate.onLocaleOrLanguageChanged
+                sysDlg.body = qsTr("Do you want to delete this package") + "? " + qsTr("This action can not be undone") + "." + Retranslate.onLocaleOrLanguageChanged
                 sysDlg.delPgk = true
                 sysDlg.show()
             }
@@ -118,50 +118,74 @@ Page {
                 verticalAlignment: VerticalAlignment.Fill
                 horizontalAlignment: HorizontalAlignment.Fill
                 Container {
+                    rightPadding: 20
                     bottomPadding: 20
                     verticalAlignment: VerticalAlignment.Fill
                     horizontalAlignment: HorizontalAlignment.Fill
-                    DSHImageDobleLabel {
-                        leftPadding: 10
-                        rightPadding: 10
-                        title: qsTr("Description") + ":" + Retranslate.onLocaleOrLanguageChanged
-                        text: "Estou estando isso aqui para ver como isso irá ficar. Acho que ja esta bom esa quantidade de coisa escrita"
+                    PackageItemDetail {
+                        title: qsTr("Description")
                         imageSource: "asset:///images/ic_description.png"
+                        text: "Estou testando isso aqui para ver como isso irá ficar. Acho que ja esta bom esa quantidade de coisa escrita"
                     }
-                    DSHImageDobleLabel {
-                        leftPadding: 10
-                        rightPadding: 10
-                        title: "Country:"
-                        text: "Estados Unidos"
+                    PackageItemDetail {
+
+                        title: qsTr("Country")
                         imageSource: "asset:///images/ic_country.png"
+                        text: "Estou testando isso aqui para ver como isso irá ficar. Acho que ja esta bom esa quantidade de coisa escrita"
                     }
-                    DSHImageDobleLabel {
-                        leftPadding: 10
-                        rightPadding: 10
-                        title: "Service:"
-                        text: "Carta registrada"
+                    PackageItemDetail {
+                        title: qsTr("Service name")
                         imageSource: "asset:///images/ic_mail.png"
+                        text: "Estou testando isso aqui para ver como isso irá ficar. Acho que ja esta bom esa quantidade de coisa escrita"
+
                     }
-                    DSHImageDobleLabel {
-                        leftPadding: 10
-                        rightPadding: 10
-                        title: "Dirction:"
-                        text: "Enviado"
+                    PackageItemDetail {
+                        title: qsTr("Direction")
                         imageSource: "asset:///images/ic_sender.png"
+                        text: "Estou testando isso aqui para ver como isso irá ficar. Acho que ja esta bom esa quantidade de coisa escrita"
                     }
-                    DSHImageDobleLabel {
-                        leftPadding: 10
-                        rightPadding: 10
-                        title: "E-mail(s)"
-                        text: "sample@sample.com, friend@friend.com"
+                    PackageItemDetail {
+                        title: qsTr("E-mails(s)")
                         imageSource: "asset:///images/ic_mail.png"
+                        text: "Estou testando isso aqui para ver como isso irá ficar. Acho que ja esta bom esa quantidade de coisa escrita"
                     }
-                    DSHImageDobleLabel {
-                        leftPadding: 10
-                        rightPadding: 10
-                        title: "Tags"
-                        text: "Tags, asda, dadas,dasdas,asd, sad,gfd, dsgdfs, gfdgd, gfdfg"
-                        imageSource: "asset:///images/ic_htags.png"
+                    Container {
+                        verticalAlignment: VerticalAlignment.Fill
+                        layout: StackLayout {
+                            orientation: LayoutOrientation.LeftToRight
+                        }
+                        Container {
+                            ImageView {
+                                minWidth: 71
+                                maxWidth: 71
+                                minHeight: 71
+                                maxHeight: 71
+                                preferredWidth: 71
+                                preferredHeight: 71
+                                scalingMethod: ScalingMethod.AspectFit
+                                imageSource: "asset:///images/ic_description.png"
+                            }
+                        }
+                        Container {
+                            topPadding: 13
+                            Container {
+                                Label {
+                                    text: qsTr("Link")
+                                    textStyle.fontWeight: FontWeight.Bold
+                                }
+                            }
+                            Container {
+                                topPadding: 10
+                                bottomPadding: 10
+                                Divider {
+                                }
+                            }
+                            LabelLink {
+                                text: "www.google.com.br"
+                                uri: "http://www.google.com.br"
+                                multiline: true
+                            }
+                        }
                     }
                 }
             }

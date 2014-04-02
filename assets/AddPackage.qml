@@ -83,7 +83,7 @@ Sheet {
                     leftPadding: 20
                     rightPadding: 20
                     inputMode: TextFieldInputMode.EmailAddress
-                    title: qsTr("Tracking code:") + Retranslate.onLocaleOrLanguageChanged
+                    title: qsTr("Tracking code") + ":" + Retranslate.onLocaleOrLanguageChanged
                     hintText: qsTr("Eg: RA123456789BR") + Retranslate.onLocaleOrLanguageChanged
                     onTextFldChanging: {
                         if (text.length > 13) {
@@ -107,7 +107,7 @@ Sheet {
                     id: txtFldCountry
                     leftPadding: 20
                     rightPadding: 20
-                    title: qsTr("Country of origin:") + Retranslate.onLocaleOrLanguageChanged
+                    title: qsTr("Send from") + ":" + Retranslate.onLocaleOrLanguageChanged
                     hintText: ""
                     enabled: false
                 }
@@ -116,7 +116,7 @@ Sheet {
                     topPadding: 20
                     leftPadding: 20
                     rightPadding: 20
-                    title: qsTr("Service name:") + Retranslate.onLocaleOrLanguageChanged
+                    title: qsTr("Service name") + ":" + Retranslate.onLocaleOrLanguageChanged
                     hintText: ""
                     enabled: false
                 }

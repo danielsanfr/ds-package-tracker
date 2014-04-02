@@ -108,6 +108,14 @@ void PackagesController::update() {
 		emit load(m_packagesMap.value(id)->code());
 }
 
+QString PackagesController::sendFrom(const int& id) {
+	return m_packagesMap.value(id)->countryName();
+}
+
+QString PackagesController::serviceName(const int& id) {
+	return m_packagesMap.value(id)->serviceName();
+}
+
 QVariantMap PackagesController::informationToMap(const Information& info) {
 	QVariantMap map;
 	map.insert("date", info.date());
@@ -189,4 +197,9 @@ int PackagesController::idByCode(const QString& code) {
 			return id;
 	}
 	return -1;
+}
+
+void PackagesController::debug(const QString& file, const int& line,
+		const QVariant& data) {
+	qDebug() << file << ":" << line << "-" << data;
 }

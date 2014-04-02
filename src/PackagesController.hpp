@@ -40,6 +40,9 @@ public:
 	Q_INVOKABLE QVariantList informationList(const int &id);
 	Q_INVOKABLE void update();
 	Q_INVOKABLE void update(const int &id);
+	Q_INVOKABLE QString sendFrom(const int &id);
+	Q_INVOKABLE QString serviceName(const int &id);
+	Q_INVOKABLE void debug(const QString &file, const int &line, const QVariant &data);
 	Q_SIGNAL void load(const QString &code);
 private:
 	PackagesController(QObject *parent = 0);

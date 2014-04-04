@@ -5,7 +5,6 @@ Container {
     property string text
     property string uri
     property alias multiline: label.multiline
-    
     Label {
         id: label
         property bool touchIsDown: false
@@ -15,26 +14,22 @@ Container {
             fontSize: FontSize.Large
             color: Color.Blue
         }
-        
         attachedObjects: [ // attach to the page or something
             Invocation {
                 id: linkInvocation
                 property bool auto_trigger: false
-                
                 onArmed: {
                     // don't auto-trigger on initial setup
                     if (auto_trigger)
                         trigger("bb.action.OPEN");
                     auto_trigger = true; // allow re-arming to auto-trigger
                 }
-                
                 query {
-                    uri: self.uri
+                    uri: (self.uri.indexOf("http://") == 0 || self.uri.indexOf("https://") == 0) ? self.uri : "http://" + self.uri
                     invokeTargetId: "sys.browser"
                 }
             }
         ]
-        
         onTouch: {
             if (event.touchType == TouchType.Up && touchIsDown) {
                 linkInvocation.query.updateQuery()
@@ -44,5 +39,4 @@ Container {
             }
         }
     }
-    
 }

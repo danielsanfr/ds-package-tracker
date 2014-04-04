@@ -5,6 +5,7 @@ import "AssetsGetter.js" as AssetsGetter
 
 Page {
     id: self
+    property bool isFullVersion: false
     property variant packageData: 0
     titleBar: TitleBar {
         id: titleBar
@@ -13,20 +14,21 @@ Page {
         ActionItem {
             title: qsTr("Edit") + Retranslate.onLocaleOrLanguageChanged
             imageSource: "asset:///images/ic_edit.png"
+            enabled: false
             onTriggered: {
             }
         },
         ActionItem {
             title: qsTr("Delivered") + Retranslate.onLocaleOrLanguageChanged
             imageSource: "asset:///images/ic_delivered.png"
-            //            enabled: (ListItemData.status != "delivered")
+            enabled: (packageData.status != "delivered")
             ActionBar.placement: ActionBarPlacement.OnBar
             onTriggered: {
-                //                var pack = lstItm.ListItem.view.dataModel.data(lstItm.ListItem.indexPath)
-                //                pack["status"] = "delivered"
+                var pack = packageData
+                pack["status"] = "delivered"
                 sysDlg.title = qsTr("Mark as delivered") + Retranslate.onLocaleOrLanguageChanged
                 sysDlg.body = qsTr("You would like to mark this package as delivered") + "?" + Retranslate.onLocaleOrLanguageChanged
-                //                sysDlg.pack = pack
+                sysDlg.pack = pack
                 sysDlg.delPgk = false
                 sysDlg.show()
             }
@@ -34,14 +36,14 @@ Page {
         ActionItem {
             title: qsTr("Archive") + Retranslate.onLocaleOrLanguageChanged
             imageSource: "asset:///images/ic_archived.png"
-            //            enabled: (ListItemData.status != "archived")
+            enabled: isFullVersion && (packageData.status != "archived")
             ActionBar.placement: ActionBarPlacement.OnBar
             onTriggered: {
-                //                var pack = lstItm.ListItem.view.dataModel.data(lstItm.ListItem.indexPath)
-                //                pack["status"] = "archived"
+                var pack = packageData
+                pack["status"] = "archived"
                 sysDlg.title = qsTr("Archive") + Retranslate.onLocaleOrLanguageChanged
                 sysDlg.body = qsTr("Would you like to archive this package") + "?" + Retranslate.onLocaleOrLanguageChanged
-                //                sysDlg.pack = pack
+                sysDlg.pack = pack
                 sysDlg.delPgk = false
                 sysDlg.show()
             }
@@ -53,7 +55,9 @@ Page {
                 invokeActionId: "bb.action.SHARE"
             }
             onTriggered: {
-                data = ""
+                data = "Code: " + packageData.code + "\nLast update date: " + packageData.last_update_date.toDateString()
+                + "\nLast update informations: " + packageData.last_situation
+                + "\n\nYou also can download the DS Package Tracking: http://appworld.blackberry.com/webstore/content/38031901/"
             }
         },
         DeleteActionItem {
@@ -74,9 +78,16 @@ Page {
                 if (value == SystemUiResult.ConfirmButtonSelection) {
                     var del = delPgk
                     if (! del) {
-                        console.log("Update item")
-                    } else
-                        console.log("Delete item")
+                        var pkg = pack
+                        _db.setTableName("package")
+                        _db.update(pkg)
+                        self.packageData = pkg
+                    } else {
+                        var pkg = self.packageData
+                        _db.setTableName("package")
+                        _db.deleteRecord(pkg.id)
+                        navigationPane.pop()
+                    }
                 }
             }
         },

@@ -5,7 +5,6 @@ Container {
     property alias title: lblTitle.text
     property alias text: txtFld.text
     property alias hintText: txtFld.hintText
-    property alias enable: txtFld.enabled
     property alias inputMode: txtFld.inputMode
     signal textFldChanged(string text)
     signal textFldChanging(string text)
@@ -15,6 +14,7 @@ Container {
     }
     TextField {
         id: txtFld
+        enabled: self.enabled
         onTextChanged: {
             self.textFldChanged(text)
         }

@@ -2,6 +2,7 @@ import bb.cascades 1.0
 
 Sheet {
     id: self
+    property bool isFullVersion: false
     Page {
         titleBar: TitleBar {
             title: qsTr("Settings")
@@ -70,6 +71,7 @@ Sheet {
                     horizontalAlignment: HorizontalAlignment.Fill
                     CheckBox {
                         id: chkBoxNotify
+                        enabled: isFullVersion
                         text: qsTr("Notifications")
                         onCreationCompleted: {
                             var notify = _settings.getValueFor("notify", false)
@@ -210,6 +212,7 @@ Sheet {
                     horizontalAlignment: HorizontalAlignment.Fill
                     CheckBox {
                         id: chkBoxAutoRefresh
+                        enabled: isFullVersion
                         text: qsTr("Automatic refresh") + Retranslate.onLocaleOrLanguageChanged
                         onCreationCompleted: {
                             var autoRefresh = _settings.getValueFor("auto_refresh", false)

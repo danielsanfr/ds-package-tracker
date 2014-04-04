@@ -2,6 +2,7 @@ import bb.cascades 1.0
 
 Sheet {
     id: self
+    property bool isFullVersion: false
     onClosed: {
         self.destroy()
     }
@@ -134,6 +135,7 @@ Sheet {
                     rightPadding: 20
                     CheckBox {
                         id: chkBoxSender
+                        enabled: isFullVersion
                         text: qsTr("Sending package?") + Retranslate.onLocaleOrLanguageChanged
                     }
                 }
@@ -151,6 +153,7 @@ Sheet {
                     leftPadding: 20
                     rightPadding: 20
                     inputMode: TextFieldInputMode.Url
+                    enabled: isFullVersion
                     title: qsTr("Url to package store") + ":" + Retranslate.onLocaleOrLanguageChanged
                     hintText: qsTr("Eg: www.store.com") + Retranslate.onLocaleOrLanguageChanged
                 }
@@ -167,6 +170,7 @@ Sheet {
                     }
                     ToggleButton {
                         id: tgBtnDescription
+                        enabled: isFullVersion
                         horizontalAlignment: HorizontalAlignment.Right
                         onCheckedChanged: {
                             txtArDescription.text = ""
@@ -202,6 +206,7 @@ Sheet {
                     }
                     ToggleButton {
                         id: tgBtnExtraEmail
+                        enabled: isFullVersion
                         horizontalAlignment: HorizontalAlignment.Right
                         onCheckedChanged: {
                             txtArEmails.text = ""

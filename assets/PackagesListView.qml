@@ -5,6 +5,7 @@ import bb.cascades.advertisement 1.0
 
 NavigationPane {
     id: navigationPane
+    property bool isFullVersion: false
     property alias title: titleBar.title
     onPopTransitionEnded: {
         //        page.deleteLater()
@@ -179,6 +180,7 @@ NavigationPane {
                                     ActionItem {
                                         title: qsTr("Edit") + Retranslate.onLocaleOrLanguageChanged
                                         imageSource: "asset:///images/ic_edit.png"
+                                        enabled: false
                                         onTriggered: {
                                         }
                                     }
@@ -187,7 +189,7 @@ NavigationPane {
                                         imageSource: "asset:///images/ic_delivered.png"
                                         enabled: (ListItemData.status != "delivered")
                                         onTriggered: {
-                                            var pack = lstItm.ListItem.view.dataModel.data(lstItm.ListItem.indexPath)
+                                            var pack = ListItemData
                                             pack["status"] = "delivered"
                                             sysDlg.title = qsTr("Mark as delivered") + Retranslate.onLocaleOrLanguageChanged
                                             sysDlg.body = qsTr("You would like to mark this package as delivered") + "?" + Retranslate.onLocaleOrLanguageChanged
@@ -197,11 +199,12 @@ NavigationPane {
                                         }
                                     }
                                     ActionItem {
+                                    	property bool isFullVersion: false
                                         title: qsTr("Archive") + Retranslate.onLocaleOrLanguageChanged
                                         imageSource: "asset:///images/ic_archived.png"
-                                        enabled: (ListItemData.status != "archived")
+                                        enabled: isFullVersion && (ListItemData.status != "archived")
                                         onTriggered: {
-                                            var pack = lstItm.ListItem.view.dataModel.data(lstItm.ListItem.indexPath)
+                                            var pack = ListItemData
                                             pack["status"] = "archived"
                                             sysDlg.title = qsTr("Archive") + Retranslate.onLocaleOrLanguageChanged
                                             sysDlg.body = qsTr("Would you like to archive this package") + "?" + Retranslate.onLocaleOrLanguageChanged
@@ -217,7 +220,9 @@ NavigationPane {
                                             invokeActionId: "bb.action.SHARE"
                                         }
                                         onTriggered: {
-                                            data = ""
+                                            data = "Code: " + ListItemData.code + "\nLast update date: " + ListItemData.last_update_date.toDateString()
+                                            + "\nLast update informations: " + ListItemData.last_situation
+                                            + "\n\nYou also can download the DS Package Tracking: http://appworld.blackberry.com/webstore/content/38031901/"
                                         }
                                     }
                                     DeleteActionItem {

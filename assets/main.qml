@@ -17,6 +17,7 @@
 import bb.cascades 1.0
 
 TabbedPane {
+    property bool isFullVersion: false
     attachedObjects: [
         ComponentDefinition {
             id: settingsDefinition
@@ -60,7 +61,7 @@ TabbedPane {
     tabs: [
         Tab {
             title: qsTr("Pending") + Retranslate.onLocaleOrLanguageChanged
-            newContentAvailable: true
+//            newContentAvailable: true
             imageSource: "asset:///images/ic_peding.png"
             PackagesListView {
                 title: qsTr("Pending packages") + Retranslate.onLocaleOrLanguageChanged
@@ -74,7 +75,7 @@ TabbedPane {
         },
         Tab {
             title: qsTr("Delivered") + Retranslate.onLocaleOrLanguageChanged
-            newContentAvailable: true
+//            newContentAvailable: true
             imageSource: "asset:///images/ic_delivered.png"
             PackagesListView {
                 title: qsTr("Delivered packages") + Retranslate.onLocaleOrLanguageChanged
@@ -88,7 +89,9 @@ TabbedPane {
         },
         Tab {
             title: qsTr("Archived") + Retranslate.onLocaleOrLanguageChanged
+            description: qsTr("Available for full version") + Retranslate.onLocaleOrLanguageChanged
             imageSource: "asset:///images/ic_archived.png"
+            enabled: isFullVersion
             PackagesListView {
                 title: qsTr("Archived packages") + Retranslate.onLocaleOrLanguageChanged
                 onCreationCompleted: {
@@ -101,7 +104,9 @@ TabbedPane {
         },
         Tab {
             title: qsTr("Statistics") + Retranslate.onLocaleOrLanguageChanged
+            description: qsTr("Available for full version") + Retranslate.onLocaleOrLanguageChanged
             imageSource: "asset:///images/ic_statistics.png"
+            enabled: isFullVersion
             Statistics {
             }
         }

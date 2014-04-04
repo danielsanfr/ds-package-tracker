@@ -163,115 +163,113 @@
 <context>
     <name>Package</name>
     <message>
-        <location filename="../assets/Package.qml" line="30"/>
+        <location filename="../assets/Package.qml" line="14"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="36"/>
+        <location filename="../assets/Package.qml" line="20"/>
         <source>Delivered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="43"/>
+        <location filename="../assets/Package.qml" line="27"/>
         <source>Mark as delivered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="44"/>
+        <location filename="../assets/Package.qml" line="28"/>
         <source>You would like to mark this package as delivered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="51"/>
-        <location filename="../assets/Package.qml" line="58"/>
+        <location filename="../assets/Package.qml" line="35"/>
+        <location filename="../assets/Package.qml" line="42"/>
         <source>Archive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="59"/>
+        <location filename="../assets/Package.qml" line="43"/>
         <source>Would you like to archive this package</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="66"/>
+        <location filename="../assets/Package.qml" line="50"/>
         <source>Share</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="77"/>
+        <location filename="../assets/Package.qml" line="61"/>
         <source>Delete package</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="78"/>
+        <location filename="../assets/Package.qml" line="62"/>
         <source>Do you want to delete this package</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="78"/>
+        <location filename="../assets/Package.qml" line="62"/>
         <source>This action can not be undone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="164"/>
-        <source>Description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Package.qml" line="169"/>
-        <source>Send from</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Package.qml" line="174"/>
-        <source>Service name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Package.qml" line="179"/>
-        <source>Direction</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Package.qml" line="150"/>
+        <location filename="../assets/Package.qml" line="127"/>
         <source>Sender</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="150"/>
+        <location filename="../assets/Package.qml" line="127"/>
         <source>Addressee</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="183"/>
+        <location filename="../assets/Package.qml" line="140"/>
+        <source>Description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Package.qml" line="145"/>
+        <source>Send from</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Package.qml" line="150"/>
+        <source>Service name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Package.qml" line="155"/>
+        <source>Direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Package.qml" line="159"/>
         <source>E-mails(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="207"/>
+        <location filename="../assets/Package.qml" line="193"/>
         <source>Link</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="18"/>
-        <location filename="../assets/Package.qml" line="232"/>
+        <location filename="../assets/Package.qml" line="219"/>
         <source>Code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="19"/>
-        <location filename="../assets/Package.qml" line="233"/>
+        <location filename="../assets/Package.qml" line="220"/>
         <source>Last update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="247"/>
+        <location filename="../assets/Package.qml" line="234"/>
         <source>Checkpoins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="250"/>
+        <location filename="../assets/Package.qml" line="237"/>
         <source>Details</source>
         <translation type="unfinished"></translation>
     </message>

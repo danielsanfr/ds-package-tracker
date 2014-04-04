@@ -241,11 +241,9 @@ NavigationPane {
                     }
                 ]
                 onTriggered: {
-                    var packagePage = packageDefinition.createObject(navigationPane), data = dataModel.data(indexPath)
-                    packagePage.title = data.short_descr
-                    packagePage.code = qsTr("Code") + ": " + data.code + Retranslate.onLocaleOrLanguageChanged
-                    packagePage.lastUpdate = qsTr("Last update") + ": " + data.last_update_date.toDateString() + Retranslate.onLocaleOrLanguageChanged
-                    packagePage.packageId = data.id
+                    var packagePage = packageDefinition.createObject(navigationPane),
+                    	data = dataModel.data(indexPath)
+                    packagePage.packageData = data
                     navigationPane.push(packagePage)
                 }
             }

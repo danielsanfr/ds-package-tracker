@@ -5,10 +5,7 @@ import "AssetsGetter.js" as AssetsGetter
 
 Page {
     id: self
-    property int packageId: -1
-    property alias code: hdCode.title
-    property alias lastUpdate: hdCode.subtitle
-    property alias title: titleBar.title
+    property variant packageData: 0
     titleBar: TitleBar {
         id: titleBar
     }
@@ -87,7 +84,7 @@ Page {
             id: checkpointsListDefinition
             ListView {
                 id: lstVwInfos
-                property int packageId: self.packageId
+                property variant packageData: self.packageData
                 verticalAlignment: VerticalAlignment.Fill
                 horizontalAlignment: HorizontalAlignment.Fill
                 dataModel: ArrayDataModel {
@@ -103,10 +100,10 @@ Page {
                         }
                     }
                 ]
-                onPackageIdChanged: {
-                    var pkgId = lstVwInfos.packageId
-                    if (pkgId != -1) {
-                        var list = _packageCtrl.informationList(pkgId)
+                onPackageDataChanged: {
+                    var pkgData = lstVwInfos.packageData
+                    if (pkgData != undefined) {
+                        var list = _packageCtrl.informationList(pkgData.id)
                         dataModel.append(list)
                     }
                 }
@@ -115,75 +112,100 @@ Page {
         ComponentDefinition {
             id: detailDefinition
             ScrollView {
+                id: srlVwDetail
+                property variant packageData: self.packageData
                 verticalAlignment: VerticalAlignment.Fill
                 horizontalAlignment: HorizontalAlignment.Fill
+                onPackageDataChanged: {
+                    var pkgData = srlVwDetail.packageData
+                    if (pkgData != undefined) {
+                        pkgItDtlDesc.text = pkgData.description
+                        _packageCtrl.validateCode(pkgData.code)
+                        var countyAndService = _packageCtrl.countyAndService()
+                        pkgItDtlSendFrom.text = countyAndService[0]
+                        pkgItDtlServiceName.text = countyAndService[1]
+                        pkgItDtlDirection.text = (pkgData.sending) ? qsTr("Sender") : qsTr("Addressee")
+                        pkgItDtlDirection.imageSource = (pkgData.sending) ? "asset:///images/ic_sender.png" : "asset:///images/ic_reciver.png"
+                        pkgItDtlEmail.text = pkgData.emails
+                        pkgItDtlUrl.text = pkgData.url_to_store
+                        pkgItDtlUrl.uri = pkgData.url_to_store
+                    }
+                }
                 Container {
-                    rightPadding: 20
                     bottomPadding: 20
                     verticalAlignment: VerticalAlignment.Fill
                     horizontalAlignment: HorizontalAlignment.Fill
                     PackageItemDetail {
+                        id: pkgItDtlDesc
                         title: qsTr("Description")
                         imageSource: "asset:///images/ic_description.png"
-                        text: "Estou testando isso aqui para ver como isso irá ficar. Acho que ja esta bom esa quantidade de coisa escrita"
                     }
                     PackageItemDetail {
-
-                        title: qsTr("Country")
-                        imageSource: "asset:///images/ic_country.png"
-                        text: "Estou testando isso aqui para ver como isso irá ficar. Acho que ja esta bom esa quantidade de coisa escrita"
+                        id: pkgItDtlSendFrom
+                        title: qsTr("Send from")
+                        imageSource: "asset:///images/ic_send_from.png"
                     }
                     PackageItemDetail {
+                        id: pkgItDtlServiceName
                         title: qsTr("Service name")
-                        imageSource: "asset:///images/ic_mail.png"
-                        text: "Estou testando isso aqui para ver como isso irá ficar. Acho que ja esta bom esa quantidade de coisa escrita"
-
+                        imageSource: "asset:///images/ic_service.png"
                     }
                     PackageItemDetail {
+                        id: pkgItDtlDirection
                         title: qsTr("Direction")
-                        imageSource: "asset:///images/ic_sender.png"
-                        text: "Estou testando isso aqui para ver como isso irá ficar. Acho que ja esta bom esa quantidade de coisa escrita"
                     }
                     PackageItemDetail {
+                        id: pkgItDtlEmail
                         title: qsTr("E-mails(s)")
                         imageSource: "asset:///images/ic_mail.png"
-                        text: "Estou testando isso aqui para ver como isso irá ficar. Acho que ja esta bom esa quantidade de coisa escrita"
                     }
                     Container {
+                        background: Color.LightGray
+                        leftPadding: 5
+                        rightPadding: 5
+                        bottomPadding: 5
                         verticalAlignment: VerticalAlignment.Fill
-                        layout: StackLayout {
-                            orientation: LayoutOrientation.LeftToRight
-                        }
+                        horizontalAlignment: HorizontalAlignment.Fill
                         Container {
-                            ImageView {
-                                minWidth: 71
-                                maxWidth: 71
-                                minHeight: 71
-                                maxHeight: 71
-                                preferredWidth: 71
-                                preferredHeight: 71
-                                scalingMethod: ScalingMethod.AspectFit
-                                imageSource: "asset:///images/ic_description.png"
+                            background: Color.White
+                            verticalAlignment: VerticalAlignment.Fill
+                            horizontalAlignment: HorizontalAlignment.Fill
+                            layout: StackLayout {
+                                orientation: LayoutOrientation.LeftToRight
                             }
-                        }
-                        Container {
-                            topPadding: 13
                             Container {
-                                Label {
-                                    text: qsTr("Link")
-                                    textStyle.fontWeight: FontWeight.Bold
+                                ImageView {
+                                    minWidth: 71
+                                    maxWidth: 71
+                                    minHeight: 71
+                                    maxHeight: 71
+                                    preferredWidth: 71
+                                    preferredHeight: 71
+                                    scalingMethod: ScalingMethod.AspectFit
+                                    imageSource: "asset:///images/ic_link.png"
                                 }
                             }
                             Container {
-                                topPadding: 10
-                                bottomPadding: 10
-                                Divider {
+                                topPadding: 13
+                                Container {
+                                    rightPadding: 20
+                                    Label {
+                                        text: qsTr("Link")
+                                        textStyle.fontWeight: FontWeight.Bold
+                                    }
                                 }
-                            }
-                            LabelLink {
-                                text: "www.google.com.br"
-                                uri: "http://www.google.com.br"
-                                multiline: true
+                                Container {
+                                    topPadding: 10
+                                    bottomPadding: 10
+                                    Divider {
+                                    }
+                                }
+                                LabelLink {
+                                    id: pkgItDtlUrl
+                                    multiline: true
+                                    rightPadding: 20
+                                    bottomPadding: 10
+                                }
                             }
                         }
                     }
@@ -191,6 +213,12 @@ Page {
             }
         }
     ]
+    onPackageDataChanged: {
+        var pkgData = self.packageData
+        titleBar.title = pkgData.short_descr
+        hdCode.title = qsTr("Code") + ": " + pkgData.code + Retranslate.onLocaleOrLanguageChanged
+        hdCode.subtitle = qsTr("Last update") + ": " + pkgData.last_update_date.toDateString() + Retranslate.onLocaleOrLanguageChanged
+    }
     Container {
         topPadding: 20
         verticalAlignment: VerticalAlignment.Fill

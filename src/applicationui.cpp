@@ -56,7 +56,7 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
     const QString uuid(QLatin1String("f0af2ec0-bd9b-11e3-b1b6-0800200c9a66")); // free version
     RegistrationHandler *registrationHandler = new RegistrationHandler(uuid, app);
     m_inviteToDownload = new InviteToDownload(registrationHandler->context(), app);
-    res = QObject::connect(registrationHandler, SIGNAL(registered()), m_inviteToDownload, SLOT(show()));
+    res = connect(registrationHandler, SIGNAL(registered()), m_inviteToDownload, SLOT(show()));
     Q_ASSERT(res);
     Q_UNUSED(res);
 
@@ -72,6 +72,8 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
 	qml->documentContext()->setContextProperty("_packageCtrl", PackagesController::getInstance(this));
     Settings::getInstance(this)->setParent(this);
     Settings::getInstance(this)->emitObjectName("last_update_date");
+
+    registrationHandler->registerApplication();
 
     // Set created root object as the application scene
     app->setScene(root);

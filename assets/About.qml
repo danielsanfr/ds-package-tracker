@@ -23,6 +23,21 @@ Sheet {
                 invokeTargetId: "sys.appworld"
                 uri: "appworld://vendor/77401" // id vendor Daniel San Ferreira da Rocha: 77401
             }
+        },
+        Invocation {
+            id: invctEmail
+            query {
+                property variant appData: {
+                    "data": {
+                        "to": [ "daniel.sam123@hotmail.com" ],
+                        "subject": "[DS Package Tracking] Support or suggestion",
+                        "body": "Version: " + appInfo.version()
+                    }
+                }
+                invokeTargetId: "sys.pim.uib.email.hybridcomposer"
+                mimeType: "message/rfc822"
+                data: _app.encode(appData)
+            }
         }
     ]
     Page {
@@ -104,7 +119,7 @@ Sheet {
                         text: qsTr("Version") + ": " + appInfo.version() + Retranslate.onLocaleOrLanguageChanged
                         textStyle.fontWeight: FontWeight.Bold
                         textStyle.fontSize: FontSize.Small
-                        
+
                     }
                 }
                 LabelLink {
@@ -150,7 +165,6 @@ Sheet {
                         text: qsTr("More apps") + Retranslate.onLocaleOrLanguageChanged
                         imageSource: "asset:///images/ic_open.png"
                         horizontalAlignment: HorizontalAlignment.Fill
-
                         onClicked: {
                             invocationAppWorld.trigger("bb.action.OPEN")
                         }
@@ -159,9 +173,17 @@ Sheet {
                         text: qsTr("Post a review") + Retranslate.onLocaleOrLanguageChanged
                         imageSource: "asset:///images/ic_review.png"
                         horizontalAlignment: HorizontalAlignment.Fill
-
                         onClicked: {
                             invocationReview.trigger("bb.action.OPEN")
+                        }
+                    }
+                    Button {
+                        text: qsTr("Support e-mail") + Retranslate.onLocaleOrLanguageChanged
+                        imageSource: "asset:///images/ic_mail.png"
+                        horizontalAlignment: HorizontalAlignment.Fill
+                        onClicked: {
+                            _app.sendEmail()
+                            //                            invctEmail.trigger("bb.action.COMPOSE")
                         }
                     }
                 }

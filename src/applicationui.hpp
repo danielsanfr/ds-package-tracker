@@ -24,6 +24,9 @@
 #include <bb/cascades/QmlDocument>
 #include <bb/cascades/AbstractPane>
 #include <bb/cascades/LocaleHandler>
+#include <bb/PpsObject>
+#include <bb/system/InvokeManager>
+#include <bb/system/InvokeTargetReply>
 #include <bb/cascades/advertisement/Banner>
 
 #include "social/InviteToDownload.hpp"
@@ -63,6 +66,8 @@ public:
     ApplicationUI(bb::cascades::Application *app);
     virtual ~ApplicationUI() { }
     Q_INVOKABLE void sendInvite();
+    Q_INVOKABLE void sendEmail();
+    Q_INVOKABLE QByteArray encode(const QVariantMap &data, bool *ok = 0);
 private slots:
     void onSystemLanguageChanged();
 private:

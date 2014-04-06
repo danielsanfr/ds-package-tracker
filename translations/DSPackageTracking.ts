@@ -4,38 +4,43 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../assets/About.qml" line="33"/>
+        <location filename="../assets/About.qml" line="48"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="97"/>
+        <location filename="../assets/About.qml" line="112"/>
         <source>DS Package Tracking</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="104"/>
+        <location filename="../assets/About.qml" line="119"/>
         <source>Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="120"/>
+        <location filename="../assets/About.qml" line="135"/>
         <source>Developer and designer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="135"/>
+        <location filename="../assets/About.qml" line="150"/>
         <source>Credits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="150"/>
+        <location filename="../assets/About.qml" line="165"/>
         <source>More apps</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="159"/>
+        <location filename="../assets/About.qml" line="173"/>
         <source>Post a review</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/About.qml" line="181"/>
+        <source>Support e-mail</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

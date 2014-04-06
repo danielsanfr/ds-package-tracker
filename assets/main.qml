@@ -31,11 +31,11 @@ TabbedPane {
         }
     ]
     Menu.definition: MenuDefinition {
-        helpAction: HelpActionItem {
-            onTriggered: {
+//        helpAction: HelpActionItem {
+//            onTriggered: {
                 //                helpSheet.createObject().open()
-            }
-        }
+//            }
+//        }
         settingsAction: SettingsActionItem {
             onTriggered: {
                 settingsDefinition.createObject().open()

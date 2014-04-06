@@ -26,6 +26,9 @@
 #include <bb/cascades/LocaleHandler>
 #include <bb/cascades/advertisement/Banner>
 
+#include "social/InviteToDownload.hpp"
+#include "social/RegistrationHandler.hpp"
+
 #include "brpackagetracking/package.h"
 
 #include "PackagesController.hpp"
@@ -59,11 +62,13 @@ class ApplicationUI : public QObject
 public:
     ApplicationUI(bb::cascades::Application *app);
     virtual ~ApplicationUI() { }
+    Q_INVOKABLE void sendInvite();
 private slots:
     void onSystemLanguageChanged();
 private:
     QTranslator* m_pTranslator;
     bb::cascades::LocaleHandler* m_pLocaleHandler;
+    InviteToDownload *m_inviteToDownload;
 };
 
 #endif /* ApplicationUI_HPP_ */

@@ -14,14 +14,14 @@ Sheet {
             id: invocationReview
             query {
                 invokeTargetId: "sys.appworld"
-                uri: "appworld://content/49077888" // id Pro Timing: 49077888
+                uri: "appworld://content/52504888" // id DS Package Tracking: 52504888
             }
         },
         Invocation {
             id: invocationAppWorld
             query {
                 invokeTargetId: "sys.appworld"
-                uri: "appworld://vendor/55406" // id vendor COMPELab: 55406
+                uri: "appworld://vendor/77401" // id vendor Daniel San Ferreira da Rocha: 77401
             }
         }
     ]

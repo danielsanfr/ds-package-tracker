@@ -53,7 +53,7 @@ TabbedPane {
                 title: qsTr("Invite") + Retranslate.onLocaleOrLanguageChanged
                 imageSource: "asset:///images/ic_bbm.png"
                 onTriggered: {
-                    //                    _viewController.callBBMCard();
+                    _app.sendInvite();
                 }
             }
         ]

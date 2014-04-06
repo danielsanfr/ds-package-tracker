@@ -52,6 +52,15 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
     // to ensure the document gets destroyed properly at shut down.
     QmlDocument *qml = QmlDocument::create("asset:///main.qml").parent(this);
 
+//    const QString uuid(QLatin1String("76a353d0-bd9c-11e3-b1b6-0800200c9a66")); // full version
+    const QString uuid(QLatin1String("f0af2ec0-bd9b-11e3-b1b6-0800200c9a66")); // free version
+    RegistrationHandler *registrationHandler = new RegistrationHandler(uuid, app);
+    m_inviteToDownload = new InviteToDownload(registrationHandler->context(), app);
+    res = QObject::connect(registrationHandler, SIGNAL(registered()), m_inviteToDownload, SLOT(show()));
+    Q_ASSERT(res);
+    Q_UNUSED(res);
+
+
     ActiveFrameQML *activeFrame = new ActiveFrameQML(this);
     Application::instance()->setCover(activeFrame);
 
@@ -66,6 +75,10 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
 
     // Set created root object as the application scene
     app->setScene(root);
+}
+
+void ApplicationUI::sendInvite() {
+	m_inviteToDownload->sendInvite();
 }
 
 void ApplicationUI::onSystemLanguageChanged()

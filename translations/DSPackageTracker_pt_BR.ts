@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.0" language="pt_BR">
 <context>
@@ -19,7 +18,7 @@
     <message>
         <location filename="../assets/About.qml" line="112"/>
         <source>DS Package Tracker</source>
-        <translation type="unfinished"></translation>
+        <translation>DS Rastreador de Pacotes</translation>
     </message>
     <message>
         <location filename="../assets/About.qml" line="119"/>
@@ -352,13 +351,13 @@
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="178"/>
-        <source>You doesn&apos;t has packages</source>
+        <source>You doesn't has packages</source>
         <translation>Você não tem pacotes</translation>
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="179"/>
-        <source>Add a package by clicking on the action &quot;Add&quot; which is just below the action bar.</source>
-        <translation>Adicione um pacote clicando na ação &quot;Adicionar&quot;, que está logo abaixo da barra de ação.</translation>
+        <source>Add a package by clicking on the action "Add" which is just below the action bar.</source>
+        <translation>Adicione um pacote clicando na ação "Adicionar", que está logo abaixo da barra de ação.</translation>
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="190"/>
@@ -397,7 +396,7 @@
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="222"/>
-        <source>Package&apos;s action</source>
+        <source>Package's action</source>
         <translation>Ações do pacote</translation>
     </message>
     <message>
@@ -586,77 +585,77 @@
     <message>
         <location filename="../assets/Settings.qml" line="127"/>
         <source>Battery Alarm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="130"/>
         <source>Browser Start Event</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="136"/>
         <source>Camera Shutter Event</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="139"/>
         <source>Device Lock Event</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="142"/>
         <source>Device Unlock Event</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="145"/>
         <source>Device Tether Event</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="148"/>
         <source>Device Untether Event</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="151"/>
         <source>General Notification</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="154"/>
         <source>Input Keypress</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="157"/>
         <source>Recording Start Event</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="160"/>
         <source>Recording Stop Event</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="163"/>
         <source>Sapphire Notification</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="166"/>
         <source>System Master Volume Reference</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="169"/>
         <source>Video Call Event</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="172"/>
         <source>Video Call Outgoing Event</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="188"/>
@@ -675,7 +674,7 @@
     <message>
         <location filename="../assets/Settings.qml" line="133"/>
         <source>Camera Burst Event</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="216"/>

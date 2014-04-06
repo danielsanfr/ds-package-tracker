@@ -48,8 +48,13 @@ Sheet {
                 verticalAlignment: VerticalAlignment.Fill
                 horizontalAlignment: HorizontalAlignment.Fill
                 function checkEntries() {
-                    var isValidCode = (_packageCtrl.validateCode(txtFldCode.text.trim().toUpperCase()) == 0)
-                    if (isValidCode) {
+                    _db.setTableName("package")
+                    var isValidCode = (_packageCtrl.validateCode(txtFldCode.text.trim().toUpperCase()) == 0), isSingle = (_db.count({
+                            ":code": txtFldCode.text.trim().toUpperCase()
+                        }, "code=:code") == 0)
+                    if (! isSingle)
+                        lblWarning.visible = true
+                    if (isValidCode && isSingle) {
                         actItmSave.enabled = (txtFldShortDescr.text.trim().length != 0)
                         var countyAndService = _packageCtrl.countyAndService()
                         txtFldCountry.text = countyAndService[0]
@@ -87,11 +92,24 @@ Sheet {
                     title: qsTr("Tracking code") + ":" + Retranslate.onLocaleOrLanguageChanged
                     hintText: qsTr("Eg: RA123456789BR") + Retranslate.onLocaleOrLanguageChanged
                     onTextFldChanging: {
+                        lblWarning.visible = false
                         if (text.length > 13) {
                             var newText = text
-                            txtFldCode.text = newText.substr(0,13)
+                            txtFldCode.text = newText.substr(0, 13)
                         }
                         ctnMain.checkEntries()
+                    }
+                }
+                Container {
+                    topMargin: 10
+                    leftPadding: 20
+                    Label {
+                        id: lblWarning
+                        visible: false
+                        text: qsTr("This tracking code has already been registered") + "." + Retranslate.onLocaleOrLanguageChanged
+                        multiline: true
+                        textStyle.color: Color.Red
+                        textStyle.base: SystemDefaults.TextStyles.SmallText
                     }
                 }
                 //                DSVTextField {

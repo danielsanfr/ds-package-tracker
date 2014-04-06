@@ -62,87 +62,92 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/AddPackage.qml" line="68"/>
+        <location filename="../assets/AddPackage.qml" line="73"/>
         <source>Package informations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/AddPackage.qml" line="75"/>
+        <location filename="../assets/AddPackage.qml" line="80"/>
         <source>Short description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/AddPackage.qml" line="76"/>
+        <location filename="../assets/AddPackage.qml" line="81"/>
         <source>Eg: My new book</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/AddPackage.qml" line="88"/>
+        <location filename="../assets/AddPackage.qml" line="93"/>
         <source>Eg: RA123456789BR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/AddPackage.qml" line="87"/>
+        <location filename="../assets/AddPackage.qml" line="92"/>
         <source>Tracking code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/AddPackage.qml" line="111"/>
+        <location filename="../assets/AddPackage.qml" line="109"/>
+        <source>This tracking code has already been registered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/AddPackage.qml" line="129"/>
         <source>Send from</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/AddPackage.qml" line="120"/>
+        <location filename="../assets/AddPackage.qml" line="138"/>
         <source>Service name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/AddPackage.qml" line="130"/>
+        <location filename="../assets/AddPackage.qml" line="148"/>
         <source>Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/AddPackage.qml" line="139"/>
+        <location filename="../assets/AddPackage.qml" line="157"/>
         <source>Sending package?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/AddPackage.qml" line="148"/>
+        <location filename="../assets/AddPackage.qml" line="166"/>
         <source>Extras (optional)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/AddPackage.qml" line="157"/>
+        <location filename="../assets/AddPackage.qml" line="175"/>
         <source>Url to package store</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/AddPackage.qml" line="158"/>
+        <location filename="../assets/AddPackage.qml" line="176"/>
         <source>Eg: www.store.com</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/AddPackage.qml" line="168"/>
+        <location filename="../assets/AddPackage.qml" line="186"/>
         <source>Description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/AddPackage.qml" line="191"/>
+        <location filename="../assets/AddPackage.qml" line="209"/>
         <source>Insert description</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/AddPackage.qml" line="204"/>
+        <location filename="../assets/AddPackage.qml" line="222"/>
         <source>Additional e-mail</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/AddPackage.qml" line="224"/>
+        <location filename="../assets/AddPackage.qml" line="242"/>
         <source>You want someone else to receive notifications of updates to this package? So just add her e-mail in this field (for more than one email, separate with commas).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/AddPackage.qml" line="238"/>
+        <location filename="../assets/AddPackage.qml" line="256"/>
         <source>Eg: sample@sample.com, friend@friend.com</source>
         <translation type="unfinished"></translation>
     </message>
@@ -304,134 +309,134 @@
 <context>
     <name>PackagesListView</name>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="42"/>
+        <location filename="../assets/PackagesListView.qml" line="41"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="48"/>
+        <location filename="../assets/PackagesListView.qml" line="47"/>
         <source>More than 5 packs only in the full version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="60"/>
+        <location filename="../assets/PackagesListView.qml" line="59"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="68"/>
+        <location filename="../assets/PackagesListView.qml" line="67"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="73"/>
+        <location filename="../assets/PackagesListView.qml" line="72"/>
         <source>Check your internet connection.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="109"/>
+        <location filename="../assets/PackagesListView.qml" line="108"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="144"/>
+        <location filename="../assets/PackagesListView.qml" line="143"/>
         <source>Last update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="179"/>
+        <location filename="../assets/PackagesListView.qml" line="178"/>
         <source>You doesn&apos;t has packages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="180"/>
+        <location filename="../assets/PackagesListView.qml" line="179"/>
         <source>Add a package by clicking on the action &quot;Add&quot; which is just below the action bar.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="191"/>
+        <location filename="../assets/PackagesListView.qml" line="190"/>
         <source>Sort by</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="194"/>
+        <location filename="../assets/PackagesListView.qml" line="193"/>
         <source>Sending</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="197"/>
+        <location filename="../assets/PackagesListView.qml" line="196"/>
         <source>Tag</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="200"/>
+        <location filename="../assets/PackagesListView.qml" line="199"/>
         <source>Code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="203"/>
+        <location filename="../assets/PackagesListView.qml" line="202"/>
         <source>Country</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="206"/>
+        <location filename="../assets/PackagesListView.qml" line="205"/>
         <source>Service</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="209"/>
+        <location filename="../assets/PackagesListView.qml" line="208"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="223"/>
+        <location filename="../assets/PackagesListView.qml" line="222"/>
         <source>Package&apos;s action</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="242"/>
+        <location filename="../assets/PackagesListView.qml" line="241"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="249"/>
-        <location filename="../assets/PackagesListView.qml" line="255"/>
+        <location filename="../assets/PackagesListView.qml" line="248"/>
+        <location filename="../assets/PackagesListView.qml" line="254"/>
         <source>Mark as delivered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="256"/>
+        <location filename="../assets/PackagesListView.qml" line="255"/>
         <source>You would like to mark this package as delivered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="264"/>
-        <location filename="../assets/PackagesListView.qml" line="270"/>
+        <location filename="../assets/PackagesListView.qml" line="263"/>
+        <location filename="../assets/PackagesListView.qml" line="269"/>
         <source>Archive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="271"/>
+        <location filename="../assets/PackagesListView.qml" line="270"/>
         <source>Would you like to archive this package</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="278"/>
+        <location filename="../assets/PackagesListView.qml" line="277"/>
         <source>Share</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="289"/>
+        <location filename="../assets/PackagesListView.qml" line="288"/>
         <source>Delete package</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="290"/>
+        <location filename="../assets/PackagesListView.qml" line="289"/>
         <source>Do you want to delete this package</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="290"/>
+        <location filename="../assets/PackagesListView.qml" line="289"/>
         <source>This action can not be undone</source>
         <translation type="unfinished"></translation>
     </message>

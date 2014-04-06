@@ -26,13 +26,13 @@
 
     <!-- A universally unique application identifier. Must be unique across all BlackBerry 10 applications.
          Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-    <id>com.danielsanfr.dspackagetracking</id>
+    <id>com.danielsanfr.dspackagetracker</id>
 
     <!-- The name that is displayed in the BlackBerry 10 application installer.
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
     <name>
-       DS Package Tracking
-       <text xml:lang="pt-BR">DS Package Tracking</text>
+       DS Package Tracker
+       <text xml:lang="pt-BR">DSRastreador de Pacotes</text>
       <!-- <text xml:lang="pt-BR">DS Rastreador de Pacotes</text> -->
     </name>
 
@@ -41,7 +41,7 @@
          An updated version of application must have a versionNumber value higher than the previous version. Required. -->
     <versionNumber>1.0.0</versionNumber>
     <packageLocale>pt-BR</packageLocale>
-    <buildId>106</buildId>
+    <buildId>109</buildId>
 
     <!-- Fourth digit segment of the package version. First three segments are taken from the
          <versionNumber> element.  Must be an integer from 0 to 2^16-1 -->
@@ -52,9 +52,9 @@
     <!-- Description, displayed in the BlackBerry 10 application installer.
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
     <description>
-       The DS Package Tracking is an application that stores and keeps track of your packages using the web postal system in Brazil.
+       The DS Package Tracker is an application that stores and keeps track of your packages using the web postal system in Brazil.
        
-       <text xml:lang="pt-BR">DS Rastreamento de Pacotes &#xe9; um aplicativo que armazena e faz o rastreamento dos seus pacotes usando o sistema web dos correios do Brasil.</text>
+       <text xml:lang="pt-BR">DS Rastreador de Pacotes &#xe9; um aplicativo que armazena e faz o rastreamento dos seus pacotes usando o sistema web dos correios do Brasil.</text>
     </description>
 
     <!-- Copyright information. Optional. -->
@@ -69,20 +69,20 @@
     </splashScreens>
     <configuration name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
-       <asset path="arm/o.le-v7-g/DSPackageTracking" entry="true" type="Qnx/Elf">DSPackageTracking</asset>
+       <asset path="arm/o.le-v7-g/DSPackageTracker" entry="true" type="Qnx/Elf">DSPackageTracker</asset>
     </configuration>
     <configuration name="Device-Release">
        <entryPointType>Qnx/Cascades</entryPointType>
        <platformArchitecture>armle-v7</platformArchitecture>
-       <asset path="arm/o.le-v7/DSPackageTracking.so" entry="true" type="Qnx/Elf">DSPackageTracking.so</asset>
+       <asset path="arm/o.le-v7/DSPackageTracker.so" entry="true" type="Qnx/Elf">DSPackageTracker.so</asset>
     </configuration>
     <configuration name="Device-Profile">
        <platformArchitecture>armle-v7</platformArchitecture>
-       <asset path="arm-p/o.le-v7-g/DSPackageTracking" entry="true" type="Qnx/Elf">DSPackageTracking</asset>
+       <asset path="arm-p/o.le-v7-g/DSPackageTracker" entry="true" type="Qnx/Elf">DSPackageTracker</asset>
     </configuration>
     <configuration name="Simulator-Debug">
        <platformArchitecture>x86</platformArchitecture>
-       <asset path="x86/o-g/DSPackageTracking" entry="true" type="Qnx/Elf">DSPackageTracking</asset>
+       <asset path="x86/o-g/DSPackageTracker" entry="true" type="Qnx/Elf">DSPackageTracker</asset>
     </configuration>
 
     <!--  Unique author ID assigned by signing authority. Required if using debug tokens. -->

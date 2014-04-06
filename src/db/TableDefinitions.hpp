@@ -10,7 +10,7 @@
 
 #include <QString>
 
-#define DB_PATH QString("./data/dspackagetracking.db")
+#define DB_PATH QString("./data/dspackagetracker.db")
 
 #define PACKAGE_TABLE			QString("package")
 #define PACKAGE_ID				QString("id")

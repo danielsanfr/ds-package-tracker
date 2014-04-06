@@ -10,7 +10,7 @@
     </message>
     <message>
         <location filename="../assets/About.qml" line="112"/>
-        <source>DS Package Tracking</source>
+        <source>DS Package Tracker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

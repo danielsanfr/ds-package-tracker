@@ -101,7 +101,7 @@ void ApplicationUI::sendEmail() {
 	request.setMimeType("message/rfc822");
 	QVariantMap contentMap;
 	contentMap.insert("to", QVariantList() << "daniel.sam123@hotmail.com");
-	contentMap.insert("subject", "[DS Package Tracking] Support or suggestion");
+	contentMap.insert("subject", "[DS Package Tracker] Support or suggestion");
 	contentMap.insert("body", "App version: " + appInfo.version());
 	QVariantMap data;
 	data.insert("data", contentMap);
@@ -120,7 +120,7 @@ void ApplicationUI::onSystemLanguageChanged() {
 	QCoreApplication::instance()->removeTranslator(m_pTranslator);
 	// Initiate, load and install the application translation files.
 	QString locale_string = QLocale().name();
-	QString file_name = QString("DSPackageTracking_%1").arg(locale_string);
+	QString file_name = QString("DSPackageTracker_%1").arg(locale_string);
 	if (m_pTranslator->load(file_name, "app/native/qm")) {
 		QCoreApplication::instance()->installTranslator(m_pTranslator);
 	}

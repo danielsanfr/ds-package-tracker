@@ -1,4 +1,4 @@
-QMAKE_TARGET  = DSPackageTracking
+QMAKE_TARGET  = DSPackageTracker
 LUPDATE       = $(QNX_HOST)/usr/bin/lupdate
 LRELEASE      = $(QNX_HOST)/usr/bin/lrelease
 

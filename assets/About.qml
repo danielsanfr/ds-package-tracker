@@ -30,7 +30,7 @@ Sheet {
                 property variant appData: {
                     "data": {
                         "to": [ "daniel.sam123@hotmail.com" ],
-                        "subject": "[DS Package Tracking] Support or suggestion",
+                        "subject": "[DS Package Tracker] Support or suggestion",
                         "body": "Version: " + appInfo.version()
                     }
                 }
@@ -109,7 +109,7 @@ Sheet {
                 Container {
                     horizontalAlignment: HorizontalAlignment.Center
                     Label {
-                        text: qsTr("DS Package Tracking") + Retranslate.onLocaleOrLanguageChanged
+                        text: qsTr("DS Package Tracker") + Retranslate.onLocaleOrLanguageChanged
                         textStyle.fontWeight: FontWeight.Bold
                     }
                 }

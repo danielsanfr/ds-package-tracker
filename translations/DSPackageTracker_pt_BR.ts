@@ -9,13 +9,17 @@
         <translation>Sobre</translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="112"/>
         <source>DS Package Tracking</source>
-        <translation>DS Rastreador de Pacotes</translation>
+        <translation type="obsolete">DS Rastreador de Pacotes</translation>
     </message>
     <message>
         <source>Version:</source>
         <translation type="obsolete">Versão:</translation>
+    </message>
+    <message>
+        <location filename="../assets/About.qml" line="112"/>
+        <source>DS Package Tracker</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/About.qml" line="119"/>

@@ -29,7 +29,6 @@ NavigationPane {
                 table: "package"
                 onSizeChanged: {
                     var length = dtMd.size()
-                    console.log(length)
                     if (length == 0)
                         emptyListMessage.visible = true
                     else
@@ -49,7 +48,8 @@ NavigationPane {
                     }
                 ]
                 onTriggered: {
-                    if (isFullVersion || _db.count() <= 5)
+                    _db.setTableName("package")
+                    if (isFullVersion || _db.count() < 5)
                         addPackageDefinition.createObject(navigationPane).open();
                     else
                         sysTst.show()
@@ -311,6 +311,7 @@ NavigationPane {
                 }
             }
             Container {
+                visible: false
                 topMargin: 10
                 bottomPadding: 10
                 minHeight: 50

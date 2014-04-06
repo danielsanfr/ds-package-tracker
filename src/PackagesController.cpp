@@ -112,7 +112,6 @@ void PackagesController::update(const int& id) {
 
 bool PackagesController::update() {
 	bool status = connectionTest();
-	qDebug() << status;
 	if (status) {
 		QList<int> ids = m_packagesMap.keys();
 		m_updateCounter = ids.length();

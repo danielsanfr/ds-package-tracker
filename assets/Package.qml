@@ -307,6 +307,7 @@ Page {
             }
         }
         Container {
+            visible: false
             topMargin: 10
             bottomPadding: 10
             minHeight: 50

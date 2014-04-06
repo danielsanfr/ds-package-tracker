@@ -165,7 +165,8 @@ void PackagesController::onReLoad(int uuid, const QString &tableName) {
 void PackagesController::handler(Package* package) {
 	--m_updateCounter;
 	if (m_updateCounter == 0)
-		Settings::getInstance()->saveValueFor("last_update_date", QDate::currentDate());
+		Settings::getInstance()->saveValueFor("last_update_date",
+				QDate::currentDate());
 	int id = idByCode(package->code());
 	m_dataBaseController->setTableName(infosTable);
 	QList<Information> infos = package->checkpoints();
@@ -189,8 +190,13 @@ void PackagesController::handler(Package* package) {
 		packageMap.remove("last_update_date");
 		packageMap.remove("last_situation");
 		packageMap.insert("last_update_date", QDate::currentDate());
-		packageMap.insert("last_situation",
-				package->checkpoints().at(0).situation());
+		QString lastSituation = package->checkpoints().at(0).situation();
+		packageMap.insert("last_situation", lastSituation);
+		if (lastSituation.contains("entrega efetuada", Qt::CaseInsensitive)
+				|| lastSituation.contains("delivered", Qt::CaseInsensitive)) {
+			packageMap.remove("status");
+			packageMap.insert("status", "delivered");
+		}
 		m_dataBaseController->update(packageMap, m_uuid);
 	}
 }

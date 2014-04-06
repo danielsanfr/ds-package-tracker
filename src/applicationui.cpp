@@ -58,9 +58,11 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
     // Create root object for the UI
     AbstractPane *root = qml->createRootObject<AbstractPane>();
 	qml->setContextProperty("_app", this);
-	qml->documentContext()->setContextProperty("_settings", new Settings(this));
+	qml->documentContext()->setContextProperty("_settings", Settings::getInstance(this));
 	qml->documentContext()->setContextProperty("_notification", new Notification(this));
 	qml->documentContext()->setContextProperty("_packageCtrl", PackagesController::getInstance(this));
+    Settings::getInstance(this)->setParent(this);
+    Settings::getInstance(this)->emitObjectName("last_update_date");
 
     // Set created root object as the application scene
     app->setScene(root);

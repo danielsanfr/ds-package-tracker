@@ -22,8 +22,8 @@ using namespace bb::platform;
 }
 
 void ::Notification::testLED() {
-	Settings settings;
-	int selectedColor = settings.getValueFor("led_color", 0).toInt();
+	Settings *settings = Settings::getInstance(this);
+	int selectedColor = settings->getValueFor("led_color", 0).toInt();
 	switch (selectedColor) {
 	case 1:
 		m_led->setColor(LedColor::Green);
@@ -53,7 +53,7 @@ void ::Notification::testLED() {
 	m_led->flash(3);
 	if (m_vibrationCtrl->isSupported())
 		m_vibrationCtrl->start(80, 1000);
-	int selectedSound = settings.getValueFor("sound", 0).toInt();
+	int selectedSound = settings->getValueFor("sound", 0).toInt();
 	switch (selectedSound) {
 	case 0:
 		SystemSound::play(SystemSound::BatteryAlarm);

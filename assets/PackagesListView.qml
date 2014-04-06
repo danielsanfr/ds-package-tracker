@@ -8,11 +8,10 @@ NavigationPane {
     property bool isFullVersion: false
     property alias title: titleBar.title
     onPopTransitionEnded: {
-        //        page.deleteLater()
         page.destroy()
     }
     function load(args, conditions) {
-        ctnLastUpdate.visible = (args[":status"] == "pending")
+        ctnHaveCtnLastUpdate.visible = (args[":status"] == "pending")
         dtMd.load(args, conditions)
     }
     Page {
@@ -35,13 +34,23 @@ NavigationPane {
                 title: qsTr("Add") + Retranslate.onLocaleOrLanguageChanged
                 imageSource: "asset:///images/ic_add_package.png"
                 ActionBar.placement: ActionBarPlacement.OnBar
+                attachedObjects: [
+                    SystemToast {
+                        id: sysTst
+                        body: qsTr("More than 5 packs only in the full version") + Retranslate.onLocaleOrLanguageChanged
+                    }
+                ]
                 onTriggered: {
-                    addPackageDefinition.createObject(navigationPane).open()
+                    if (isFullVersion || _db.count() <= 5)
+                        addPackageDefinition.createObject(navigationPane).open();
+                    else
+                        sysTst.show()
                 }
             },
             ActionItem {
                 title: qsTr("Search") + Retranslate.onLocaleOrLanguageChanged
                 imageSource: "asset:///images/ic_search.png"
+                enabled: isFullVersion
                 onTriggered: {
                     searchDelagate.delegateActive = ! searchDelagate.delegateActive
                 }
@@ -49,7 +58,18 @@ NavigationPane {
             ActionItem {
                 title: qsTr("Refresh") + Retranslate.onLocaleOrLanguageChanged
                 imageSource: "asset:///images/ic_reload.png"
+                attachedObjects: [
+                    SystemToast {
+                        id: sysTstConnected
+                        body: qsTr("Check your internet connection.") + Retranslate.onLocaleOrLanguageChanged
+                    }
+                ]
                 onTriggered: {
+                    ctnLastUpdate.visible = true
+                    if (! _packageCtrl.update())
+                        sysTstConnected.show();
+                    else
+                        actIndRefresh.running = true
                 }
             }
         ]
@@ -96,21 +116,38 @@ NavigationPane {
                 }
             ]
             Container {
-                id: ctnLastUpdate
-                layout: DockLayout {
-                }
-                Header {
-                    id: hdrLastUpdate
-                    title: qsTr("Last update") + ": 28/03/14 - 01:05" + Retranslate.onLocaleOrLanguageChanged
-                }
+                id: ctnHaveCtnLastUpdate
                 Container {
-                    rightPadding: 15
-                    bottomPadding: 3
-                    verticalAlignment: VerticalAlignment.Center
-                    horizontalAlignment: HorizontalAlignment.Right
-                    ActivityIndicator {
-                        maxHeight: 100
-                        running: true
+                    id: ctnLastUpdate
+                    property int count: 1
+                    property string savedValue: _settings.objectName
+                    layout: DockLayout {
+                    }
+                    onSavedValueChanged: {
+                        if (savedValue == "last_update_date") {
+                            if (count == 0)
+                                ctnLastUpdate.visible = false;
+                            else {
+                                var aux = count
+                                count = -- aux
+                            }
+                            actIndRefresh.running = false
+                            hdrLastUpdate.title = qsTr("Last update") + ": " + _settings.getValueFor("last_update_date", new Date()).toDateString() + Retranslate.onLocaleOrLanguageChanged
+                        }
+                    }
+                    Header {
+                        id: hdrLastUpdate
+                    }
+                    Container {
+                        rightPadding: 15
+                        bottomPadding: 3
+                        verticalAlignment: VerticalAlignment.Center
+                        horizontalAlignment: HorizontalAlignment.Right
+                        ActivityIndicator {
+                            id: actIndRefresh
+                            maxHeight: 100
+                            running: false
+                        }
                     }
                 }
             }
@@ -199,7 +236,7 @@ NavigationPane {
                                         }
                                     }
                                     ActionItem {
-                                    	property bool isFullVersion: false
+                                        property bool isFullVersion: false
                                         title: qsTr("Archive") + Retranslate.onLocaleOrLanguageChanged
                                         imageSource: "asset:///images/ic_archived.png"
                                         enabled: isFullVersion && (ListItemData.status != "archived")
@@ -220,9 +257,7 @@ NavigationPane {
                                             invokeActionId: "bb.action.SHARE"
                                         }
                                         onTriggered: {
-                                            data = "Code: " + ListItemData.code + "\nLast update date: " + ListItemData.last_update_date.toDateString()
-                                            + "\nLast update informations: " + ListItemData.last_situation
-                                            + "\n\nYou also can download the DS Package Tracking: http://appworld.blackberry.com/webstore/content/38031901/"
+                                            data = "Code: " + ListItemData.code + "\nLast update date: " + ListItemData.last_update_date.toDateString() + "\nLast update informations: " + ListItemData.last_situation + "\n\nYou also can download the DS Package Tracking: http://appworld.blackberry.com/webstore/content/52504888/"
                                         }
                                     }
                                     DeleteActionItem {
@@ -246,8 +281,7 @@ NavigationPane {
                     }
                 ]
                 onTriggered: {
-                    var packagePage = packageDefinition.createObject(navigationPane),
-                    	data = dataModel.data(indexPath)
+                    var packagePage = packageDefinition.createObject(navigationPane), data = dataModel.data(indexPath)
                     packagePage.packageData = data
                     navigationPane.push(packagePage)
                 }
@@ -257,6 +291,9 @@ NavigationPane {
                 bottomPadding: 10
                 minHeight: 50
                 maxHeight: 50
+                minWidth: 320
+                maxWidth: 320
+                preferredWidth: 320
                 preferredHeight: 50
                 horizontalAlignment: HorizontalAlignment.Center
                 //! [0]
@@ -265,7 +302,7 @@ NavigationPane {
                     // zone id is used to identify your application and to track Ad performance
                     // metrics by the Advertising Service
                     zoneId: 117145
-                    refreshRate: 180
+                    refreshRate: 60
                     borderWidth: 2
                     preferredWidth: 320
                     preferredHeight: 50

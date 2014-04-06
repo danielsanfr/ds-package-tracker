@@ -8,6 +8,7 @@
 #include "Settings.hpp"
 
 Settings::Settings(QObject *parent) : QObject(parent) {
+	qDebug() << "Settings::Settings";
 }
 
 Settings::~Settings() {
@@ -30,4 +31,16 @@ void Settings::saveValueFor(const QString& objectName,
     // A new value is saved to the application settings object.
 	QSettings settings("Daniel San Ferreira da Rocha", "DS Package Tracking");
     settings.setValue(objectName, inputValue);
+	emitObjectName(objectName);
+}
+
+void Settings::emitObjectName(const QString &objectName) {
+    m_objectName = "";
+    emit objectNameChanged();
+    m_objectName = objectName;
+    emit objectNameChanged();
+}
+
+const QString &Settings::objectName() {
+	return m_objectName;
 }

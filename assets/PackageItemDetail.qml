@@ -11,6 +11,12 @@ Container {
     background: Color.LightGray
     verticalAlignment: VerticalAlignment.Fill
     horizontalAlignment: HorizontalAlignment.Fill
+    onCreationCompleted: {
+        if (text == null)
+            text = qsTr("No information was inserted") + Retranslate.onLocaleOrLanguageChanged;
+        else if (text.trim().length == 0)
+            text = qsTr("No information was inserted") + Retranslate.onLocaleOrLanguageChanged
+    }
     Container {
         background: Color.White
         verticalAlignment: VerticalAlignment.Fill

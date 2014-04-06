@@ -18,10 +18,13 @@ QString infosTable("infos");
 PackagesController::PackagesController(QObject *parent) :
 		QObject(parent), m_dataBaseController(
 				DataBaseController::getInstance(this)), m_util(
-				Util::getInstance(this)) {
+				Util::getInstance(this)), m_timer(new QTimer(this)) {
 	m_uuid = m_dataBaseController->getUUID();
 	onReLoad(-1, packageTable);
-	bool isOk =
+	bool isOk = connect(m_timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
+	Q_ASSERT(isOk);
+	Q_ASSERT(isOk);
+	isOk =
 			connect(m_dataBaseController,
 					SIGNAL(createdRecord(int, const QString &, const QVariantMap &, const qlonglong &)),
 					this, SLOT(onReLoad(int, const QString &)));
@@ -50,12 +53,13 @@ void PackagesController::create(const QVariantMap& data) {
 	m_dataBaseController->setTableName(packageTable);
 	qlonglong longId = m_dataBaseController->create(data, m_uuid);
 	int id = QVariant(longId).toInt();
-	QSharedPointer<Package> package = QSharedPointer<Package>(new Package(data.value("code").toString()));
+	QSharedPointer<Package> package = QSharedPointer<Package>(
+			new Package(data.value("code").toString()));
 	package->validateCode();
 	if (package->isValidCode()) {
 		bool isOk = connect(package.data(),
-				SIGNAL(loadCompleted(brpackagetracking::Package*)),
-				this, SLOT(handler(brpackagetracking::Package*)));
+				SIGNAL(loadCompleted(brpackagetracking::Package*)), this,
+				SLOT(handler(brpackagetracking::Package*)));
 		Q_ASSERT(isOk);
 		isOk = connect(package.data(), SIGNAL(loadError(QString)), this,
 				SLOT(handlerError(QString)));
@@ -64,7 +68,9 @@ void PackagesController::create(const QVariantMap& data) {
 				SLOT(load(const QString&)));
 		Q_ASSERT(isOk);
 		m_packagesMap.insert(id, package);
-		emit load(data.value("code").toString());
+		m_updateCounter = 1;
+		if (connectionTest())
+			emit load(data.value("code").toString());
 	}
 }
 
@@ -98,14 +104,22 @@ QVariantList PackagesController::informationList(const int& id) {
 }
 
 void PackagesController::update(const int& id) {
-	if (m_packagesMap.contains(id))
+	if (m_packagesMap.contains(id) && connectionTest()) {
+		m_updateCounter = 1;
 		emit load(m_packagesMap.value(id)->code());
+	}
 }
 
-void PackagesController::update() {
-	QList<int> ids = m_packagesMap.keys();
-	foreach (int id, ids)
-		emit load(m_packagesMap.value(id)->code());
+bool PackagesController::update() {
+	bool status = connectionTest();
+	qDebug() << status;
+	if (status) {
+		QList<int> ids = m_packagesMap.keys();
+		m_updateCounter = ids.length();
+		foreach (int id, ids)
+			emit load(m_packagesMap.value(id)->code());
+	}
+	return status;
 }
 
 QVariantMap PackagesController::informationToMap(const Information& info) {
@@ -124,9 +138,11 @@ void PackagesController::onReLoad(int uuid, const QString &tableName) {
 		args.insert(":status", "pending");
 		QVariantList packages = m_dataBaseController->read(args,
 				"status=:status");
+		m_updateCounter = packages.size();
 		foreach (QVariant packageV, packages)
 		{
-			QSharedPointer<Package> package = QSharedPointer<Package>(new Package(packageV.toMap().value("code").toString()));
+			QSharedPointer<Package> package = QSharedPointer<Package>(
+					new Package(packageV.toMap().value("code").toString()));
 			package->validateCode();
 			if (package->isValidCode()) {
 				bool isOk = connect(package.data(),
@@ -136,8 +152,8 @@ void PackagesController::onReLoad(int uuid, const QString &tableName) {
 				isOk = connect(package.data(), SIGNAL(loadError(QString)), this,
 						SLOT(handlerError(QString)));
 				Q_ASSERT(isOk);
-				isOk = connect(this, SIGNAL(load(const QString&)), package.data(),
-						SLOT(load(const QString&)));
+				isOk = connect(this, SIGNAL(load(const QString&)),
+						package.data(), SLOT(load(const QString&)));
 				Q_ASSERT(isOk);
 				m_packagesMap.insert(packageV.toMap()["id"].toInt(), package);
 				emit load(packageV.toMap().value("code").toString());
@@ -147,6 +163,9 @@ void PackagesController::onReLoad(int uuid, const QString &tableName) {
 }
 
 void PackagesController::handler(Package* package) {
+	--m_updateCounter;
+	if (m_updateCounter == 0)
+		Settings::getInstance()->saveValueFor("last_update_date", QDate::currentDate());
 	int id = idByCode(package->code());
 	m_dataBaseController->setTableName(infosTable);
 	QList<Information> infos = package->checkpoints();
@@ -178,7 +197,10 @@ void PackagesController::handler(Package* package) {
 
 void PackagesController::handlerError(QString message) {
 	qDebug() << "PackagesController::handlerError:" << message;
-	Q_ASSERT(false);
+//	Q_ASSERT(false);
+}
+
+void PackagesController::onTimeout() {
 }
 
 int PackagesController::idByCode(const QString& code) {
@@ -194,4 +216,13 @@ int PackagesController::idByCode(const QString& code) {
 void PackagesController::debug(const QString& file, const int& line,
 		const QVariant& data) {
 	qDebug() << file << ":" << line << "-" << data;
+}
+
+bool PackagesController::connectionTest() {
+	bool status = false;
+	QNetworkConfigurationManager mgr;
+	QList<QNetworkConfiguration> activeConfigs = mgr.allConfigurations(
+			QNetworkConfiguration::Active);
+	status = (activeConfigs.count() > 0) ? mgr.isOnline() : false;
+	return status;
 }

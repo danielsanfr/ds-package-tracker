@@ -55,9 +55,7 @@ Page {
                 invokeActionId: "bb.action.SHARE"
             }
             onTriggered: {
-                data = "Code: " + packageData.code + "\nLast update date: " + packageData.last_update_date.toDateString()
-                + "\nLast update informations: " + packageData.last_situation
-                + "\n\nYou also can download the DS Package Tracking: http://appworld.blackberry.com/webstore/content/38031901/"
+                data = "Code: " + packageData.code + "\nLast update date: " + packageData.last_update_date.toDateString() + "\nLast update informations: " + packageData.last_situation + "\n\nYou also can download the DS Package Tracking: http://appworld.blackberry.com/webstore/content/52504888/"
             }
         },
         DeleteActionItem {
@@ -93,29 +91,52 @@ Page {
         },
         ComponentDefinition {
             id: checkpointsListDefinition
-            ListView {
-                id: lstVwInfos
-                property variant packageData: self.packageData
-                verticalAlignment: VerticalAlignment.Fill
-                horizontalAlignment: HorizontalAlignment.Fill
-                dataModel: ArrayDataModel {
-                    id: dtMd
+            Container {
+                layout: DockLayout {
                 }
-                listItemComponents: [
-                    ListItemComponent {
-                        StandardListItem {
-                            title: ListItemData.situation
-                            description: ListItemData.location
-                            status: ListItemData.date
-                            imageSource: AssetsGetter.getIcon(ListItemData.situation)
-                        }
+                ScrollView {
+                    id: emptyListMessage
+                    verticalAlignment: VerticalAlignment.Center
+                    horizontalAlignment: HorizontalAlignment.Center
+                    EmptyListMessage {
+                        visible: emptyListMessage.visible
+                        title: qsTr("No checkpoints") + Retranslate.onLocaleOrLanguageChanged
+                        description: qsTr("This may have occurred because there is still no update on the site of the post office or a problem connecting to the internet. Try refreshing the inspection points on the previous page.") + Retranslate.onLocaleOrLanguageChanged
+//                        Isso pode ter ocorrido porque ainda não existe atualização no site dos correios ou por algum problema de conexão com a internet. Tente refrescar os pontos de inspeção na página anterior.
                     }
-                ]
-                onPackageDataChanged: {
-                    var pkgData = lstVwInfos.packageData
-                    if (pkgData != undefined) {
-                        var list = _packageCtrl.informationList(pkgData.id)
-                        dataModel.append(list)
+                }
+                ListView {
+                    id: lstVwInfos
+                    visible: false
+                    property variant packageData: self.packageData
+                    verticalAlignment: VerticalAlignment.Fill
+                    horizontalAlignment: HorizontalAlignment.Fill
+                    dataModel: ArrayDataModel {
+                        id: dtMd
+                    }
+                    listItemComponents: [
+                        ListItemComponent {
+                            StandardListItem {
+                                title: ListItemData.situation
+                                description: ListItemData.location
+                                status: ListItemData.date
+                                imageSource: AssetsGetter.getIcon(ListItemData.situation)
+                            }
+                        }
+                    ]
+                    onPackageDataChanged: {
+                        var pkgData = lstVwInfos.packageData
+                        if (pkgData != 0) {
+                            var list = _packageCtrl.informationList(pkgData.id)
+                            dataModel.append(list)
+	                        if (dataModel.size() == 0) {
+	                            emptyListMessage.visible = true
+	                            lstVwInfos.visible = false
+	                        } else {
+	                            emptyListMessage.visible = false
+	                            lstVwInfos.visible = true
+	                        }
+                        }
                     }
                 }
             }
@@ -129,7 +150,7 @@ Page {
                 horizontalAlignment: HorizontalAlignment.Fill
                 onPackageDataChanged: {
                     var pkgData = srlVwDetail.packageData
-                    if (pkgData != undefined) {
+                    if (pkgData != 0) {
                         pkgItDtlDesc.text = pkgData.description
                         _packageCtrl.validateCode(pkgData.code)
                         var countyAndService = _packageCtrl.countyAndService()
@@ -290,6 +311,9 @@ Page {
             bottomPadding: 10
             minHeight: 50
             maxHeight: 50
+            minWidth: 320
+            maxWidth: 320
+            preferredWidth: 320
             preferredHeight: 50
             horizontalAlignment: HorizontalAlignment.Center
             //! [0]
@@ -298,7 +322,7 @@ Page {
                 // zone id is used to identify your application and to track Ad performance
                 // metrics by the Advertising Service
                 zoneId: 117145
-                refreshRate: 180
+                refreshRate: 60
                 borderWidth: 2
                 preferredWidth: 320
                 preferredHeight: 50

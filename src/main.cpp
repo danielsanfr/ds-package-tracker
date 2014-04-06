@@ -34,9 +34,10 @@ void myMessageOutput(QtMsgType type, const char* msg){
 }
 
 QString getValue(QString value) {
-    Settings settings;
+	Settings *settings = Settings::getInstance();
     // use "theme" key for property showing what theme to use on application start
-    return settings.getValueFor(value, "").toString();
+	QString result = settings->getValueFor(value, "").toString();
+	return result;
 }
 
 Q_DECL_EXPORT int main(int argc, char **argv) {

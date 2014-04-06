@@ -14,10 +14,17 @@
 #include <QVariant>
 #include <QSettings>
 
+
 class Settings: public QObject {
 Q_OBJECT
+Q_PROPERTY(const QString &objectName READ objectName NOTIFY objectNameChanged FINAL)
 public:
-	Settings(QObject * parent = 0);
+	static Settings *getInstance(QObject *parent = 0) {
+		static Settings *m_settings;
+		if(!m_settings)
+			m_settings = new Settings(parent);
+		return m_settings;
+	}
 	virtual ~Settings();
 	/**
 	 * This Invokable function gets a value from the QSettings,
@@ -40,6 +47,12 @@ public:
 	 */
 	Q_INVOKABLE
 	void saveValueFor(const QString &objectName, const QVariant &inputValue);
+	void emitObjectName(const QString &objectName);
+	Q_INVOKABLE const QString &objectName();
+	Q_SIGNAL void objectNameChanged();
+private:
+	Settings(QObject * parent = 0);
+	QString m_objectName;
 };
 
 #endif /* SETTINGS_HPP_ */

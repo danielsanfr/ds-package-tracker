@@ -1,6 +1,8 @@
+import bb.system 1.0
 import bb.cascades 1.0
 
 Page {
+    property bool isFullVersion: false
     titleBar: TitleBar {
         title: qsTr("Statistics") + Retranslate.onLocaleOrLanguageChanged
     }
@@ -16,15 +18,34 @@ Page {
             title: qsTr("Add") + Retranslate.onLocaleOrLanguageChanged
             imageSource: "asset:///images/ic_add_package.png"
             ActionBar.placement: ActionBarPlacement.OnBar
+            attachedObjects: [
+                SystemToast {
+                    id: sysTst
+                    body: qsTr("More than 5 packs only in the full version") + Retranslate.onLocaleOrLanguageChanged
+                }
+            ]
             onTriggered: {
-                addPackageDefinition.createObject().open()
+                if (isFullVersion || _db.count() <= 5)
+                    addPackageDefinition.createObject(navigationPane).open()
+                else
+                    sysTst.show()
             }
-        },
-        ActionItem {
-            title: qsTr("Refresh") + Retranslate.onLocaleOrLanguageChanged
-            imageSource: "asset:///images/ic_reload.png"
-            onTriggered: {
-            }
+//        },
+//        ActionItem {
+//            title: qsTr("Refresh") + Retranslate.onLocaleOrLanguageChanged
+//            imageSource: "asset:///images/ic_reload.png"
+//            attachedObjects: [
+//                SystemToast {
+//                    body: qsTr("Check your internet connection.") + Retranslate.onLocaleOrLanguageChanged
+//                }
+//            ]
+//            onTriggered: {
+//                if (! _packageCtrl.update()) {
+//                    sysTstConnected.show()
+//                    ctnLastUpdate.visible = false
+//                } else
+//                    actIndRefresh.running = true
+//            }
         }
     ]
     Container {

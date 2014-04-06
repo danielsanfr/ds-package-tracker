@@ -26,7 +26,7 @@ namespace datamodel {
 
 class SqlDataModel: public bb::cascades::ArrayDataModel /*, model::SqlInterface */  {
 	Q_OBJECT
-	Q_PROPERTY(QString table  READ table WRITE setTable NOTIFY tableChanged FINAL)
+	Q_PROPERTY(QString table READ table WRITE setTable NOTIFY tableChanged FINAL)
 public:
 	SqlDataModel(QObject *parent = 0);
 	virtual ~SqlDataModel();
@@ -49,6 +49,7 @@ public:
 	Q_INVOKABLE void load(const QVariantMap &arguments, const QString &conditions);
 	Q_INVOKABLE void clearRecords();
 	Q_SIGNAL void tableChanged();
+	Q_SIGNAL void sizeChanged();
 private:
 	Q_SLOT void onTableNameChanged(int uuid, const QString &tableName);
 	Q_SLOT void onCreatedRecord(int uuid, const QString &tableName, const QVariantMap &data, const qlonglong &id);

@@ -16,6 +16,7 @@ SqlDataModel::SqlDataModel(QObject *parent) :
 		ArrayDataModel(parent), m_table(""), m_dataBaseController(
 				DataBaseController::getInstance(this)) {
 	m_dbAccessUUID = m_dataBaseController->getUUID();
+	emit sizeChanged();
 	bool isOk = connect(m_dataBaseController,
 			SIGNAL(tableNameChanged(int, const QString &)), this,
 			SLOT(onTableNameChanged(int, const QString &)));
@@ -41,6 +42,21 @@ SqlDataModel::SqlDataModel(QObject *parent) :
 					SIGNAL(updatedRecord(int, const QString &, const QVariantMap &)),
 					this,
 					SLOT(onUpdatedRecord(int, const QString &, const QVariantMap &)));
+	Q_ASSERT(isOk);
+
+	// connect size signais
+	isOk = connect(this,
+			SIGNAL(itemsChanged(bb::cascades::DataModelChangeType::Type)),
+			this, SIGNAL(sizeChanged()));
+	Q_ASSERT(isOk);
+	isOk = connect(this, SIGNAL(itemAdded(QVariantList)), this,
+			SIGNAL(sizeChanged()));
+	Q_ASSERT(isOk);
+	isOk = connect(this, SIGNAL(itemRemoved(QVariantList)), this,
+			SIGNAL(sizeChanged()));
+	Q_ASSERT(isOk);
+	isOk = connect(this, SIGNAL(itemUpdated(QVariantList)), this,
+			SIGNAL(sizeChanged()));
 	Q_ASSERT(isOk);
 }
 
@@ -155,9 +171,9 @@ void SqlDataModel::onTableNameChanged(int uuid, const QString& tableName) {
 void SqlDataModel::onCreatedRecord(int uuid, const QString &tableName,
 		const QVariantMap& data, const qlonglong& id) {
 	if (uuid != m_dbAccessUUID && tableName == m_table) {
-		QVariantMap newData = data;
-		newData[FIELD_ID] = id;
-		append(newData);
+//		QVariantMap newData = data;
+//		newData[FIELD_ID] = id;
+//		append(newData);
 		if (m_lastLoadConditions == "")
 			load();
 		else
@@ -168,10 +184,10 @@ void SqlDataModel::onCreatedRecord(int uuid, const QString &tableName,
 void SqlDataModel::onDeletedRecord(int uuid, const QString &tableName,
 		const int& id) {
 	if (uuid != m_dbAccessUUID && tableName == m_table) {
-		QVariantList indexPath = getIndexPathByID(id);
-		int index = indexPath.back().toInt();
-		if (index != -1)
-			removeAt(index);
+//		QVariantList indexPath = getIndexPathByID(id);
+//		int index = indexPath.back().toInt();
+//		if (index != -1)
+//			removeAt(index);
 		if (m_lastLoadConditions == "")
 			load();
 		else
@@ -196,7 +212,7 @@ void SqlDataModel::onUpdatedRecord(int uuid, const QString &tableName,
 	Q_UNUSED(data);
 	if (tableName == m_table) {
 		QVariantList indexPath = getIndexPathByID(data[FIELD_ID].toInt());
-		replace(indexPath.back().toInt(), data);
+//		replace(indexPath.back().toInt(), data);
 		if (m_lastLoadConditions == "")
 			load();
 		else

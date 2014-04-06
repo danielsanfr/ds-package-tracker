@@ -27,6 +27,14 @@ NavigationPane {
             SqlDataModel {
                 id: dtMd
                 table: "package"
+                onSizeChanged: {
+                    var length = dtMd.size()
+                    console.log(length)
+                    if (length == 0)
+                        emptyListMessage.visible = true
+                    else
+                    	emptyListMessage.visible = false
+                }
             }
         ]
         actions: [
@@ -156,134 +164,150 @@ NavigationPane {
                 delegateActive: false
                 sourceComponent: searchCtnDefinition
             }
-            ListView {
-                id: packageListView
-                dataModel: dtMd
-                leadingVisual: Container {
-                    topPadding: 20
-                    leftPadding: 20
-                    rightPadding: 20
-                    DropDown {
-                        title: qsTr("Sort by") + Retranslate.onLocaleOrLanguageChanged
-                        options: [
-                            Option {
-                                text: qsTr("Sending") + Retranslate.onLocaleOrLanguageChanged
-                            },
-                            Option {
-                                text: qsTr("Tag") + Retranslate.onLocaleOrLanguageChanged
-                            },
-                            Option {
-                                text: qsTr("Code") + Retranslate.onLocaleOrLanguageChanged
-                            },
-                            Option {
-                                text: qsTr("Country") + Retranslate.onLocaleOrLanguageChanged
-                            },
-                            Option {
-                                text: qsTr("Service") + Retranslate.onLocaleOrLanguageChanged
-                            },
-                            Option {
-                                text: qsTr("Date")
-                                selected: true
-                            }
-                        ]
-                    }
-                    Divider {
+            Container {
+                verticalAlignment: VerticalAlignment.Fill
+                horizontalAlignment: HorizontalAlignment.Fill
+                layout: DockLayout {
+                }
+                ScrollView {
+                    id: emptyListMessage
+                    verticalAlignment: VerticalAlignment.Center
+                    horizontalAlignment: HorizontalAlignment.Center
+                    EmptyListMessage {
+                        visible: emptyListMessage.visible
+                        title: qsTr("You doesn't has packages") + Retranslate.onLocaleOrLanguageChanged
+                        description: qsTr("Add a package by clicking on the action \"Add\" which is just below the action bar.") + Retranslate.onLocaleOrLanguageChanged
                     }
                 }
-                listItemComponents: [
-                    ListItemComponent {
-                        PackageListItem {
-                            id: lstItm
-                            contextActions: [
-                                ActionSet {
-                                    title: qsTr("Package's action") + Retranslate.onLocaleOrLanguageChanged
-                                    attachedObjects: [
-                                        SystemDialog {
-                                            id: sysDlg
-                                            property variant pack
-                                            property bool delPgk: false
-                                            onFinished: {
-                                                if (value == SystemUiResult.ConfirmButtonSelection) {
-                                                    var del = delPgk
-                                                    if (! del) {
-                                                        var pkg = pack
-                                                        lstItm.ListItem.view.dataModel.update(pkg)
-                                                    } else
-                                                        lstItm.ListItem.view.dataModel.deleteRecord(lstItm.ListItem.indexPath)
-                                                }
-                                            }
-                                        }
-                                    ]
-                                    ActionItem {
-                                        title: qsTr("Edit") + Retranslate.onLocaleOrLanguageChanged
-                                        imageSource: "asset:///images/ic_edit.png"
-                                        enabled: false
-                                        onTriggered: {
-                                        }
-                                    }
-                                    ActionItem {
-                                        title: qsTr("Mark as delivered") + Retranslate.onLocaleOrLanguageChanged
-                                        imageSource: "asset:///images/ic_delivered.png"
-                                        enabled: (ListItemData.status != "delivered")
-                                        onTriggered: {
-                                            var pack = ListItemData
-                                            pack["status"] = "delivered"
-                                            sysDlg.title = qsTr("Mark as delivered") + Retranslate.onLocaleOrLanguageChanged
-                                            sysDlg.body = qsTr("You would like to mark this package as delivered") + "?" + Retranslate.onLocaleOrLanguageChanged
-                                            sysDlg.pack = pack
-                                            sysDlg.delPgk = false
-                                            sysDlg.show()
-                                        }
-                                    }
-                                    ActionItem {
-                                        property bool isFullVersion: false
-                                        title: qsTr("Archive") + Retranslate.onLocaleOrLanguageChanged
-                                        imageSource: "asset:///images/ic_archived.png"
-                                        enabled: isFullVersion && (ListItemData.status != "archived")
-                                        onTriggered: {
-                                            var pack = ListItemData
-                                            pack["status"] = "archived"
-                                            sysDlg.title = qsTr("Archive") + Retranslate.onLocaleOrLanguageChanged
-                                            sysDlg.body = qsTr("Would you like to archive this package") + "?" + Retranslate.onLocaleOrLanguageChanged
-                                            sysDlg.pack = pack
-                                            sysDlg.delPgk = false
-                                            sysDlg.show()
-                                        }
-                                    }
-                                    InvokeActionItem {
-                                        title: qsTr("Share") + Retranslate.onLocaleOrLanguageChanged
-                                        query {
-                                            mimeType: "text/plain"
-                                            invokeActionId: "bb.action.SHARE"
-                                        }
-                                        onTriggered: {
-                                            data = "Code: " + ListItemData.code + "\nLast update date: " + ListItemData.last_update_date.toDateString() + "\nLast update informations: " + ListItemData.last_situation + "\n\nYou also can download the DS Package Tracking: http://appworld.blackberry.com/webstore/content/52504888/"
-                                        }
-                                    }
-                                    DeleteActionItem {
-                                        onTriggered: {
-                                            sysDlg.title = qsTr("Delete package") + Retranslate.onLocaleOrLanguageChanged
-                                            sysDlg.body = qsTr("Do you want to delete this package") + "? " + qsTr("This action can not be undone") + "." + Retranslate.onLocaleOrLanguageChanged
-                                            sysDlg.delPgk = true
-                                            sysDlg.show()
-                                        }
-                                    }
+                ListView {
+                    visible: !emptyListMessage.visible
+                    dataModel: dtMd
+                    leadingVisual: Container {
+                        topPadding: 20
+                        leftPadding: 20
+                        rightPadding: 20
+                        DropDown {
+                            title: qsTr("Sort by") + Retranslate.onLocaleOrLanguageChanged
+                            options: [
+                                Option {
+                                    text: qsTr("Sending") + Retranslate.onLocaleOrLanguageChanged
+                                },
+                                Option {
+                                    text: qsTr("Tag") + Retranslate.onLocaleOrLanguageChanged
+                                },
+                                Option {
+                                    text: qsTr("Code") + Retranslate.onLocaleOrLanguageChanged
+                                },
+                                Option {
+                                    text: qsTr("Country") + Retranslate.onLocaleOrLanguageChanged
+                                },
+                                Option {
+                                    text: qsTr("Service") + Retranslate.onLocaleOrLanguageChanged
+                                },
+                                Option {
+                                    text: qsTr("Date")
+                                    selected: true
                                 }
                             ]
                         }
-                    }
-                ]
-                attachedObjects: [
-                    ComponentDefinition {
-                        id: packageDefinition
-                        Package {
+                        Divider {
                         }
                     }
-                ]
-                onTriggered: {
-                    var packagePage = packageDefinition.createObject(navigationPane), data = dataModel.data(indexPath)
-                    packagePage.packageData = data
-                    navigationPane.push(packagePage)
+                    listItemComponents: [
+                        ListItemComponent {
+                            PackageListItem {
+                                id: lstItm
+                                contextActions: [
+                                    ActionSet {
+                                        title: qsTr("Package's action") + Retranslate.onLocaleOrLanguageChanged
+                                        attachedObjects: [
+                                            SystemDialog {
+                                                id: sysDlg
+                                                property variant pack
+                                                property bool delPgk: false
+                                                onFinished: {
+                                                    if (value == SystemUiResult.ConfirmButtonSelection) {
+                                                        var del = delPgk
+                                                        if (! del) {
+                                                            var pkg = pack
+                                                            lstItm.ListItem.view.dataModel.update(pkg)
+                                                        } else
+                                                            lstItm.ListItem.view.dataModel.deleteRecord(lstItm.ListItem.indexPath)
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                        ActionItem {
+                                            title: qsTr("Edit") + Retranslate.onLocaleOrLanguageChanged
+                                            imageSource: "asset:///images/ic_edit.png"
+                                            enabled: false
+                                            onTriggered: {
+                                            }
+                                        }
+                                        ActionItem {
+                                            title: qsTr("Mark as delivered") + Retranslate.onLocaleOrLanguageChanged
+                                            imageSource: "asset:///images/ic_delivered.png"
+                                            enabled: (ListItemData.status != "delivered")
+                                            onTriggered: {
+                                                var pack = ListItemData
+                                                pack["status"] = "delivered"
+                                                sysDlg.title = qsTr("Mark as delivered") + Retranslate.onLocaleOrLanguageChanged
+                                                sysDlg.body = qsTr("You would like to mark this package as delivered") + "?" + Retranslate.onLocaleOrLanguageChanged
+                                                sysDlg.pack = pack
+                                                sysDlg.delPgk = false
+                                                sysDlg.show()
+                                            }
+                                        }
+                                        ActionItem {
+                                            property bool isFullVersion: false
+                                            title: qsTr("Archive") + Retranslate.onLocaleOrLanguageChanged
+                                            imageSource: "asset:///images/ic_archived.png"
+                                            enabled: isFullVersion && (ListItemData.status != "archived")
+                                            onTriggered: {
+                                                var pack = ListItemData
+                                                pack["status"] = "archived"
+                                                sysDlg.title = qsTr("Archive") + Retranslate.onLocaleOrLanguageChanged
+                                                sysDlg.body = qsTr("Would you like to archive this package") + "?" + Retranslate.onLocaleOrLanguageChanged
+                                                sysDlg.pack = pack
+                                                sysDlg.delPgk = false
+                                                sysDlg.show()
+                                            }
+                                        }
+                                        InvokeActionItem {
+                                            title: qsTr("Share") + Retranslate.onLocaleOrLanguageChanged
+                                            query {
+                                                mimeType: "text/plain"
+                                                invokeActionId: "bb.action.SHARE"
+                                            }
+                                            onTriggered: {
+                                                data = "Code: " + ListItemData.code + "\nLast update date: " + ListItemData.last_update_date.toDateString() + "\nLast update informations: " + ListItemData.last_situation + "\n\nYou also can download the DS Package Tracking: http://appworld.blackberry.com/webstore/content/52504888/"
+                                            }
+                                        }
+                                        DeleteActionItem {
+                                            onTriggered: {
+                                                sysDlg.title = qsTr("Delete package") + Retranslate.onLocaleOrLanguageChanged
+                                                sysDlg.body = qsTr("Do you want to delete this package") + "? " + qsTr("This action can not be undone") + "." + Retranslate.onLocaleOrLanguageChanged
+                                                sysDlg.delPgk = true
+                                                sysDlg.show()
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                    attachedObjects: [
+                        ComponentDefinition {
+                            id: packageDefinition
+                            Package {
+                            }
+                        }
+                    ]
+                    onTriggered: {
+                        var packagePage = packageDefinition.createObject(navigationPane), data = dataModel.data(indexPath)
+                        packagePage.packageData = data
+                        navigationPane.push(packagePage)
+                    }
                 }
             }
             Container {

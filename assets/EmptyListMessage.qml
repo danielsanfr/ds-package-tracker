@@ -25,6 +25,7 @@ Container {
     }
     Label {
         id: lblTitle
+        multiline: true
         visible: (text != "") && self.visible
         horizontalAlignment: HorizontalAlignment.Center
         textStyle {

@@ -681,12 +681,8 @@
     </message>
     <message>
         <location filename="../assets/main.qml" line="63"/>
-        <source>Pending</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../assets/main.qml" line="67"/>
-        <source>Pending packages</source>
+        <source>On the way</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -60,11 +60,11 @@ TabbedPane {
     }
     tabs: [
         Tab {
-            title: qsTr("Pending") + Retranslate.onLocaleOrLanguageChanged
+            title: qsTr("On the way") + Retranslate.onLocaleOrLanguageChanged
 //            newContentAvailable: true
             imageSource: "asset:///images/ic_peding.png"
             PackagesListView {
-                title: qsTr("Pending packages") + Retranslate.onLocaleOrLanguageChanged
+                title: qsTr("On the way") + Retranslate.onLocaleOrLanguageChanged
                 onCreationCompleted: {
                     var args = {
                         ":status": "pending"

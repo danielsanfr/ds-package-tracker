@@ -5,7 +5,7 @@ Sheet {
     property bool isFullVersion: false
     Page {
         titleBar: TitleBar {
-            title: qsTr("Settings")
+            title: qsTr("Settings") + Retranslate.onLocaleOrLanguageChanged
             acceptAction: ActionItem {
                 title: "Ok"
                 onTriggered: {
@@ -25,14 +25,14 @@ Sheet {
                     leftPadding: 20
                     rightPadding: 20
                     DropDown {
-                        title: qsTr("Application theme")
+                        title: qsTr("Application theme") + Retranslate.onLocaleOrLanguageChanged
                         options: [
                             Option {
-                                text: qsTr("System bright")
+                                text: qsTr("System bright") + Retranslate.onLocaleOrLanguageChanged
                                 value: "bright"
                             },
                             Option {
-                                text: qsTr("System dark")
+                                text: qsTr("System dark") + Retranslate.onLocaleOrLanguageChanged
                                 value: "dark"
                             }
                         ]
@@ -72,7 +72,7 @@ Sheet {
                     CheckBox {
                         id: chkBoxNotify
                         enabled: isFullVersion
-                        text: qsTr("Notifications")
+                        text: qsTr("Notifications") + Retranslate.onLocaleOrLanguageChanged
                         onCreationCompleted: {
                             var notify = _settings.getValueFor("notify", false)
                             checked = notify
@@ -267,7 +267,7 @@ Sheet {
                             multiline: true
                             textStyle.textAlign: TextAlign.Justify
                             textStyle.base: SystemDefaults.TextStyles.SubtitleText
-                            text: qsTr("This is the time between updates of the status of the packages. But anytime you poderar update the status of the packages by clicking the refresh button.") + Retranslate.onLocaleOrLanguageChanged
+                            text: qsTr("This is the time between updates of the status of the packages. But you can always upgrade the status of the packages by clicking the refresh button.") + Retranslate.onLocaleOrLanguageChanged
                         }
                     }
                 }

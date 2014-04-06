@@ -64,7 +64,7 @@ TabbedPane {
 //            newContentAvailable: true
             imageSource: "asset:///images/ic_peding.png"
             PackagesListView {
-                title: qsTr("On the way") + Retranslate.onLocaleOrLanguageChanged
+                title: qsTr("Packages on the way") + Retranslate.onLocaleOrLanguageChanged
                 onCreationCompleted: {
                     var args = {
                         ":status": "pending"

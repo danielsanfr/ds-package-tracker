@@ -9,32 +9,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="98"/>
+        <location filename="../assets/About.qml" line="97"/>
         <source>DS Package Tracking</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="98"/>
-        <source>Version:</source>
+        <location filename="../assets/About.qml" line="104"/>
+        <source>Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="112"/>
+        <location filename="../assets/About.qml" line="120"/>
         <source>Developer and designer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="127"/>
+        <location filename="../assets/About.qml" line="135"/>
         <source>Credits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="142"/>
+        <location filename="../assets/About.qml" line="150"/>
         <source>More apps</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="151"/>
+        <location filename="../assets/About.qml" line="159"/>
         <source>Post a review</source>
         <translation type="unfinished"></translation>
     </message>
@@ -153,28 +153,15 @@
     </message>
 </context>
 <context>
-    <name>CheckpointListItem</name>
-    <message>
-        <location filename="../assets/CheckpointListItem.qml" line="10"/>
-        <source>Checkpoint actions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/CheckpointListItem.qml" line="12"/>
-        <source>Share</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>Package</name>
-    <message>
-        <location filename="../assets/Package.qml" line="15"/>
-        <source>Edit</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../assets/Package.qml" line="22"/>
         <source>Delivered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Package.qml" line="15"/>
+        <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -269,11 +256,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Package.qml" line="251"/>
-        <source>Code</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../assets/Package.qml" line="252"/>
         <source>Last update</source>
         <translation type="unfinished"></translation>
@@ -286,6 +268,11 @@
     <message>
         <location filename="../assets/Package.qml" line="269"/>
         <source>Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/Package.qml" line="251"/>
+        <source>Code</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -587,6 +574,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../assets/Settings.qml" line="133"/>
+        <source>Camera Burst Event</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../assets/Settings.qml" line="136"/>
         <source>Camera Shutter Event</source>
         <translation type="unfinished"></translation>
@@ -657,11 +649,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="133"/>
-        <source>Camera Burst Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../assets/Settings.qml" line="216"/>
         <source>Automatic refresh</source>
         <translation type="unfinished"></translation>
@@ -673,7 +660,7 @@
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="270"/>
-        <source>This is the time between updates of the status of the packages. But anytime you poderar update the status of the packages by clicking the refresh button.</source>
+        <source>This is the time between updates of the status of the packages. But you can always upgrade the status of the packages by clicking the refresh button.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -744,8 +731,12 @@
     </message>
     <message>
         <location filename="../assets/main.qml" line="63"/>
-        <location filename="../assets/main.qml" line="67"/>
         <source>On the way</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/main.qml" line="67"/>
+        <source>Packages on the way</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

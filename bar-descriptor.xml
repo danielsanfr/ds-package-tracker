@@ -30,13 +30,17 @@
 
     <!-- The name that is displayed in the BlackBerry 10 application installer.
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
-    <name>DS Package Tracking</name>
+    <name>
+       DS Package Tracking
+       <text xml:lang="pt-BR">DS Rastreador de Pacotes</text>
+    </name>
 
     <!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade.
          Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
          An updated version of application must have a versionNumber value higher than the previous version. Required. -->
     <versionNumber>1.0.0</versionNumber>
-    <buildId>106</buildId>
+    <packageLocale>pt-BR</packageLocale>
+    <buildId>105</buildId>
 
     <!-- Fourth digit segment of the package version. First three segments are taken from the
          <versionNumber> element.  Must be an integer from 0 to 2^16-1 -->
@@ -46,7 +50,11 @@
 
     <!-- Description, displayed in the BlackBerry 10 application installer.
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
-    <description>The DS Package Tracking application</description>
+    <description>
+       The DS Package Tracking is an application that stores and keeps track of your packages using the web postal system in Brazil.
+       
+       <text xml:lang="pt-BR">DS Rastreamento de Pacotes &#xe9; um aplicativo que armazena e faz o rastreamento dos seus pacotes usando o sistema web dos correios do Brasil.</text>
+    </description>
 
     <!-- Copyright information. Optional. -->
     <!-- <copyright></copyright> -->

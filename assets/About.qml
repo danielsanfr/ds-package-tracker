@@ -93,10 +93,18 @@ Sheet {
                 }
                 Container {
                     horizontalAlignment: HorizontalAlignment.Center
-
                     Label {
-                        text: qsTr("DS Package Tracking") + " - " + qsTr("Version:") + " " + appInfo.version() + Retranslate.onLocaleOrLanguageChanged
+                        text: qsTr("DS Package Tracking") + Retranslate.onLocaleOrLanguageChanged
                         textStyle.fontWeight: FontWeight.Bold
+                    }
+                }
+                Container {
+                    horizontalAlignment: HorizontalAlignment.Center
+                    Label {
+                        text: qsTr("Version") + ": " + appInfo.version() + Retranslate.onLocaleOrLanguageChanged
+                        textStyle.fontWeight: FontWeight.Bold
+                        textStyle.fontSize: FontSize.Small
+                        
                     }
                 }
                 LabelLink {

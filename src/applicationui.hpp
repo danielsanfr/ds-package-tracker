@@ -17,8 +17,11 @@
 #ifndef ApplicationUI_HPP_
 #define ApplicationUI_HPP_
 
-#include <QObject>
 #include <QDebug>
+#include <QObject>
+#include <QByteArray>
+#include <QVariantMap>
+#include <QVariantList>
 
 #include <bb/cascades/Application>
 #include <bb/cascades/QmlDocument>

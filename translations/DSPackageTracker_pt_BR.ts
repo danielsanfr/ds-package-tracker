@@ -361,39 +361,32 @@
         <translation>Adicione uma encomenda clicando na ação &quot;Adicionar&quot;, que está logo abaixo da barra de ação.</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="190"/>
         <source>Sort by</source>
-        <translation>Ordenar por</translation>
+        <translation type="obsolete">Ordenar por</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="193"/>
         <source>Sending</source>
-        <translation>Enviando</translation>
+        <translation type="obsolete">Enviando</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="196"/>
         <source>Tag</source>
-        <translation>Tag</translation>
+        <translation type="obsolete">Tag</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="199"/>
         <source>Code</source>
-        <translation>Código</translation>
+        <translation type="obsolete">Código</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="202"/>
         <source>Country</source>
-        <translation>Pais</translation>
+        <translation type="obsolete">Pais</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="205"/>
         <source>Service</source>
-        <translation>Serviço</translation>
+        <translation type="obsolete">Serviço</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="208"/>
         <source>Date</source>
-        <translation>Data</translation>
+        <translation type="obsolete">Data</translation>
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="222"/>

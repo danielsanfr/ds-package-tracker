@@ -182,37 +182,37 @@ NavigationPane {
                 ListView {
                     visible: !emptyListMessage.visible
                     dataModel: dtMd
-                    leadingVisual: Container {
-                        topPadding: 20
-                        leftPadding: 20
-                        rightPadding: 20
-                        DropDown {
-                            title: qsTr("Sort by") + Retranslate.onLocaleOrLanguageChanged
-                            options: [
-                                Option {
-                                    text: qsTr("Sending") + Retranslate.onLocaleOrLanguageChanged
-                                },
-                                Option {
-                                    text: qsTr("Tag") + Retranslate.onLocaleOrLanguageChanged
-                                },
-                                Option {
-                                    text: qsTr("Code") + Retranslate.onLocaleOrLanguageChanged
-                                },
-                                Option {
-                                    text: qsTr("Country") + Retranslate.onLocaleOrLanguageChanged
-                                },
-                                Option {
-                                    text: qsTr("Service") + Retranslate.onLocaleOrLanguageChanged
-                                },
-                                Option {
-                                    text: qsTr("Date")
-                                    selected: true
-                                }
-                            ]
-                        }
-                        Divider {
-                        }
-                    }
+//                    leadingVisual: Container {
+//                        topPadding: 20
+//                        leftPadding: 20
+//                        rightPadding: 20
+//                        DropDown {
+//                            title: qsTr("Sort by") + Retranslate.onLocaleOrLanguageChanged
+//                            options: [
+//                                Option {
+//                                    text: qsTr("Sending") + Retranslate.onLocaleOrLanguageChanged
+//                                },
+//                                Option {
+//                                    text: qsTr("Tag") + Retranslate.onLocaleOrLanguageChanged
+//                                },
+//                                Option {
+//                                    text: qsTr("Code") + Retranslate.onLocaleOrLanguageChanged
+//                                },
+//                                Option {
+//                                    text: qsTr("Country") + Retranslate.onLocaleOrLanguageChanged
+//                                },
+//                                Option {
+//                                    text: qsTr("Service") + Retranslate.onLocaleOrLanguageChanged
+//                                },
+//                                Option {
+//                                    text: qsTr("Date")
+//                                    selected: true
+//                                }
+//                            ]
+//                        }
+//                        Divider {
+//                        }
+//                    }
                     listItemComponents: [
                         ListItemComponent {
                             PackageListItem {

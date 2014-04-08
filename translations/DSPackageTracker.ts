@@ -346,41 +346,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="190"/>
-        <source>Sort by</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/PackagesListView.qml" line="193"/>
-        <source>Sending</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/PackagesListView.qml" line="196"/>
-        <source>Tag</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/PackagesListView.qml" line="199"/>
-        <source>Code</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/PackagesListView.qml" line="202"/>
-        <source>Country</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/PackagesListView.qml" line="205"/>
-        <source>Service</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/PackagesListView.qml" line="208"/>
-        <source>Date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../assets/PackagesListView.qml" line="222"/>
         <source>Package&apos;s action</source>
         <translation type="unfinished"></translation>

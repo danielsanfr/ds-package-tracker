@@ -32,7 +32,7 @@
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
     <name>
        DS Package Tracker
-       <text xml:lang="pt-BR">DSRastreador de Pacotes</text>
+       <text xml:lang="pt-BR">DS Rastre. Encomen.</text>
       <!-- <text xml:lang="pt-BR">DS Rastreador de Pacotes</text> -->
     </name>
 
@@ -54,7 +54,7 @@
     <description>
        The DS Package Tracker is an application that stores and keeps track of your packages using the web postal system in Brazil.
        
-       <text xml:lang="pt-BR">DS Rastreador de Pacotes &#xe9; um aplicativo que armazena e faz o rastreamento dos seus pacotes usando o sistema web dos correios do Brasil.</text>
+       <text xml:lang="pt-BR">DS Rastreador de Encomendas &#xe9; um aplicativo que armazena e faz o rastreamento dos seus pacotes usando o sistema web dos correios do Brasil.</text>
     </description>
 
     <!-- Copyright information. Optional. -->
@@ -66,6 +66,15 @@
        <image>splashscreen-z10.png</image>
        <image>splashscreen-q10.png</image>
        <image>splashscreen-z30.png</image>
+       <image>
+          <text xml:lang="pt-BR">splashscreen-q10.png</text>
+       </image>
+       <image>
+          <text xml:lang="pt-BR">splashscreen-z10.png</text>
+       </image>
+       <image>
+          <text xml:lang="pt-BR">splashscreen-z30.png</text>
+       </image>
     </splashScreens>
     <configuration name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
@@ -98,6 +107,9 @@
     <!--  The icon for the application, which should be 114x114. -->
     <icon>
         <image>icon.png</image>
+        <image>
+           <text xml:lang="pt-BR">icon.png</text>
+        </image>
     </icon>
 
     <asset path="assets/images/icon.png">icon.png</asset>

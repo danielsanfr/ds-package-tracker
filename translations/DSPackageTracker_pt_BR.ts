@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.0" language="pt_BR">
 <context>
@@ -18,7 +19,7 @@
     <message>
         <location filename="../assets/About.qml" line="112"/>
         <source>DS Package Tracker</source>
-        <translation>DS Rastreador de Pacotes</translation>
+        <translation>DS Rastreador de Encomendas</translation>
     </message>
     <message>
         <location filename="../assets/About.qml" line="119"/>
@@ -56,7 +57,7 @@
     <message>
         <location filename="../assets/AddPackage.qml" line="12"/>
         <source>Add package</source>
-        <translation>Adicionar pacote</translation>
+        <translation>Adicionar encomenda</translation>
     </message>
     <message>
         <location filename="../assets/AddPackage.qml" line="16"/>
@@ -76,7 +77,7 @@
     <message>
         <location filename="../assets/AddPackage.qml" line="73"/>
         <source>Package informations</source>
-        <translation>Informação do pacote</translation>
+        <translation>Informações da encomenda</translation>
     </message>
     <message>
         <location filename="../assets/AddPackage.qml" line="80"/>
@@ -121,7 +122,7 @@
     <message>
         <location filename="../assets/AddPackage.qml" line="157"/>
         <source>Sending package?</source>
-        <translation>Enviou o pacote?</translation>
+        <translation>Enviou a encomenda?</translation>
     </message>
     <message>
         <location filename="../assets/AddPackage.qml" line="166"/>
@@ -131,7 +132,7 @@
     <message>
         <location filename="../assets/AddPackage.qml" line="175"/>
         <source>Url to package store</source>
-        <translation>Url da loja do pacote</translation>
+        <translation>Url da loja da encomenda</translation>
     </message>
     <message>
         <location filename="../assets/AddPackage.qml" line="176"/>
@@ -156,7 +157,7 @@
     <message>
         <location filename="../assets/AddPackage.qml" line="242"/>
         <source>You want someone else to receive notifications of updates to this package? So just add her e-mail in this field (for more than one email, separate with commas).</source>
-        <translation>Você quer alguém para receber notificações de atualizações para este pacote? Então, basta adicionar seu e-mail neste campo (por mais de um e-mail, separe-os com vírgulas).</translation>
+        <translation>Você quer que alguém receba notificações de atualizações para esta encomenda? Então, basta adicionar o e-mail neste campo (por mais de um e-mail, separe-os com vírgulas).</translation>
     </message>
     <message>
         <location filename="../assets/AddPackage.qml" line="256"/>
@@ -191,7 +192,7 @@
     <message>
         <location filename="../assets/Package.qml" line="30"/>
         <source>You would like to mark this package as delivered</source>
-        <translation>Você gostaria de marcar este pacote como entregue</translation>
+        <translation>Você gostaria de marcar esta encomenda como entregue</translation>
     </message>
     <message>
         <location filename="../assets/Package.qml" line="37"/>
@@ -202,7 +203,7 @@
     <message>
         <location filename="../assets/Package.qml" line="45"/>
         <source>Would you like to archive this package</source>
-        <translation>Gostaria de arquivar este pacote</translation>
+        <translation>Gostaria de arquivar esta encomenda</translation>
     </message>
     <message>
         <location filename="../assets/Package.qml" line="52"/>
@@ -212,12 +213,12 @@
     <message>
         <location filename="../assets/Package.qml" line="63"/>
         <source>Delete package</source>
-        <translation>Excluir pacote</translation>
+        <translation>Excluir encomenda</translation>
     </message>
     <message>
         <location filename="../assets/Package.qml" line="64"/>
         <source>Do you want to delete this package</source>
-        <translation>Deseja excluir este pacote?</translation>
+        <translation>Deseja excluir esta encomenda?</translation>
     </message>
     <message>
         <location filename="../assets/Package.qml" line="64"/>
@@ -322,7 +323,7 @@
     <message>
         <location filename="../assets/PackagesListView.qml" line="47"/>
         <source>More than 5 packs only in the full version</source>
-        <translation>Mais de 5 pacotes apenas na versão completa</translation>
+        <translation>Mais de 5 encomendas apenas na versão completa</translation>
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="59"/>
@@ -351,13 +352,13 @@
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="178"/>
-        <source>You doesn't has packages</source>
-        <translation>Você não tem pacotes</translation>
+        <source>You doesn&apos;t has packages</source>
+        <translation>Você não tem encomendas</translation>
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="179"/>
-        <source>Add a package by clicking on the action "Add" which is just below the action bar.</source>
-        <translation>Adicione um pacote clicando na ação "Adicionar", que está logo abaixo da barra de ação.</translation>
+        <source>Add a package by clicking on the action &quot;Add&quot; which is just below the action bar.</source>
+        <translation>Adicione uma encomenda clicando na ação &quot;Adicionar&quot;, que está logo abaixo da barra de ação.</translation>
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="190"/>
@@ -396,8 +397,8 @@
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="222"/>
-        <source>Package's action</source>
-        <translation>Ações do pacote</translation>
+        <source>Package&apos;s action</source>
+        <translation>Ações da encomenda</translation>
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="241"/>
@@ -413,7 +414,7 @@
     <message>
         <location filename="../assets/PackagesListView.qml" line="255"/>
         <source>You would like to mark this package as delivered</source>
-        <translation>Você gostaria de marcar este pacote como entregue</translation>
+        <translation>Você gostaria de marcar esta encomenda como entregue</translation>
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="263"/>
@@ -424,7 +425,7 @@
     <message>
         <location filename="../assets/PackagesListView.qml" line="270"/>
         <source>Would you like to archive this package</source>
-        <translation>Gostaria de arquivar este pacote</translation>
+        <translation>Gostaria de arquivar esta encomenda</translation>
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="277"/>
@@ -434,12 +435,12 @@
     <message>
         <location filename="../assets/PackagesListView.qml" line="288"/>
         <source>Delete package</source>
-        <translation>Excluir pacote</translation>
+        <translation>Excluir encomenda</translation>
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="289"/>
         <source>Do you want to delete this package</source>
-        <translation>Deseja excluir este pacote</translation>
+        <translation>Deseja excluir esta encomenda</translation>
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="289"/>
@@ -585,77 +586,77 @@
     <message>
         <location filename="../assets/Settings.qml" line="127"/>
         <source>Battery Alarm</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="130"/>
         <source>Browser Start Event</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="136"/>
         <source>Camera Shutter Event</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="139"/>
         <source>Device Lock Event</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="142"/>
         <source>Device Unlock Event</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="145"/>
         <source>Device Tether Event</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="148"/>
         <source>Device Untether Event</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="151"/>
         <source>General Notification</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="154"/>
         <source>Input Keypress</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="157"/>
         <source>Recording Start Event</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="160"/>
         <source>Recording Stop Event</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="163"/>
         <source>Sapphire Notification</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="166"/>
         <source>System Master Volume Reference</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="169"/>
         <source>Video Call Event</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="172"/>
         <source>Video Call Outgoing Event</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="188"/>
@@ -665,7 +666,7 @@
     <message>
         <location filename="../assets/Settings.qml" line="270"/>
         <source>This is the time between updates of the status of the packages. But you can always upgrade the status of the packages by clicking the refresh button.</source>
-        <translation>Este é o tempo entre as atualizações do status dos pacotes. Mas você sempre podera atualizar o status dos pacotes clicando no botão atualizar.</translation>
+        <translation>Este é o tempo entre as atualizações do status das encomendas. Mas você sempre poderá atualizar o status das encomendas clicando no botão atualizar.</translation>
     </message>
     <message>
         <source>This is the time between updates of the status of the packages. But whenever you can update the status of the packages by clicking the refresh button.</source>
@@ -674,7 +675,7 @@
     <message>
         <location filename="../assets/Settings.qml" line="133"/>
         <source>Camera Burst Event</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/Settings.qml" line="216"/>
@@ -706,12 +707,12 @@
     <message>
         <location filename="../assets/Statistics.qml" line="24"/>
         <source>More than 5 packs only in the full version</source>
-        <translation>Mais de 5 pacotes apenas na versão completa</translation>
+        <translation>Mais de 5 encomendas apenas na versão completa</translation>
     </message>
     <message>
         <location filename="../assets/Statistics.qml" line="57"/>
         <source>Packages distribution</source>
-        <translation>Descrição dos pacotes</translation>
+        <translation>Descrição das encomendas</translation>
     </message>
     <message>
         <location filename="../assets/Statistics.qml" line="64"/>
@@ -731,7 +732,7 @@
     <message>
         <location filename="../assets/Statistics.qml" line="80"/>
         <source>Packages direction</source>
-        <translation>Direção do pacote</translation>
+        <translation>Direção da encomenda</translation>
     </message>
     <message>
         <location filename="../assets/Statistics.qml" line="87"/>
@@ -764,7 +765,7 @@
     <message>
         <location filename="../assets/main.qml" line="67"/>
         <source>Packages on the way</source>
-        <translation>Pacotes a caminho</translation>
+        <translation>Encomendas a caminho</translation>
     </message>
     <message>
         <location filename="../assets/main.qml" line="77"/>
@@ -774,7 +775,7 @@
     <message>
         <location filename="../assets/main.qml" line="81"/>
         <source>Delivered packages</source>
-        <translation>Pacotes entregues</translation>
+        <translation>Encomendas entregues</translation>
     </message>
     <message>
         <location filename="../assets/main.qml" line="91"/>
@@ -790,7 +791,7 @@
     <message>
         <location filename="../assets/main.qml" line="96"/>
         <source>Archived packages</source>
-        <translation>Pacotes arquivados</translation>
+        <translation>Encomendas arquivados</translation>
     </message>
     <message>
         <location filename="../assets/main.qml" line="106"/>

@@ -322,7 +322,7 @@ Page {
             Banner {
                 // zone id is used to identify your application and to track Ad performance
                 // metrics by the Advertising Service
-                zoneId: 117145
+                zoneId: 261652 //117145
                 refreshRate: 60
                 borderWidth: 2
                 preferredWidth: 320

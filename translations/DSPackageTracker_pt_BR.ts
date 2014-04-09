@@ -4,7 +4,7 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../assets/About.qml" line="48"/>
+        <location filename="../assets/About.qml" line="55"/>
         <source>About</source>
         <translation>Sobre</translation>
     </message>
@@ -17,39 +17,43 @@
         <translation type="obsolete">Versão:</translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="112"/>
+        <location filename="../assets/About.qml" line="119"/>
         <source>DS Package Tracker</source>
         <translation>DS Rastreador de Encomendas</translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="119"/>
+        <location filename="../assets/About.qml" line="126"/>
         <source>Version</source>
         <translation>Versão</translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="135"/>
+        <location filename="../assets/About.qml" line="142"/>
         <source>Developer and designer</source>
         <translation>Desenvolvedor e designer</translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="150"/>
+        <location filename="../assets/About.qml" line="157"/>
         <source>Credits</source>
         <translation>Créditos</translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="165"/>
+        <location filename="../assets/About.qml" line="172"/>
         <source>More apps</source>
         <translation>Mais aplicativos</translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="173"/>
+        <location filename="../assets/About.qml" line="180"/>
         <source>Post a review</source>
         <translation>Poste um comentário</translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="181"/>
+        <location filename="../assets/About.qml" line="188"/>
+        <source>Contact</source>
+        <translation>Contato</translation>
+    </message>
+    <message>
         <source>Support e-mail</source>
-        <translation>E-mail de suporte</translation>
+        <translation type="obsolete">E-mail de suporte</translation>
     </message>
 </context>
 <context>
@@ -351,9 +355,8 @@
         <translation>Última atualização</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="178"/>
         <source>You doesn&apos;t has packages</source>
-        <translation>Você não tem encomendas</translation>
+        <translation type="obsolete">Você não tem encomendas</translation>
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="179"/>
@@ -387,6 +390,11 @@
     <message>
         <source>Date</source>
         <translation type="obsolete">Data</translation>
+    </message>
+    <message>
+        <location filename="../assets/PackagesListView.qml" line="178"/>
+        <source>You don&apos;t have packages</source>
+        <translation>Você não tem encomendas</translation>
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="222"/>

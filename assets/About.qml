@@ -25,6 +25,13 @@ Sheet {
             }
         },
         Invocation {
+            id: invcContact
+            query {
+                uri: "https://docs.google.com/forms/d/1vL2LLqNhEnbPVltdDWwP45ESd9KydkWcnsbMsGyTpqU/viewform"
+                invokeTargetId: "sys.browser"
+            }
+        },
+        Invocation {
             id: invctEmail
             query {
                 property variant appData: {
@@ -178,11 +185,12 @@ Sheet {
                         }
                     }
                     Button {
-                        text: qsTr("Support e-mail") + Retranslate.onLocaleOrLanguageChanged
+                        text: qsTr("Contact") + Retranslate.onLocaleOrLanguageChanged
                         imageSource: "asset:///images/ic_mail.png"
                         horizontalAlignment: HorizontalAlignment.Fill
                         onClicked: {
-                            _app.sendEmail()
+                            invcContact.trigger("bb.action.OPEN")
+                            //                            _app.sendEmail()
                             //                            invctEmail.trigger("bb.action.COMPOSE")
                         }
                     }

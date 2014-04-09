@@ -4,43 +4,43 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../assets/About.qml" line="48"/>
+        <location filename="../assets/About.qml" line="55"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="112"/>
+        <location filename="../assets/About.qml" line="119"/>
         <source>DS Package Tracker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="119"/>
+        <location filename="../assets/About.qml" line="126"/>
         <source>Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="135"/>
+        <location filename="../assets/About.qml" line="142"/>
         <source>Developer and designer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="150"/>
+        <location filename="../assets/About.qml" line="157"/>
         <source>Credits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="165"/>
+        <location filename="../assets/About.qml" line="172"/>
         <source>More apps</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="173"/>
+        <location filename="../assets/About.qml" line="180"/>
         <source>Post a review</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="181"/>
-        <source>Support e-mail</source>
+        <location filename="../assets/About.qml" line="188"/>
+        <source>Contact</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -337,7 +337,7 @@
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="178"/>
-        <source>You doesn&apos;t has packages</source>
+        <source>You don&apos;t have packages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

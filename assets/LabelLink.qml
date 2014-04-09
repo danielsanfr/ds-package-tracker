@@ -21,7 +21,7 @@ Container {
                 onArmed: {
                     // don't auto-trigger on initial setup
                     if (auto_trigger)
-                        trigger("bb.action.OPEN");
+                        trigger("bb.action.OPEN")
                     auto_trigger = true; // allow re-arming to auto-trigger
                 }
                 query {

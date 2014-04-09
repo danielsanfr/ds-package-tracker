@@ -175,7 +175,7 @@ NavigationPane {
                     horizontalAlignment: HorizontalAlignment.Center
                     EmptyListMessage {
                         visible: emptyListMessage.visible
-                        title: qsTr("You doesn't has packages") + Retranslate.onLocaleOrLanguageChanged
+                        title: qsTr("You don't have packages") + Retranslate.onLocaleOrLanguageChanged
                         description: qsTr("Add a package by clicking on the action \"Add\" which is just below the action bar.") + Retranslate.onLocaleOrLanguageChanged
                     }
                 }

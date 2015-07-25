@@ -330,9 +330,8 @@
         <translation>Mais de 5 encomendas apenas na versão completa</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="59"/>
         <source>Search</source>
-        <translation>Pesquisar</translation>
+        <translation type="obsolete">Pesquisar</translation>
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="67"/>
@@ -402,9 +401,8 @@
         <translation>Ações da encomenda</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="241"/>
         <source>Edit</source>
-        <translation>Editar</translation>
+        <translation type="obsolete">Editar</translation>
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="248"/>
@@ -418,15 +416,12 @@
         <translation>Você gostaria de marcar esta encomenda como entregue</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="263"/>
-        <location filename="../assets/PackagesListView.qml" line="269"/>
         <source>Archive</source>
-        <translation>Arquivar</translation>
+        <translation type="obsolete">Arquivar</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="270"/>
         <source>Would you like to archive this package</source>
-        <translation>Gostaria de arquivar esta encomenda</translation>
+        <translation type="obsolete">Gostaria de arquivar esta encomenda</translation>
     </message>
     <message>
         <location filename="../assets/PackagesListView.qml" line="277"/>
@@ -535,158 +530,64 @@
         <translation>Nota: Você deve reiniciar o aplicativo para aplicar o tema.</translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="75"/>
         <source>Notifications</source>
-        <translation>Notificações</translation>
+        <translation type="obsolete">Notificações</translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="86"/>
         <source>LED Color</source>
-        <translation>Cor LED</translation>
+        <translation type="obsolete">Cor LED</translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="88"/>
         <source>Red</source>
-        <translation>Vermelho</translation>
+        <translation type="obsolete">Vermelho</translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="92"/>
         <source>Green</source>
-        <translation>Verde</translation>
+        <translation type="obsolete">Verde</translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="96"/>
         <source>Blue</source>
-        <translation>Azul</translation>
+        <translation type="obsolete">Azul</translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="100"/>
         <source>Yellow</source>
-        <translation>Amarelo</translation>
+        <translation type="obsolete">Amarelo</translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="104"/>
         <source>Cyan</source>
-        <translation>Ciano</translation>
+        <translation type="obsolete">Ciano</translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="108"/>
         <source>Magenta</source>
-        <translation>Magenta</translation>
+        <translation type="obsolete">Magenta</translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="112"/>
         <source>White</source>
-        <translation>Branco</translation>
+        <translation type="obsolete">Branco</translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="124"/>
         <source>Sound</source>
-        <translation>Som</translation>
+        <translation type="obsolete">Som</translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="127"/>
-        <source>Battery Alarm</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="130"/>
-        <source>Browser Start Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="136"/>
-        <source>Camera Shutter Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="139"/>
-        <source>Device Lock Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="142"/>
-        <source>Device Unlock Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="145"/>
-        <source>Device Tether Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="148"/>
-        <source>Device Untether Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="151"/>
-        <source>General Notification</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="154"/>
-        <source>Input Keypress</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="157"/>
-        <source>Recording Start Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="160"/>
-        <source>Recording Stop Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="163"/>
-        <source>Sapphire Notification</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="166"/>
-        <source>System Master Volume Reference</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="169"/>
-        <source>Video Call Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="172"/>
-        <source>Video Call Outgoing Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="188"/>
         <source>Vibration</source>
-        <translation>Vibração</translation>
+        <translation type="obsolete">Vibração</translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="270"/>
         <source>This is the time between updates of the status of the packages. But you can always upgrade the status of the packages by clicking the refresh button.</source>
-        <translation>Este é o tempo entre as atualizações do status das encomendas. Mas você sempre poderá atualizar o status das encomendas clicando no botão atualizar.</translation>
+        <translation type="obsolete">Este é o tempo entre as atualizações do status das encomendas. Mas você sempre poderá atualizar o status das encomendas clicando no botão atualizar.</translation>
     </message>
     <message>
         <source>This is the time between updates of the status of the packages. But whenever you can update the status of the packages by clicking the refresh button.</source>
         <translation type="obsolete">Este é o tempo entre as atualizações do status dos pacotes. Mas sempre que você pode atualizar o status dos pacotes clicando no botão atualizar.</translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="133"/>
-        <source>Camera Burst Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="216"/>
         <source>Automatic refresh</source>
-        <translation>Atualização automática</translation>
+        <translation type="obsolete">Atualização automática</translation>
     </message>
     <message>
-        <location filename="../assets/Settings.qml" line="231"/>
         <source>Refresh interval</source>
-        <translation>Intervalo de atualização</translation>
+        <translation type="obsolete">Intervalo de atualização</translation>
     </message>
     <message>
         <source>This is the time between updates of the status of the packages. But anytime you poderar update the status of the packages by clicking the refresh button.</source>
@@ -749,55 +650,64 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../assets/main.qml" line="46"/>
+        <location filename="../assets/main.qml" line="51"/>
         <source>About</source>
         <translation>Sobre</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="53"/>
+        <location filename="../assets/main.qml" line="58"/>
         <source>Invite</source>
         <translation>Convidar</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="63"/>
+        <location filename="../assets/main.qml" line="68"/>
         <source>On the way</source>
         <translation>A caminho</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="67"/>
+        <location filename="../assets/main.qml" line="72"/>
         <source>Packages on the way</source>
         <translation>Encomendas a caminho</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="77"/>
+        <location filename="../assets/main.qml" line="82"/>
         <source>Delivered</source>
         <translation>Entregue</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="81"/>
+        <location filename="../assets/main.qml" line="86"/>
         <source>Delivered packages</source>
         <translation>Encomendas entregues</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="91"/>
+        <location filename="../assets/main.qml" line="123"/>
+        <source>Warning</source>
+        <translation>Aviso</translation>
+    </message>
+    <message>
+        <location filename="../assets/main.qml" line="124"/>
+        <source>Unfortunately it is no longer interesting to develop for BlackBerry 10.
+I will be making available the source code of this application on GitHub, so that those who want to continue their development, can do it.
+But if only 5 people contact me (in the About screen) asking to develop the paid version, I&apos;ll be very happy to do it!</source>
+        <translation>Infelizmente não é mais interessante desenvolver para BlackBerry 10.
+Estarei disponibilizando o código fonte deste aplicativo no GitHub, para que quem quiser continuar o seu desenvolvimento, possa fazer-lo.
+Porém se ao menos 5 pessoas me contactarem (na tela de Sobre) pedindo que desenvolva a versão paga, eu ficarei muito feliz em fazer ela!</translation>
+    </message>
+    <message>
         <source>Archived</source>
-        <translation>Arquivados</translation>
+        <translation type="obsolete">Arquivados</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="92"/>
-        <location filename="../assets/main.qml" line="107"/>
         <source>Available for full version</source>
-        <translation>Disponível para a versão completa</translation>
+        <translation type="obsolete">Disponível para a versão completa</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="96"/>
         <source>Archived packages</source>
-        <translation>Encomendas arquivados</translation>
+        <translation type="obsolete">Encomendas arquivados</translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="106"/>
         <source>Statistics</source>
-        <translation>Estatísticas</translation>
+        <translation type="obsolete">Estatísticas</translation>
     </message>
 </context>
 </TS>

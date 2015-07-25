@@ -118,7 +118,6 @@ TabbedPane {
     ]
     onSettingsObjectNameChanged: {
         var firstOpened = _settings.getValueFor("first_opened", true)
-        console.log("===================", firstOpened)
         if (firstOpened === true) {
             _settings.saveValueFor("first_opened", false)
             sysDlg.title = qsTr("Warning") + Retranslate.onLocaleOrLanguageChanged

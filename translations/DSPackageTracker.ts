@@ -311,11 +311,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="59"/>
-        <source>Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../assets/PackagesListView.qml" line="67"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
@@ -351,11 +346,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="241"/>
-        <source>Edit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../assets/PackagesListView.qml" line="248"/>
         <location filename="../assets/PackagesListView.qml" line="254"/>
         <source>Mark as delivered</source>
@@ -364,17 +354,6 @@
     <message>
         <location filename="../assets/PackagesListView.qml" line="255"/>
         <source>You would like to mark this package as delivered</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/PackagesListView.qml" line="263"/>
-        <location filename="../assets/PackagesListView.qml" line="269"/>
-        <source>Archive</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/PackagesListView.qml" line="270"/>
-        <source>Would you like to archive this package</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -483,156 +462,6 @@
         <source>Note: You must restart the application to apply this theme.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="75"/>
-        <source>Notifications</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="86"/>
-        <source>LED Color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="88"/>
-        <source>Red</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="92"/>
-        <source>Green</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="96"/>
-        <source>Blue</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="100"/>
-        <source>Yellow</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="104"/>
-        <source>Cyan</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="108"/>
-        <source>Magenta</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="112"/>
-        <source>White</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="124"/>
-        <source>Sound</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="127"/>
-        <source>Battery Alarm</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="130"/>
-        <source>Browser Start Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="133"/>
-        <source>Camera Burst Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="136"/>
-        <source>Camera Shutter Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="139"/>
-        <source>Device Lock Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="142"/>
-        <source>Device Unlock Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="145"/>
-        <source>Device Tether Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="148"/>
-        <source>Device Untether Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="151"/>
-        <source>General Notification</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="154"/>
-        <source>Input Keypress</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="157"/>
-        <source>Recording Start Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="160"/>
-        <source>Recording Stop Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="163"/>
-        <source>Sapphire Notification</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="166"/>
-        <source>System Master Volume Reference</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="169"/>
-        <source>Video Call Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="172"/>
-        <source>Video Call Outgoing Event</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="188"/>
-        <source>Vibration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="216"/>
-        <source>Automatic refresh</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="231"/>
-        <source>Refresh interval</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/Settings.qml" line="270"/>
-        <source>This is the time between updates of the status of the packages. But you can always upgrade the status of the packages by clicking the refresh button.</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>Statistics</name>
@@ -690,54 +519,45 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../assets/main.qml" line="46"/>
+        <location filename="../assets/main.qml" line="51"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="53"/>
+        <location filename="../assets/main.qml" line="58"/>
         <source>Invite</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="63"/>
+        <location filename="../assets/main.qml" line="68"/>
         <source>On the way</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="67"/>
+        <location filename="../assets/main.qml" line="72"/>
         <source>Packages on the way</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="77"/>
+        <location filename="../assets/main.qml" line="82"/>
         <source>Delivered</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="81"/>
+        <location filename="../assets/main.qml" line="86"/>
         <source>Delivered packages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="91"/>
-        <source>Archived</source>
+        <location filename="../assets/main.qml" line="123"/>
+        <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="92"/>
-        <location filename="../assets/main.qml" line="107"/>
-        <source>Available for full version</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="96"/>
-        <source>Archived packages</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="106"/>
-        <source>Statistics</source>
+        <location filename="../assets/main.qml" line="124"/>
+        <source>Unfortunately it is no longer interesting to develop for BlackBerry 10.
+I will be making available the source code of this application on GitHub, so that those who want to continue their development, can do it.
+But if only 5 people contact me (in the About screen) asking to develop the paid version, I&apos;ll be very happy to do it!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

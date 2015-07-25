@@ -325,12 +325,12 @@
 <context>
     <name>PackagesListView</name>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="41"/>
+        <location filename="../assets/PackagesListView.qml" line="40"/>
         <source>Add</source>
         <translation>Adicionar</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="47"/>
+        <location filename="../assets/PackagesListView.qml" line="46"/>
         <source>More than 5 packs only in the full version</source>
         <translation>Mais de 5 encomendas apenas na versão completa</translation>
     </message>
@@ -339,22 +339,22 @@
         <translation type="obsolete">Pesquisar</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="67"/>
+        <location filename="../assets/PackagesListView.qml" line="66"/>
         <source>Refresh</source>
         <translation>Atualizar</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="72"/>
+        <location filename="../assets/PackagesListView.qml" line="71"/>
         <source>Check your internet connection.</source>
         <translation>Verifique sua conexão com a internet</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="108"/>
+        <location filename="../assets/PackagesListView.qml" line="107"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="143"/>
+        <location filename="../assets/PackagesListView.qml" line="142"/>
         <source>Last update</source>
         <translation>Última atualização</translation>
     </message>
@@ -363,7 +363,7 @@
         <translation type="obsolete">Você não tem encomendas</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="179"/>
+        <location filename="../assets/PackagesListView.qml" line="178"/>
         <source>Add a package by clicking on the action &quot;Add&quot; which is just below the action bar.</source>
         <translation>Adicione uma encomenda clicando na ação &quot;Adicionar&quot;, que está logo abaixo da barra de ação.</translation>
     </message>
@@ -396,12 +396,12 @@
         <translation type="obsolete">Data</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="178"/>
+        <location filename="../assets/PackagesListView.qml" line="177"/>
         <source>You don&apos;t have packages</source>
         <translation>Você não tem encomendas</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="222"/>
+        <location filename="../assets/PackagesListView.qml" line="221"/>
         <source>Package&apos;s action</source>
         <translation>Ações da encomenda</translation>
     </message>
@@ -410,13 +410,13 @@
         <translation type="obsolete">Editar</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="248"/>
-        <location filename="../assets/PackagesListView.qml" line="254"/>
+        <location filename="../assets/PackagesListView.qml" line="247"/>
+        <location filename="../assets/PackagesListView.qml" line="253"/>
         <source>Mark as delivered</source>
         <translation>Marcar como entregue</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="255"/>
+        <location filename="../assets/PackagesListView.qml" line="254"/>
         <source>You would like to mark this package as delivered</source>
         <translation>Você gostaria de marcar esta encomenda como entregue</translation>
     </message>
@@ -429,22 +429,22 @@
         <translation type="obsolete">Gostaria de arquivar esta encomenda</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="277"/>
+        <location filename="../assets/PackagesListView.qml" line="276"/>
         <source>Share</source>
         <translation>Compartilhar</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="288"/>
+        <location filename="../assets/PackagesListView.qml" line="287"/>
         <source>Delete package</source>
         <translation>Excluir encomenda</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="289"/>
+        <location filename="../assets/PackagesListView.qml" line="288"/>
         <source>Do you want to delete this package</source>
         <translation>Deseja excluir esta encomenda</translation>
     </message>
     <message>
-        <location filename="../assets/PackagesListView.qml" line="289"/>
+        <location filename="../assets/PackagesListView.qml" line="288"/>
         <source>This action can not be undone</source>
         <translation>Essa ação não pode ser desfeita</translation>
     </message>

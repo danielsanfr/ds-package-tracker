@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 
+import bb.system 1.0
 import bb.cascades 1.0
 
 TabbedPane {
-    property bool isFullVersion: false
+    //    property bool isFullVersion: false
+    property string settingsObjectName: _settings.objectName
     attachedObjects: [
         ComponentDefinition {
             id: settingsDefinition
@@ -28,6 +30,9 @@ TabbedPane {
             id: aboutDefinition
             About {
             }
+        },
+        SystemDialog {
+            id: sysDlg
         }
     ]
     Menu.definition: MenuDefinition {
@@ -111,4 +116,14 @@ TabbedPane {
             }*/
         }
     ]
+    onSettingsObjectNameChanged: {
+        var firstOpened = _settings.getValueFor("first_opened", true)
+        console.log("===================", firstOpened)
+        if (firstOpened === true) {
+            _settings.saveValueFor("first_opened", false)
+            sysDlg.title = qsTr("Warning") + Retranslate.onLocaleOrLanguageChanged
+            sysDlg.body = qsTr("Unfortunately it is no longer interesting to develop for BlackBerry 10.\nI will be making available the source code of this application on GitHub, so that those who want to continue their development, can do it.\nBut if only 5 people contact me (in the About screen) asking to develop the paid version, I'll be very happy to do it!") + Retranslate.onLocaleOrLanguageChanged
+            sysDlg.show()
+        }
+    }
 }

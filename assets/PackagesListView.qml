@@ -237,13 +237,13 @@ NavigationPane {
                                                 }
                                             }
                                         ]
-                                        ActionItem {
-                                            title: qsTr("Edit") + Retranslate.onLocaleOrLanguageChanged
-                                            imageSource: "asset:///images/ic_edit.png"
-                                            enabled: false
-                                            onTriggered: {
-                                            }
-                                        }
+//                                        ActionItem {
+//                                            title: qsTr("Edit") + Retranslate.onLocaleOrLanguageChanged
+//                                            imageSource: "asset:///images/ic_edit.png"
+//                                            enabled: false
+//                                            onTriggered: {
+//                                            }
+//                                        }
                                         ActionItem {
                                             title: qsTr("Mark as delivered") + Retranslate.onLocaleOrLanguageChanged
                                             imageSource: "asset:///images/ic_delivered.png"

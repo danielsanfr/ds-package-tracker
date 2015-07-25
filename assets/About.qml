@@ -130,8 +130,8 @@ Sheet {
                     }
                 }
                 LabelLink {
-                    text: "http://www.danielsan.url.ph/"
-                    uri: "http://www.danielsan.url.ph/"
+                    text: "http://www.danielsan.com.br/"
+                    uri: "http://www.danielsan.com.br/"
                     horizontalAlignment: HorizontalAlignment.Center
                 }
                 Divider {
@@ -196,7 +196,7 @@ Sheet {
                     }
                 }
                 Label {
-                    text: "Copyright (c) 2014 Daniel San"
+                    text: "Copyright (c) 2014-2015 Daniel San"
                     textStyle.fontSize: FontSize.Small
                     verticalAlignment: VerticalAlignment.Bottom
                     horizontalAlignment: HorizontalAlignment.Center

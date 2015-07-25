@@ -5,7 +5,7 @@ import bb.cascades.advertisement 1.0
 
 NavigationPane {
     id: navigationPane
-    property bool isFullVersion: false
+//    property bool isFullVersion: false
     property alias title: titleBar.title
     onPopTransitionEnded: {
         page.destroy()
@@ -49,20 +49,20 @@ NavigationPane {
                 ]
                 onTriggered: {
                     _db.setTableName("package")
-                    if (isFullVersion || _db.count() < 5)
+//                    if (isFullVersion || _db.count() < 5)
                         addPackageDefinition.createObject(navigationPane).open();
-                    else
-                        sysTst.show()
+//                    else
+//                        sysTst.show()
                 }
             },
-            ActionItem {
-                title: qsTr("Search") + Retranslate.onLocaleOrLanguageChanged
-                imageSource: "asset:///images/ic_search.png"
-                enabled: isFullVersion
-                onTriggered: {
-                    searchDelagate.delegateActive = ! searchDelagate.delegateActive
-                }
-            },
+//            ActionItem {
+//                title: qsTr("Search") + Retranslate.onLocaleOrLanguageChanged
+//                imageSource: "asset:///images/ic_search.png"
+//                enabled: isFullVersion
+//                onTriggered: {
+//                    searchDelagate.delegateActive = ! searchDelagate.delegateActive
+//                }
+//            },
             ActionItem {
                 title: qsTr("Refresh") + Retranslate.onLocaleOrLanguageChanged
                 imageSource: "asset:///images/ic_reload.png"
@@ -258,21 +258,21 @@ NavigationPane {
                                                 sysDlg.show()
                                             }
                                         }
-                                        ActionItem {
-                                            property bool isFullVersion: false
-                                            title: qsTr("Archive") + Retranslate.onLocaleOrLanguageChanged
-                                            imageSource: "asset:///images/ic_archived.png"
-                                            enabled: isFullVersion && (ListItemData.status != "archived")
-                                            onTriggered: {
-                                                var pack = ListItemData
-                                                pack["status"] = "archived"
-                                                sysDlg.title = qsTr("Archive") + Retranslate.onLocaleOrLanguageChanged
-                                                sysDlg.body = qsTr("Would you like to archive this package") + "?" + Retranslate.onLocaleOrLanguageChanged
-                                                sysDlg.pack = pack
-                                                sysDlg.delPgk = false
-                                                sysDlg.show()
-                                            }
-                                        }
+//                                        ActionItem {
+//                                            property bool isFullVersion: false
+//                                            title: qsTr("Archive") + Retranslate.onLocaleOrLanguageChanged
+//                                            imageSource: "asset:///images/ic_archived.png"
+//                                            enabled: isFullVersion && (ListItemData.status != "archived")
+//                                            onTriggered: {
+//                                                var pack = ListItemData
+//                                                pack["status"] = "archived"
+//                                                sysDlg.title = qsTr("Archive") + Retranslate.onLocaleOrLanguageChanged
+//                                                sysDlg.body = qsTr("Would you like to archive this package") + "?" + Retranslate.onLocaleOrLanguageChanged
+//                                                sysDlg.pack = pack
+//                                                sysDlg.delPgk = false
+//                                                sysDlg.show()
+//                                            }
+//                                        }
                                         InvokeActionItem {
                                             title: qsTr("Share") + Retranslate.onLocaleOrLanguageChanged
                                             query {

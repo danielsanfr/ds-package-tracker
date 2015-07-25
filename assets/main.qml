@@ -86,7 +86,7 @@ TabbedPane {
                     load(args, "status=:status")
                 }
             }
-        },
+/*        },
         Tab {
             title: qsTr("Archived") + Retranslate.onLocaleOrLanguageChanged
             description: qsTr("Available for full version") + Retranslate.onLocaleOrLanguageChanged
@@ -108,7 +108,7 @@ TabbedPane {
             imageSource: "asset:///images/ic_statistics.png"
             enabled: isFullVersion
             Statistics {
-            }
+            }*/
         }
     ]
 }

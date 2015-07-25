@@ -62,7 +62,7 @@ Sheet {
                         }
                     }
                 }
-                Divider {
+                /*Divider {
                 }
                 Container {
                     topMargin: 20
@@ -270,7 +270,7 @@ Sheet {
                             text: qsTr("This is the time between updates of the status of the packages. But you can always upgrade the status of the packages by clicking the refresh button.") + Retranslate.onLocaleOrLanguageChanged
                         }
                     }
-                }
+                }*/
             }
         }
     }

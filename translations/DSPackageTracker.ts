@@ -4,42 +4,47 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../assets/About.qml" line="55"/>
+        <location filename="../assets/About.qml" line="62"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="119"/>
+        <location filename="../assets/About.qml" line="126"/>
         <source>DS Package Tracker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="126"/>
+        <location filename="../assets/About.qml" line="133"/>
         <source>Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="142"/>
+        <location filename="../assets/About.qml" line="149"/>
         <source>Developer and designer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="157"/>
+        <location filename="../assets/About.qml" line="179"/>
+        <source>Source code (GPL3+)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/About.qml" line="164"/>
         <source>Credits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="172"/>
+        <location filename="../assets/About.qml" line="187"/>
         <source>More apps</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="180"/>
+        <location filename="../assets/About.qml" line="195"/>
         <source>Post a review</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/About.qml" line="188"/>
+        <location filename="../assets/About.qml" line="203"/>
         <source>Contact</source>
         <translation type="unfinished"></translation>
     </message>

@@ -30,7 +30,6 @@
 #include <bb/PpsObject>
 #include <bb/system/InvokeManager>
 #include <bb/system/InvokeTargetReply>
-#include <bb/cascades/advertisement/Banner>
 
 #include "social/InviteToDownload.hpp"
 #include "social/RegistrationHandler.hpp"

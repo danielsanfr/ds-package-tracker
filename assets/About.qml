@@ -25,6 +25,13 @@ Sheet {
             }
         },
         Invocation {
+            id: invcSourceCode
+            query {
+                uri: "https://github.com/danielsanfr/ds-package-tracker"
+                invokeTargetId: "sys.browser"
+            }
+        },
+        Invocation {
             id: invcContact
             query {
                 uri: "https://docs.google.com/forms/d/1vL2LLqNhEnbPVltdDWwP45ESd9KydkWcnsbMsGyTpqU/viewform"
@@ -168,6 +175,14 @@ Sheet {
                 }
                 Container {
                     horizontalAlignment: HorizontalAlignment.Center
+                    Button {
+                        text: qsTr("Source code (GPL3+)") + Retranslate.onLocaleOrLanguageChanged
+                        imageSource: "asset:///images/ic_octoface.png"
+                        horizontalAlignment: HorizontalAlignment.Fill
+                        onClicked: {
+                            invcSourceCode.trigger("bb.action.OPEN")
+                        }
+                    }
                     Button {
                         text: qsTr("More apps") + Retranslate.onLocaleOrLanguageChanged
                         imageSource: "asset:///images/ic_open.png"

@@ -18,7 +18,6 @@
 
 using namespace bb::system;
 using namespace bb::cascades;
-using namespace bb::cascades::advertisement;
 using namespace brpackagetracking;
 using namespace datamodel;
 using namespace db;
@@ -31,8 +30,6 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) :
 			"_db", dataBaseController);
 	ApplicationInfo::registerQmlTypes();
 	SqlDataModel::registerQmlTypes();
-	const char *uri = "bb.cascades.advertisement";
-	qmlRegisterType<Banner>(uri, 1, 0, "Banner");
 	// prepare the localization
 	m_pTranslator = new QTranslator(this);
 	m_pLocaleHandler = new LocaleHandler(this);

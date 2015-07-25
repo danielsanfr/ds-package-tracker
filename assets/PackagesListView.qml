@@ -1,7 +1,6 @@
 import bb.system 1.0
 import bb.cascades 1.0
 import model.custom 1.0
-import bb.cascades.advertisement 1.0
 
 NavigationPane {
     id: navigationPane
@@ -308,34 +307,6 @@ NavigationPane {
                         packagePage.packageData = data
                         navigationPane.push(packagePage)
                     }
-                }
-            }
-            Container {
-                visible: false
-                topMargin: 10
-                bottomPadding: 10
-                minHeight: 50
-                maxHeight: 50
-                minWidth: 320
-                maxWidth: 320
-                preferredWidth: 320
-                preferredHeight: 50
-                horizontalAlignment: HorizontalAlignment.Center
-                //! [0]
-                // this component is used for displaying banner Ad's
-                Banner {
-                    // zone id is used to identify your application and to track Ad performance
-                    // metrics by the Advertising Service
-                    zoneId: 261652 //117145
-                    refreshRate: 60
-                    borderWidth: 2
-                    preferredWidth: 320
-                    preferredHeight: 50
-                    transitionsEnabled: true
-                    // Place holder used when there is no connection to the Advertising Service
-                    placeHolderURL: "asset:///images/noconnection_728x90.png"
-                    borderColor: Color.Gray
-                    backgroundColor: Color.Green
                 }
             }
         }
